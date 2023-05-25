@@ -1,6 +1,6 @@
 import tkinter as tk
 from tkinter import Entry
-import random as rd
+import random as rd d
 from PIL import Image, ImageTk
 import tkinter.font as tF  
 import pygame as pg
