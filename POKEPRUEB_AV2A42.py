@@ -1,6 +1,6 @@
 import tkinter as tk
-from tkinter import Entry
-import random as rd 
+from tkinter import *
+import random as rd
 from PIL import Image, ImageTk
 import tkinter.font as tF  
 import pygame as pg
@@ -9,7 +9,10 @@ import threading
 
 juego = tk.Tk()
 juego.title("Pokemón")
-juego.geometry("500x500")
+canvas = tk.Canvas(juego, width = 500, height= 500)
+canvas.pack()
+BG = PhotoImage(file = "C:\Códigos\Python\Pokemon_Github\BG.png")
+canvas.create_image(0,0, anchor="nw", image = BG)
 
 #Asigna un total de vida, atque y defensa
 GOP = tk.Label()
@@ -28,6 +31,25 @@ diglett_HP = tk.StringVar()
 diglett_HP.set("120")
 #Fuente de texto
 Digfont = tF.Font(family = "Helvetica", size = 12)
+
+Canvas = tk.Canvas(juego, width = 500, height=500)
+
+def move_imageP(image_id):
+    global direction
+    canvas.move(image_id, 0, direction * 5)  # Mueve la imagen según la dirección
+    y = canvas.coords(image_id)[1]  # Obtiene la coordenada Y de la imagen
+    if y <= 150 or y >= 170:
+        direction *= -1  # Cambia la dirección si alcanza los límites superior o inferior
+    canvas.after(270, move_imageP, image_id)  # Llama a la función cada 50 milisegundos
+
+def move_imageD(image_id2):
+    global direction2
+    canvas.move(image_id2, 0, direction * 5)  # Mueve la imagen según la dirección
+    y = canvas.coords(image_id2)[1]  # Obtiene la coordenada Y de la imagen
+    if y <= 80 or y >= 100:
+        direction2 *= -1  # Cambia la dirección si alcanza los límites superior o inferior
+    canvas.after(270, move_imageD, image_id2)  # Llama a la función cada 50 milisegundos
+
 
 #Probabilidad de hacer golpe crítico
 def Crítico(CRT, text, delay):
@@ -213,13 +235,20 @@ def Terremoto():
               MOD.place_forget()
               GameO()
       
-#Imagen de Diglett
-Diglett = Image.open('C:/Users/unity/OneDrive/Imágenes/Imagenes Poke/SeekPng.com_diglett-png_2282423-removebg-preview.png')
-Diglett = Diglett.resize((120,120))
-DiglettTk = ImageTk.PhotoImage(Diglett)
+direction = 1
+direction2 = 1
 
-DiglettLbl = tk.Label(juego, image=DiglettTk)
-DiglettLbl.place(x=300, y = 10)
+#Imagen de Diglett
+Diglett = tk.PhotoImage(file = "C:/Users/unity/OneDrive/Imágenes/Imagenes Poke/SeekPng.com_diglett-png_2282423-removebg-preview.png")
+width1 = Diglett.width() //2
+height1 = Diglett.height() //2
+Diglett = Diglett.subsample(2)
+image_id2 = canvas.create_image(350, 130, image = Diglett)
+move_imageD(image_id2)
+#Iniciar_MovimientoD()
+#DiglettTk = ImageTk.PhotoImage(Diglett)
+#DiglettLbl = tk.Label(juego, image=DiglettTk)
+
 
 #Vida de Diglett impresa en la interfaz
 DigHP = tk.Label(juego, textvariable = diglett_HP, font = Digfont)
@@ -241,11 +270,18 @@ CajaLbl = tk.Label(juego, image=CajaTk)
 CajaLbl.place(x = 0, y=400)
 
 #Imagen de Pikachu
-Pikachu = Image.open('C:/Users/unity/OneDrive/Imágenes/Imagenes Poke/imgbin_pikachu-sprite-pokémon-png.png')
-Pikachu = Pikachu.resize((300,250))
-PikachuTk = ImageTk.PhotoImage(Pikachu)
-PikachuLbl = tk.Label(juego, image=PikachuTk)
-PikachuLbl.place(x=0, y = 150)
+Pikachu = tk.PhotoImage(file = "C:/Users/unity/OneDrive/Imágenes/Imagenes Poke/imgbin_pikachu-sprite-pokémon-png.png")
+width = Pikachu.width() //2
+height = Pikachu.height() //2
+Pikachu = Pikachu.subsample(2)
+image_id = canvas.create_image(150, 320,  image = Pikachu)
+move_imageP(image_id)
+#Iniciar_MovimientoP()
+#Pikachu = Pikachu.resize((300,250))
+#PikachuTk = ImageTk.PhotoImage(Pikachu)
+#PikachuLbl = tk.Label(juego, image=PikachuTk)
+#PikachuLbl.place(x=0, y = 150)
+
 
 #Vida de Pikachu
 Digfont = tF.Font(family = "Helvetica", size = 12)
@@ -266,7 +302,6 @@ CRT = tk.Label(juego, text = '', font = Digfont)
 CRT2 = tk.Label(juego, text = '', font = Digfont)
 
 VID = tk.Label(juego, text = '', font = Digfont, width = 20, height = 2)
-VID.place(x = 300, y = 350)
 
 GOD = tk.Label(juego, text = '', font = Digfont)
 
@@ -468,8 +503,11 @@ def Vida():
      current_HP = int(pikachu_HP.get())
      if current_HP + 30 >= 150:
           new_HP = 150
+          VID.place(x = 300, y = 350)
           Label_por_letra(VID, "Los PS están al máximo", 0.05)
+          time.sleep(0.8)
           pikachu_HP.set(str(new_HP))
+          VID.place_forget()
           if(Defi == 1):
            GolpeRoca()
 
@@ -584,13 +622,12 @@ def Cuadruple_ComandoE():
      Electrobola()
      click_max4()
      show()
-     
+
 def VidaS():
      hide()
      Vida()
      click_max5()
      show()
-
 #Deshabilita todos los botones durante un movimiento
 def hide():
      boton_aranazo.place_forget()
@@ -598,6 +635,7 @@ def hide():
      boton_Electrobola.place_forget()
      boton_Impactrueno.place_forget()
      contador.place_forget()
+     contador1_2.place_forget()
      contador2.place_forget()
      contador3.place_forget()
      contador4.place_forget()
@@ -613,6 +651,7 @@ def show():
      boton_Impactrueno.place(x = 350, y = 420)
      vida.place(x = 370, y = 375)
      contador.place(x = 50, y = 470)
+     contador1_2.place(x = 90, y = 470)
      contador2.place(x = 150, y = 470)
      contador3.place(x = 250, y = 470)
      contador4.place(x = 350, y = 470)
@@ -626,7 +665,7 @@ def GameO():
         if thread != threading.current_thread():
             thread.stop()
         diglett_HP.set(str(0))
-        DiglettLbl.place_forget()
+        canvas.delete(image_id2)
         GOD.place(x = 50, y = 420)
         GOP.place(x = 50, y = 450)
         Label_por_letra(GOD, "Diglett enemigo ha perdido la pelea", 0.05)
@@ -639,7 +678,7 @@ def GameO():
         if thread != threading.current_thread():
             thread.stop()
         pikachu_HP.set(str(0))
-        PikachuLbl.place_forget()
+        canvas.delete(image_id)
         GOD.place(x = 50, y = 420)
         GOP.place(x = 50, y = 450)
         Label_por_letra(GOD, "Pikachu ha perdido la pelea", 0.05)
@@ -652,6 +691,8 @@ def GameO():
 #Labels donde se van imprimiendo los TP restantes
 contador = tk.Label(juego, text = "TP: 25")
 contador.place(x = 50, y = 470)
+contador1_2 = tk.Label(juego, text = "/")
+contador1_2.place(x = 90, y = 470)
 
 contador2 = tk.Label(juego, text= "TP: 18")
 contador2.place(x = 150, y = 470)
