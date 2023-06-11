@@ -37,6 +37,8 @@ def juegoDigg():
      canvas.pack()
      BG = PhotoImage(file = 'Imagenes/BG.png')
      canvas.create_image(0,0, anchor="nw", image = BG)
+     img = PhotoImage(file = "Imagenes\poke.png")
+     juegoDigg.iconphoto(False, img)
 
      #Asigna un total de vida, atque y defensa
      GOP = tk.Label()
@@ -134,9 +136,15 @@ def juegoDigg():
                GOP.after(2000, lambda: GOP.config(text = ''))
 
      #Efectos de sonido
-     #ruta_musica = r"Imagenes\Regirock_Regice_Registeel_Battle_-_Pokemon_Ruby_Sapphire_High_Quality-YoutubeConvert.cc.wav"
-     #pg.mixer.music.load(ruta_musica) #Carga la música desde la ruta, puede ser declarada ahí mismo o declararla en una variable y usarla en la función
-     #pg.mixer.music.play(-1)
+     ruta_musica = "Sonidos\Regirock_Regice_Registeel_Battle_-_Pokemon_Ruby_Sapphire_High_Quality-YoutubeConvert.cc.wav"
+     pg.mixer.music.load(ruta_musica)
+     pg.mixer.music.set_volume(0.4) #Carga la música desde la ruta, puede ser declarada ahí mismo o declararla en una variable y usarla en la función
+     pg.mixer.music.play(-1)
+
+     def ReproducirSonido(file):
+           efecto_sonido = pg.mixer.Sound(file)
+           efecto_sonido.set_volume(100)
+           efecto_sonido.play()
      #Movimientos que Diglett puede hacer
      def GolpeRoca():
           Crt = rd.randint(1,15) #Valor que define si sale crítico o no
@@ -145,6 +153,7 @@ def juegoDigg():
                MOD.place(x = 50, y = 450)
                Label_por_letra(MOD, "Pikachu ha usado Arañazo", 0.03) #Label en donde se escribe, texto a escribir, tiempo de escritura que manda a "dormir" la consola entre letra y letra
                Crítico(CRT, "¡Golpe Crítico!", 0.03) #Lo mismo que el anterior
+               ReproducirSonido("Sonidos\Slam.wav")
                current_HP = int(pikachu_HP.get())
                new_HP = current_HP - 9
                pikachu_HP.set(str(new_HP))
@@ -157,6 +166,7 @@ def juegoDigg():
                new_HP = current_HP - 4
                MOD.place(x = 50, y = 450)
                Label_por_letra(MOD, "Pikachu ha usado Arañazo", 0.03)
+               ReproducirSonido("Sonidos\Slam.wav")
                pikachu_HP.set(str(new_HP))
                PikHP.configure(text=pikachu_HP)
                MOD.place_forget()
@@ -170,6 +180,8 @@ def juegoDigg():
                MOD.place(x = 50, y = 450)
                Label_por_letra(MOD, "Pikachu ha usado Impactrueno", 0.03)
                Crítico(CRT, "¡Golpe Crítico!", 0.03)
+               ReproducirSonido("Sonidos\Thunderbolt.wav")
+               time.sleep(3)
                current_HP = int(pikachu_HP.get())
                new_HP = current_HP - 10
                pikachu_HP.set(str(new_HP))
@@ -182,6 +194,8 @@ def juegoDigg():
                current_HP = int(pikachu_HP.get())
                new_HP = current_HP - 5
                Label_por_letra(MOD, "Pikachu ha usado Impactrueno", 0.03)
+               ReproducirSonido("Sonidos\Thunderbolt.wav")
+               time.sleep(3)
                pikachu_HP.set(str(new_HP))
                PikHP.configure(text=pikachu_HP)
                MOD.place_forget()
@@ -194,6 +208,8 @@ def juegoDigg():
                MOD.place(x = 50, y = 450)
                Label_por_letra(MOD, "Pikachu ha usado Cola de Hierro", 0.03)
                Crítico(CRT, "¡Golpe Crítico!", 0.03)
+               ReproducirSonido("Sonidos\Iron-Tail.wav")
+               time.sleep(2)
                current_HP = int(pikachu_HP.get())
                new_HP = current_HP - 13
                pikachu_HP.set(str(new_HP))
@@ -204,6 +220,8 @@ def juegoDigg():
           else:
                MOD.place(x = 50, y = 450)
                Label_por_letra(MOD, "Pikachu ha usado Cola de Hierro", 0.03)
+               ReproducirSonido("Sonidos\Iron-Tail.wav")
+               time.sleep(2)
                current_HP = int(pikachu_HP.get())
                new_HP = current_HP - 6
                pikachu_HP.set(str(new_HP))
@@ -218,6 +236,8 @@ def juegoDigg():
                MOD.place(x = 50, y = 450)
                Label_por_letra(MOD, "Pikachu ha usado Electrobola", 0.03)
                Crítico(CRT, "¡Golpe Crítico!", 0.03)
+               ReproducirSonido("Sonidos\Thunder-Shock.wav")
+               time.sleep(1.1)
                current_HP = int(pikachu_HP.get())
                new_HP = current_HP - 8
                pikachu_HP.set(str(new_HP))
@@ -228,6 +248,8 @@ def juegoDigg():
           else:
                MOD.place(x = 50, y = 450)
                Label_por_letra(MOD, "Pikachu ha usado Electrobola", 0.03)
+               ReproducirSonido("Sonidos\Thunder-Shock.wav")
+               time.sleep(1.1)
                current_HP = int(pikachu_HP.get())
                new_HP = current_HP - 4
                pikachu_HP.set(str(new_HP))
@@ -317,8 +339,8 @@ def juegoDigg():
                CRT2.place(x = 250, y = 320)
                Label_por_letra(MOP, "Diglett ha usado Golpe Roca", 0.03)
                Crítico(CRT2, "¡Golpe Crítico!", 0.03)
-               #Reproducir_Slam(r"C:\Users\unity\Downloads\Slam.wav")
-               time.sleep(0.5)
+               ReproducirSonido("Sonidos\Rock-Blast-2hits.wav")
+               time.sleep(2)
                current_HP = int(diglett_HP.get())
                new_HP = current_HP - 15
                diglett_HP.set(str(new_HP))
@@ -330,8 +352,8 @@ def juegoDigg():
           else:
                MOP.place(x = 50, y = 420)
                Label_por_letra(MOP, "Diglett ha usado Golpe Roca", 0.03)
-               #Reproducir_Slam(r"C:\Users\unity\Downloads\Slam.wav")
-               time.sleep(0.5)
+               ReproducirSonido("Sonidos\Rock-Blast-2hits.wav")
+               time.sleep(2)
                current_HP = int(diglett_HP.get())
                new_HP = current_HP - 9
                diglett_HP.set(str(new_HP))
@@ -366,8 +388,8 @@ def juegoDigg():
                CRT2.place(x = 250, y = 320)
                Label_por_letra(MOP, "Diglett ha usado Cuchillada", 0.03)
                Crítico(CRT2, "¡Golpe Crítico", 0.03)
-               #Reproducir_Impactrueno(r"C:\Users\unity\Downloads\Thunderbolt.wav")
-               time.sleep(1.9)
+               ReproducirSonido("Sonidos\Icicle-Spear-1hit.wav")
+               time.sleep(1.1)
                current_HP = int(diglett_HP.get())
                new_HP = current_HP - 8
                diglett_HP.set(str(new_HP))
@@ -379,8 +401,8 @@ def juegoDigg():
           else:
                MOP.place(x = 50, y = 420)
                Label_por_letra(MOP, "Diglett ha usado Cuchillada", 0.03)
-               #Reproducir_Impactrueno(r"C:\Users\unity\Downloads\Thunderbolt.wav")
-               time.sleep(1.9)
+               ReproducirSonido("Sonidos\Icicle-Spear-1hit.wav")
+               time.sleep(1.1)
                current_HP = int(diglett_HP.get())
                new_HP = current_HP - 4
                diglett_HP.set(str(new_HP))
@@ -414,8 +436,8 @@ def juegoDigg():
                CRT2.place(x = 250, y = 300)
                Label_por_letra(MOP, "Diglett ha usado Fisura", 0.03)
                Crítico(CRT2, "¡Golpe Crítico!", 0.1)
-               #Reproducir_Cola(r"C:\Users\unity\Downloads\Iron-Tail.wav")
-               time.sleep(1.2)
+               ReproducirSonido("Sonidos\Eruption.wav")
+               time.sleep(6)
                current_HP = int(diglett_HP.get())
                new_HP = current_HP - 12
                diglett_HP.set(str(new_HP))
@@ -427,8 +449,8 @@ def juegoDigg():
           else:
                MOP.place(x = 50, y = 420)
                Label_por_letra(MOP, "Diglett ha usado Fisura", 0.03)
-               #Reproducir_Cola(r"C:\Users\unity\Downloads\Iron-Tail.wav")
-               time.sleep(1.2)
+               ReproducirSonido("Sonidos\Eruption.wav")
+               time.sleep(6)
                current_HP = int(diglett_HP.get())
                new_HP = current_HP - 7
                diglett_HP.set(str(new_HP))
@@ -463,7 +485,8 @@ def juegoDigg():
                CRT2.place(x = 250, y = 320)
                Label_por_letra(MOP, "Diglett ha usado Terremoto", 0.03)
                Crítico(CRT2, "¡Golpe Crítico!", 0.1)
-               #Reproducir_Electrobola(r"C:\Users\unity\Downloads\Thunder-Shock.wav")
+               ReproducirSonido("Sonidos\Earthquake.wav")
+               time.sleep(3)
                current_HP = int(diglett_HP.get())
                new_HP = current_HP - 16
                diglett_HP.set(str(new_HP))
@@ -475,6 +498,8 @@ def juegoDigg():
           else:
                MOP.place(x = 50, y = 420)
                Label_por_letra(MOP, "Diglett ha usado Terremoto", 0.03)
+               ReproducirSonido("Sonidos\Earthquake.wav")
+               time.sleep(3)
                current_HP = int(diglett_HP.get())
                new_HP = current_HP - 9
                diglett_HP.set(str(new_HP))
@@ -507,8 +532,9 @@ def juegoDigg():
           if current_HP + 30 >= 150:
                new_HP = 150
                VID.place(x = 300, y = 350)
-               Label_por_letra(VID, "Los PS están al máximo", 0.03)
-               time.sleep(0.8)
+               Label_por_letra(VID, "Los PS están al máximo", 0.05)
+               ReproducirSonido("Sonidos\In-Battle Heal HP Restore.wav")
+               time.sleep(1)
                pikachu_HP.set(str(new_HP))
                VID.place_forget()
                if(Defi <= 4):
@@ -527,7 +553,9 @@ def juegoDigg():
                     Terremoto()
           else:
                new_HP = current_HP + 30
-               Label_por_letra(VID, "La vida ha incrementado", 0.03)
+               Label_por_letra(VID, "La vida ha incrementado", 0.05)
+               ReproducirSonido("Sonidos\In-Battle Heal HP Restore.wav")
+               time.sleep(1)
                pikachu_HP.set(str(new_HP))
                if(Defi <= 4):
                     GolpeRoca()
@@ -660,6 +688,7 @@ def juegoDigg():
                          if thread != threading.current_thread():
                               thread.stop()
                          diglett_HP.set(str(0))
+                         ReproducirSonido("Sonidos\In-Battle Faint No Health.wav")
                          canvas.delete(image_id2)
                          GOD.place(x = 50, y = 420)
                          GOP.place(x = 50, y = 450)
@@ -673,6 +702,7 @@ def juegoDigg():
                          if thread != threading.current_thread():
                               thread.stop()
                          pikachu_HP.set(str(0))
+                         ReproducirSonido("Sonidos\In-Battle Faint No Health.wav")
                          canvas.delete(image_id)
                          GOD.place(x = 50, y = 420)
                          GOP.place(x = 50, y = 450)
@@ -729,6 +759,8 @@ def juegoPik():
      canvas.pack()
      BG = PhotoImage(file = 'Imagenes/BG.png')
      canvas.create_image(0,0, anchor="nw", image = BG)
+     img = PhotoImage(file = "Imagenes\poke.png")
+     juegoPik.iconphoto(False, img)
 
      #Asigna un total de vida, atque y defensa
      GOP = tk.Label()
@@ -745,7 +777,16 @@ def juegoPik():
 
      pg.mixer.init()
 
-     
+     ruta_musica = "Sonidos\Regirock_Regice_Registeel_Battle_-_Pokemon_Ruby_Sapphire_High_Quality-YoutubeConvert.cc.wav"
+     pg.mixer.music.load(ruta_musica) #Carga la música desde la ruta, puede ser declarada ahí mismo o declararla en una variable y usarla en la función
+     pg.mixer.music.set_volume(0.4)
+     pg.mixer.music.play(-1)
+
+     def ReproducirSonido(file):
+           efecto_sonido = pg.mixer.Sound(file)
+           efecto_sonido.set_volume(3)
+           efecto_sonido.play()
+
      #Fuente de texto
      Digfont = tF.Font(family = "Helvetica", size = 12) 
      
@@ -824,11 +865,7 @@ def juegoPik():
                GOP.update()
                time.sleep(delay)
                GOP.after(2000, lambda: GOP.config(text = ''))
-
-     #Efectos de sonido
-     ruta_musica = r"Imagenes\Regirock_Regice_Registeel_Battle_-_Pokemon_Ruby_Sapphire_High_Quality-YoutubeConvert.cc.wav"
-     pg.mixer.music.load(ruta_musica) #Carga la música desde la ruta, puede ser declarada ahí mismo o declararla en una variable y usarla en la función
-     pg.mixer.music.play(-1)
+     
      #Movimientos que Diglett puede hacer
      def GolpeRoca():
           Crt = rd.randint(1,15) #Valor que define si sale crítico o no
@@ -837,6 +874,7 @@ def juegoPik():
                MOD.place(x = 50, y = 450)
                Label_por_letra(MOD, "Pidgey ha usado Placaje", 0.03) #Label en donde se escribe, texto a escribir, tiempo de escritura que manda a "dormir" la consola entre letra y letra
                Crítico(CRT, "¡Golpe Crítico!", 0.03) #Lo mismo que el anterior
+               ReproducirSonido("Sonidos\Tackle.wav")
                current_HP = int(pikachu_HP.get())
                new_HP = current_HP - 10
                pikachu_HP.set(str(new_HP))
@@ -849,6 +887,7 @@ def juegoPik():
                new_HP = current_HP - 5
                MOD.place(x = 50, y = 450)
                Label_por_letra(MOD, "Pidgey ha usado Placaje", 0.03)
+               ReproducirSonido("Sonidos\Tackle.wav")
                pikachu_HP.set(str(new_HP))
                PikHP.configure(text=pikachu_HP)
                MOD.place_forget()
@@ -862,6 +901,8 @@ def juegoPik():
                MOD.place(x = 50, y = 450)
                Label_por_letra(MOD, "Pidgey ha usado Tornado", 0.03)
                Crítico(CRT, "¡Golpe Crítico!", 0.03)
+               ReproducirSonido("Sonidos\Twister.wav")
+               time.sleep(3)
                current_HP = int(pikachu_HP.get())
                new_HP = current_HP - 8
                pikachu_HP.set(str(new_HP))
@@ -874,6 +915,8 @@ def juegoPik():
                current_HP = int(pikachu_HP.get())
                new_HP = current_HP - 4
                Label_por_letra(MOD, "Pidgey ha usado Tornado", 0.03)
+               time.sleep(3)
+               ReproducirSonido("Sonidos\Twister.wav")
                pikachu_HP.set(str(new_HP))
                PikHP.configure(text=pikachu_HP)
                MOD.place_forget()
@@ -886,6 +929,8 @@ def juegoPik():
                MOD.place(x = 50, y = 450)
                Label_por_letra(MOD, "Pidgey ha usado Ataque ala", 0.03)
                Crítico(CRT, "¡Golpe Crítico!", 0.03)
+               ReproducirSonido("Sonidos\Wing-Attack.wav")
+               time.sleep(1.1)
                current_HP = int(pikachu_HP.get())
                new_HP = current_HP - 11
                pikachu_HP.set(str(new_HP))
@@ -896,6 +941,8 @@ def juegoPik():
           else:
                MOD.place(x = 50, y = 450)
                Label_por_letra(MOD, "Pidgey ha usado Ataque ala", 0.03)
+               time.sleep(1.1)
+               ReproducirSonido("Sonidos\Wing-Attack.wav")
                current_HP = int(pikachu_HP.get())
                new_HP = current_HP - 5
                pikachu_HP.set(str(new_HP))
@@ -910,6 +957,8 @@ def juegoPik():
                MOD.place(x = 50, y = 450)
                Label_por_letra(MOD, "Pidgey ha usado Ala de acero", 0.03)
                Crítico(CRT, "¡Golpe Crítico!", 0.03)
+               ReproducirSonido("Sonidos\Steel-Wing.wav")
+               time.sleep(2)
                current_HP = int(pikachu_HP.get())
                new_HP = current_HP - 8
                pikachu_HP.set(str(new_HP))
@@ -920,6 +969,8 @@ def juegoPik():
           else:
                MOD.place(x = 50, y = 450)
                Label_por_letra(MOD, "Pidgey ha usado Ala de acero", 0.03)
+               ReproducirSonido("Sonidos\Steel-Wing.wav")
+               time.sleep(2)
                current_HP = int(pikachu_HP.get())
                new_HP = current_HP - 4
                pikachu_HP.set(str(new_HP))
@@ -1009,7 +1060,7 @@ def juegoPik():
                CRT2.place(x = 250, y = 320)
                Label_por_letra(MOP, "Pikachu ha usado Arañazo", 0.03)
                Crítico(CRT2, "¡Golpe Crítico!", 0.03)
-               #Reproducir_Slam(r"C:\Users\unity\Downloads\Slam.wav")
+               ReproducirSonido("Sonidos\Slam.wav")
                time.sleep(0.5)
                current_HP = int(diglett_HP.get())
                new_HP = current_HP - 9
@@ -1022,7 +1073,7 @@ def juegoPik():
           else:
                MOP.place(x = 50, y = 420)
                Label_por_letra(MOP, "Pikachu ha usado Arañazo", 0.03)
-               #Reproducir_Slam(r"C:\Users\unity\Downloads\Slam.wav")
+               ReproducirSonido("Sonidos\Slam.wav")
                time.sleep(0.5)
                current_HP = int(diglett_HP.get())
                new_HP = current_HP - 4
@@ -1058,8 +1109,8 @@ def juegoPik():
                CRT2.place(x = 250, y = 320)
                Label_por_letra(MOP, "Pikachu ha usado Impactrueno", 0.03)
                Crítico(CRT2, "¡Golpe Crítico", 0.03)
-               #Reproducir_Impactrueno(r"C:\Users\unity\Downloads\Thunderbolt.wav")
-               time.sleep(1.9)
+               ReproducirSonido("Sonidos\Thunder-Shock.wav")
+               time.sleep(1.1)
                current_HP = int(diglett_HP.get())
                new_HP = current_HP - 10
                diglett_HP.set(str(new_HP))
@@ -1071,8 +1122,8 @@ def juegoPik():
           else:
                MOP.place(x = 50, y = 420)
                Label_por_letra(MOP, "Pikachu ha usado Impactrueno", 0.03)
-               #Reproducir_Impactrueno(r"C:\Users\unity\Downloads\Thunderbolt.wav")
-               time.sleep(1.9)
+               ReproducirSonido("Sonidos\Thunder-Shock.wav")
+               time.sleep(1.1)
                current_HP = int(diglett_HP.get())
                new_HP = current_HP - 5
                diglett_HP.set(str(new_HP))
@@ -1106,8 +1157,8 @@ def juegoPik():
                CRT2.place(x = 250, y = 300)
                Label_por_letra(MOP, "Pikachu ha usado Cola de Hierro", 0.03)
                Crítico(CRT2, "¡Golpe Crítico!", 0.1)
-               #Reproducir_Cola(r"C:\Users\unity\Downloads\Iron-Tail.wav")
-               time.sleep(1.2)
+               ReproducirSonido("Sonidos\Iron-Tail.wav")
+               time.sleep(2)
                current_HP = int(diglett_HP.get())
                new_HP = current_HP - 13
                diglett_HP.set(str(new_HP))
@@ -1119,8 +1170,8 @@ def juegoPik():
           else:
                MOP.place(x = 50, y = 420)
                Label_por_letra(MOP, "Pikachu ha usado Cola de Hierro", 0.03)
-               #Reproducir_Cola(r"C:\Users\unity\Downloads\Iron-Tail.wav")
-               time.sleep(1.2)
+               ReproducirSonido("Sonidos\Iron-Tail.wav")
+               time.sleep(2)
                current_HP = int(diglett_HP.get())
                new_HP = current_HP - 6
                diglett_HP.set(str(new_HP))
@@ -1155,7 +1206,8 @@ def juegoPik():
                CRT2.place(x = 250, y = 320)
                Label_por_letra(MOP, "Pikachu ha usado Electrobola", 0.03)
                Crítico(CRT2, "¡Golpe Crítico!", 0.1)
-               #Reproducir_Electrobola(r"C:\Users\unity\Downloads\Thunder-Shock.wav")
+               ReproducirSonido("Sonidos\Thunderbolt.wav")
+               time.sleep(3)
                current_HP = int(diglett_HP.get())
                new_HP = current_HP - 8
                diglett_HP.set(str(new_HP))
@@ -1167,6 +1219,8 @@ def juegoPik():
           else:
                MOP.place(x = 50, y = 420)
                Label_por_letra(MOP, "Pikachu ha usado Electrobola", 0.03)
+               ReproducirSonido("Sonidos\Thunderbolt.wav")
+               time.sleep(3)
                current_HP = int(diglett_HP.get())
                new_HP = current_HP - 4
                diglett_HP.set(str(new_HP))
@@ -1199,8 +1253,9 @@ def juegoPik():
           if current_HP + 30 >= 150:
                new_HP = 150
                VID.place(x = 300, y = 350)
-               Label_por_letra(VID, "Los PS están al máximo", 0.03)
-               time.sleep(0.8)
+               Label_por_letra(VID, "Los PS están al máximo", 0.05)
+               ReproducirSonido("Sonidos\In-Battle Heal HP Restore.wav")
+               time.sleep(1)
                pikachu_HP.set(str(new_HP))
                VID.place_forget()
                if(Defi <= 4):
@@ -1219,7 +1274,9 @@ def juegoPik():
                     Terremoto()
           else:
                new_HP = current_HP + 30
-               Label_por_letra(VID, "La vida ha incrementado", 0.03)
+               Label_por_letra(VID, "La vida ha incrementado", 0.05)
+               ReproducirSonido("Sonidos\In-Battle Heal HP Restore.wav")
+               time.sleep(1)
                pikachu_HP.set(str(new_HP))
                if(Defi <= 4):
                     GolpeRoca()
@@ -1352,6 +1409,7 @@ def juegoPik():
                          if thread != threading.current_thread():
                               thread.stop()
                          diglett_HP.set(str(0))
+                         ReproducirSonido("Sonidos\In-Battle Faint No Health.wav")
                          canvas.delete(image_id2)
                          GOD.place(x = 50, y = 420)
                          GOP.place(x = 50, y = 450)
@@ -1365,6 +1423,7 @@ def juegoPik():
                          if thread != threading.current_thread():
                               thread.stop()
                          pikachu_HP.set(str(0))
+                         ReproducirSonido("Sonidos\In-Battle Faint No Health.wav")
                          canvas.delete(image_id)
                          GOD.place(x = 50, y = 420)
                          GOP.place(x = 50, y = 450)
@@ -1422,6 +1481,8 @@ def juegoPid():
      canvas.pack()
      BG = PhotoImage(file = 'Imagenes/BG.png')
      canvas.create_image(0,0, anchor="nw", image = BG)
+     img = PhotoImage(file = "Imagenes\poke.png")
+     juegoPid.iconphoto(False, img)
 
      #Asigna un total de vida, atque y defensa
      GOP = tk.Label()
@@ -1519,6 +1580,15 @@ def juegoPid():
                GOP.after(2000, lambda: GOP.config(text = ''))
 
      #Efectos de sonido
+     ruta_musica = "Sonidos\Regirock_Regice_Registeel_Battle_-_Pokemon_Ruby_Sapphire_High_Quality-YoutubeConvert.cc.wav"
+     pg.mixer.music.load(ruta_musica)
+     pg.mixer.music.set_volume(0.4)
+     pg.mixer.music.play(-1)
+
+     def ReproducirSonido(file):
+           efecto_sonido = pg.mixer.Sound(file)
+           efecto_sonido.set_volume(3)
+           efecto_sonido.play()
 
      #Movimientos que Diglett puede hacer
      def GolpeRoca():
@@ -1528,6 +1598,8 @@ def juegoPid():
                MOD.place(x = 50, y = 450)
                Label_por_letra(MOD, "Diglett ha usado Golpe Roca", 0.03) #Label en donde se escribe, texto a escribir, tiempo de escritura que manda a "dormir" la consola entre letra y letra
                Crítico(CRT, "¡Golpe Crítico!", 0.03) #Lo mismo que el anterior
+               ReproducirSonido("Sonidos\Rock-Blast-2hits.wav")
+               time.sleep(2)
                current_HP = int(pikachu_HP.get())
                new_HP = current_HP - 15
                pikachu_HP.set(str(new_HP))
@@ -1540,6 +1612,8 @@ def juegoPid():
                new_HP = current_HP - 9
                MOD.place(x = 50, y = 450)
                Label_por_letra(MOD, "Diglett ha usado Golpe Roca", 0.03)
+               ReproducirSonido("Sonidos\Rock-Blast-2hits.wav")
+               time.sleep(2)
                pikachu_HP.set(str(new_HP))
                PikHP.configure(text=pikachu_HP)
                MOD.place_forget()
@@ -1553,6 +1627,8 @@ def juegoPid():
                MOD.place(x = 50, y = 450)
                Label_por_letra(MOD, "Diglett ha usado Cuchillada", 0.03)
                Crítico(CRT, "¡Golpe Crítico!", 0.03)
+               ReproducirSonido("Sonidos\Icicle-Spear-1hit.wav")
+               time.sleep(1.1)
                current_HP = int(pikachu_HP.get())
                new_HP = current_HP - 8
                pikachu_HP.set(str(new_HP))
@@ -1565,6 +1641,8 @@ def juegoPid():
                current_HP = int(pikachu_HP.get())
                new_HP = current_HP - 4
                Label_por_letra(MOD, "Diglett ha usado Cuchillada", 0.03)
+               ReproducirSonido("Sonidos\Icicle-Spear-1hit.wav")
+               time.sleep(1.1)
                pikachu_HP.set(str(new_HP))
                PikHP.configure(text=pikachu_HP)
                MOD.place_forget()
@@ -1577,6 +1655,8 @@ def juegoPid():
                MOD.place(x = 50, y = 450)
                Label_por_letra(MOD, "Diglett ha usado Fisura", 0.03)
                Crítico(CRT, "¡Golpe Crítico!", 0.03)
+               ReproducirSonido("Sonidos\Eruption.wav")
+               time.sleep(6)
                current_HP = int(pikachu_HP.get())
                new_HP = current_HP - 12
                pikachu_HP.set(str(new_HP))
@@ -1587,6 +1667,8 @@ def juegoPid():
           else:
                MOD.place(x = 50, y = 450)
                Label_por_letra(MOD, "Diglett ha usado Fisura", 0.03)
+               ReproducirSonido("Sonidos\Eruption.wav")
+               time.sleep(6)
                current_HP = int(pikachu_HP.get())
                new_HP = current_HP - 7
                pikachu_HP.set(str(new_HP))
@@ -1601,6 +1683,8 @@ def juegoPid():
                MOD.place(x = 50, y = 450)
                Label_por_letra(MOD, "Diglett ha usado Terremoto", 0.03)
                Crítico(CRT, "¡Golpe Crítico!", 0.03)
+               ReproducirSonido("Sonidos\Earthquake.wav")
+               time.sleep(3)
                current_HP = int(pikachu_HP.get())
                new_HP = current_HP - 16
                pikachu_HP.set(str(new_HP))
@@ -1611,6 +1695,8 @@ def juegoPid():
           else:
                MOD.place(x = 50, y = 450)
                Label_por_letra(MOD, "Diglett ha usado Terremoto", 0.03)
+               ReproducirSonido("Sonidos\Earthquake.wav")
+               time.sleep(3)
                current_HP = int(pikachu_HP.get())
                new_HP = current_HP - 9
                pikachu_HP.set(str(new_HP))
@@ -1699,8 +1785,7 @@ def juegoPid():
                CRT2.place(x = 250, y = 320)
                Label_por_letra(MOP, "Pidgey ha usado Placaje", 0.03)
                Crítico(CRT2, "¡Golpe Crítico!", 0.03)
-               #Reproducir_Slam(r"C:\Users\unity\Downloads\Slam.wav")
-               time.sleep(0.5)
+               ReproducirSonido("Sonidos\Tackle.wav")
                current_HP = int(diglett_HP.get())
                new_HP = current_HP - 10
                diglett_HP.set(str(new_HP))
@@ -1712,8 +1797,7 @@ def juegoPid():
           else:
                MOP.place(x = 50, y = 420)
                Label_por_letra(MOP, "Pidgey ha usado Placaje", 0.03)
-               #Reproducir_Slam(r"C:\Users\unity\Downloads\Slam.wav")
-               time.sleep(0.5)
+               ReproducirSonido("Sonidos\Tackle.wav")
                current_HP = int(diglett_HP.get())
                new_HP = current_HP - 5
                diglett_HP.set(str(new_HP))
@@ -1749,8 +1833,8 @@ def juegoPid():
                CRT2.place(x = 250, y = 320)
                Label_por_letra(MOP, "Pidgey ha usado Tornado", 0.03)
                Crítico(CRT2, "¡Golpe Crítico", 0.03)
-               #Reproducir_Impactrueno(r"C:\Users\unity\Downloads\Thunderbolt.wav")
-               time.sleep(1.9)
+               ReproducirSonido("Sonidos\Twister.wav")
+               time.sleep(3)
                current_HP = int(diglett_HP.get())
                new_HP = current_HP - 8
                diglett_HP.set(str(new_HP))
@@ -1762,8 +1846,8 @@ def juegoPid():
           else:
                MOP.place(x = 50, y = 420)
                Label_por_letra(MOP, "Pidgey ha usado Tornado", 0.03)
-               #Reproducir_Impactrueno(r"C:\Users\unity\Downloads\Thunderbolt.wav")
-               time.sleep(1.9)
+               ReproducirSonido("Sonidos\Twister.wav")
+               time.sleep(3)
                current_HP = int(diglett_HP.get())
                new_HP = current_HP - 4
                diglett_HP.set(str(new_HP))
@@ -1796,10 +1880,10 @@ def juegoPid():
           if(Crt == 2 or Crt == 5):
                MOP.place(x = 50, y = 420)
                CRT2.place(x = 250, y = 300)
-               Label_por_letra(MOP, "Pidgey ha usado Ataque ala", 0.03)
+               Label_por_letra(MOP, "Pidgey ha usado Ataque Ala", 0.03)
                Crítico(CRT2, "¡Golpe Crítico!", 0.1)
-               #Reproducir_Cola(r"C:\Users\unity\Downloads\Iron-Tail.wav")
-               time.sleep(1.2)
+               ReproducirSonido("Sonidos\Wing-Attack.wav")
+               time.sleep(1.1)
                current_HP = int(diglett_HP.get())
                new_HP = current_HP - 11
                diglett_HP.set(str(new_HP))
@@ -1810,9 +1894,9 @@ def juegoPid():
                GameO()
           else:
                MOP.place(x = 50, y = 420)
-               Label_por_letra(MOP, "Pidgey ha usado Ataque ala", 0.03)
-               #Reproducir_Cola(r"C:\Users\unity\Downloads\Iron-Tail.wav")
-               time.sleep(1.2)
+               Label_por_letra(MOP, "Pidgey ha usado Ataque Ala", 0.03)
+               ReproducirSonido("Sonidos\Wing-Attack.wav")
+               time.sleep(1.1)
                current_HP = int(diglett_HP.get())
                new_HP = current_HP - 5
                diglett_HP.set(str(new_HP))
@@ -1848,7 +1932,8 @@ def juegoPid():
                CRT2.place(x = 250, y = 320)
                Label_por_letra(MOP, "Pidgey ha usado Ala de Acero", 0.03)
                Crítico(CRT2, "¡Golpe Crítico!", 0.1)
-               #Reproducir_Electrobola(r"C:\Users\unity\Downloads\Thunder-Shock.wav")
+               ReproducirSonido("Sonidos\Steel-Wing.wav")
+               time.sleep(2)
                current_HP = int(diglett_HP.get())
                new_HP = current_HP - 8
                diglett_HP.set(str(new_HP))
@@ -1860,6 +1945,8 @@ def juegoPid():
           else:
                MOP.place(x = 50, y = 420)
                Label_por_letra(MOP, "Pidgey ha usado Ala de Acero", 0.03)
+               ReproducirSonido("Sonidos\Steel-Wing.wav")
+               time.sleep(2)
                current_HP = int(diglett_HP.get())
                new_HP = current_HP - 4
                diglett_HP.set(str(new_HP))
@@ -1893,8 +1980,9 @@ def juegoPid():
           if current_HP + 30 >= 150:
                new_HP = 150
                VID.place(x = 300, y = 350)
-               Label_por_letra(VID, "Los PS están al máximo", 0.03)
-               time.sleep(0.8)
+               Label_por_letra(VID, "Los PS están al máximo", 0.05)
+               ReproducirSonido("Sonidos\In-Battle Heal HP Restore.wav")
+               time.sleep(1)
                pikachu_HP.set(str(new_HP))
                VID.place_forget()
                if(Defi <= 4):
@@ -1913,7 +2001,9 @@ def juegoPid():
                     Terremoto()
           else:
                new_HP = current_HP + 30
-               Label_por_letra(VID, "La vida ha incrementado", 0.03)
+               Label_por_letra(VID, "La vida ha incrementado", 0.05)
+               ReproducirSonido("Sonidos\In-Battle Heal HP Restore.wav")
+               time.sleep(1)
                pikachu_HP.set(str(new_HP))
                if(Defi <= 4):
                     GolpeRoca()
@@ -2046,6 +2136,7 @@ def juegoPid():
                          if thread != threading.current_thread():
                               thread.stop()
                          diglett_HP.set(str(0))
+                         ReproducirSonido("Sonidos\In-Battle Faint No Health.wav")
                          canvas.delete(image_id2)
                          GOD.place(x = 50, y = 420)
                          GOP.place(x = 50, y = 450)
@@ -2059,6 +2150,7 @@ def juegoPid():
                          if thread != threading.current_thread():
                               thread.stop()
                          pikachu_HP.set(str(0))
+                         ReproducirSonido("Sonidos\In-Battle Faint No Health.wav")
                          canvas.delete(image_id)
                          GOD.place(x = 50, y = 420)
                          GOP.place(x = 50, y = 450)
@@ -2116,6 +2208,8 @@ def juegoChar():
      canvas.pack()
      BG = PhotoImage(file = 'Imagenes/BG.png')
      canvas.create_image(0,0, anchor="nw", image = BG)
+     img = PhotoImage(file = "Imagenes\poke.png")
+     juegoChar.iconphoto(False, img)
 
      #Asigna un total de vida, atque y defensa
      GOP = tk.Label()
@@ -2213,6 +2307,15 @@ def juegoChar():
                GOP.after(2000, lambda: GOP.config(text = ''))
 
      #Efectos de sonido
+     ruta_musica = "Sonidos\Regirock_Regice_Registeel_Battle_-_Pokemon_Ruby_Sapphire_High_Quality-YoutubeConvert.cc.wav"
+     pg.mixer.music.load(ruta_musica)
+     pg.mixer.music.set_volume(0.4)
+     pg.mixer.music.play(-1)
+
+     def ReproducirSonido(file):
+           efecto_sonido = pg.mixer.Sound(file)
+           efecto_sonido.set_volume(3)
+           efecto_sonido.play()
 
      #Movimientos que Diglett puede hacer
      def GolpeRoca():
@@ -2222,6 +2325,7 @@ def juegoChar():
                MOD.place(x = 50, y = 450)
                Label_por_letra(MOD, "Squirtle ha usado Placaje", 0.03) #Label en donde se escribe, texto a escribir, tiempo de escritura que manda a "dormir" la consola entre letra y letra
                Crítico(CRT, "¡Golpe Crítico!", 0.03) #Lo mismo que el anterior
+               ReproducirSonido("Sonidos\Tackle.wav")
                current_HP = int(pikachu_HP.get())
                new_HP = current_HP - 12
                pikachu_HP.set(str(new_HP))
@@ -2234,6 +2338,7 @@ def juegoChar():
                new_HP = current_HP - 6
                MOD.place(x = 50, y = 450)
                Label_por_letra(MOD, "Squirtle ha usado Placaje", 0.03)
+               ReproducirSonido("Sonidos\Tackle.wav")
                pikachu_HP.set(str(new_HP))
                PikHP.configure(text=pikachu_HP)
                MOD.place_forget()
@@ -2247,6 +2352,8 @@ def juegoChar():
                MOD.place(x = 50, y = 450)
                Label_por_letra(MOD, "Squirtle ha usado Pistola Agua", 0.03)
                Crítico(CRT, "¡Golpe Crítico!", 0.03)
+               ReproducirSonido("Sonidos\Water-Gun.wav")
+               time.sleep(1.1)
                current_HP = int(pikachu_HP.get())
                new_HP = current_HP - 9
                pikachu_HP.set(str(new_HP))
@@ -2259,6 +2366,8 @@ def juegoChar():
                current_HP = int(pikachu_HP.get())
                new_HP = current_HP - 4
                Label_por_letra(MOD, "Squirtle ha usado Pistola Agua", 0.03)
+               ReproducirSonido("Sonidos\Water-Gun.wav")
+               time.sleep(1.1)
                pikachu_HP.set(str(new_HP))
                PikHP.configure(text=pikachu_HP)
                MOD.place_forget()
@@ -2271,6 +2380,8 @@ def juegoChar():
                MOD.place(x = 50, y = 450)
                Label_por_letra(MOD, "Squirtle ha usado HidroBomba", 0.03)
                Crítico(CRT, "¡Golpe Crítico!", 0.03)
+               ReproducirSonido("Sonidos\Waterfall.wav")
+               time.sleep(2)
                current_HP = int(pikachu_HP.get())
                new_HP = current_HP - 19
                pikachu_HP.set(str(new_HP))
@@ -2281,6 +2392,8 @@ def juegoChar():
           else:
                MOD.place(x = 50, y = 450)
                Label_por_letra(MOD, "Squirtle ha usado HidroBomba", 0.03)
+               ReproducirSonido("Sonidos\Waterfall.wav")
+               time.sleep(2)
                current_HP = int(pikachu_HP.get())
                new_HP = current_HP - 9
                pikachu_HP.set(str(new_HP))
@@ -2295,6 +2408,8 @@ def juegoChar():
                MOD.place(x = 50, y = 450)
                Label_por_letra(MOD, "Squirtle ha usado Burbuja", 0.03)
                Crítico(CRT, "¡Golpe Crítico!", 0.03)
+               ReproducirSonido("Sonidos\Water-Pulse.wav")
+               time.sleep(2)
                current_HP = int(pikachu_HP.get())
                new_HP = current_HP - 14
                pikachu_HP.set(str(new_HP))
@@ -2305,6 +2420,8 @@ def juegoChar():
           else:
                MOD.place(x = 50, y = 450)
                Label_por_letra(MOD, "Squirtle ha usado Burbuja", 0.03)
+               ReproducirSonido("Sonidos\Water-Pulse.wav")
+               time.sleep(2)
                current_HP = int(pikachu_HP.get())
                new_HP = current_HP - 7
                pikachu_HP.set(str(new_HP))
@@ -2393,8 +2510,7 @@ def juegoChar():
                CRT2.place(x = 250, y = 320)
                Label_por_letra(MOP, "Bulbasaur ha usado Placaje", 0.03)
                Crítico(CRT2, "¡Golpe Crítico!", 0.03)
-               #Reproducir_Slam(r"C:\Users\unity\Downloads\Slam.wav")
-               time.sleep(0.5)
+               ReproducirSonido("Sonidos\Tackle.wav")
                current_HP = int(diglett_HP.get())
                new_HP = current_HP - 15
                diglett_HP.set(str(new_HP))
@@ -2406,8 +2522,7 @@ def juegoChar():
           else:
                MOP.place(x = 50, y = 420)
                Label_por_letra(MOP, "Bulbasaur ha usado Placaje", 0.03)
-               #Reproducir_Slam(r"C:\Users\unity\Downloads\Slam.wav")
-               time.sleep(0.5)
+               ReproducirSonido("Sonidos\Tackle.wav")
                current_HP = int(diglett_HP.get())
                new_HP = current_HP - 7
                diglett_HP.set(str(new_HP))
@@ -2440,10 +2555,9 @@ def juegoChar():
           if(Crt == 2 or Crt == 5):
                MOP.place(x = 50, y = 420)
                CRT2.place(x = 250, y = 320)
-               Label_por_letra(MOP, "Bulbasaur ha usado Latigo cepa", 0.03)
+               Label_por_letra(MOP, "Bulbasaur ha usado Latigo Cepa", 0.03)
                Crítico(CRT2, "¡Golpe Crítico", 0.03)
-               #Reproducir_Impactrueno(r"C:\Users\unity\Downloads\Thunderbolt.wav")
-               time.sleep(1.9)
+               ReproducirSonido("Sonidos\Vine Whip.wav")
                current_HP = int(diglett_HP.get())
                new_HP = current_HP - 8
                diglett_HP.set(str(new_HP))
@@ -2454,9 +2568,8 @@ def juegoChar():
                GameO()
           else:
                MOP.place(x = 50, y = 420)
-               Label_por_letra(MOP, "Bulbasaur ha usado Latigo cepa", 0.03)
-               #Reproducir_Impactrueno(r"C:\Users\unity\Downloads\Thunderbolt.wav")
-               time.sleep(1.9)
+               Label_por_letra(MOP, "Bulbasaur ha usado Latigo Cepa", 0.03)
+               ReproducirSonido("Sonidos\Vine Whip.wav")
                current_HP = int(diglett_HP.get())
                new_HP = current_HP - 4
                diglett_HP.set(str(new_HP))
@@ -2488,10 +2601,10 @@ def juegoChar():
           if(Crt == 2 or Crt == 5):
                MOP.place(x = 50, y = 420)
                CRT2.place(x = 250, y = 300)
-               Label_por_letra(MOP, "Bulbasaur ha usado Hoja afilada", 0.03)
+               Label_por_letra(MOP, "Bulbasaur ha usado Hoja Afilada", 0.03)
                Crítico(CRT2, "¡Golpe Crítico!", 0.1)
-               #Reproducir_Cola(r"C:\Users\unity\Downloads\Iron-Tail.wav")
-               time.sleep(1.2)
+               ReproducirSonido("Sonidos\Leaf Blade.wav")
+               time.sleep(3)
                current_HP = int(diglett_HP.get())
                new_HP = current_HP - 10
                diglett_HP.set(str(new_HP))
@@ -2503,8 +2616,8 @@ def juegoChar():
           else:
                MOP.place(x = 50, y = 420)
                Label_por_letra(MOP, "Bulbasaur ha usado Hoja afilada", 0.03)
-               #Reproducir_Cola(r"C:\Users\unity\Downloads\Iron-Tail.wav")
-               time.sleep(1.2)
+               ReproducirSonido("Sonidos\Leaf Blade.wav")
+               time.sleep(3)
                current_HP = int(diglett_HP.get())
                new_HP = current_HP - 5
                diglett_HP.set(str(new_HP))
@@ -2537,9 +2650,10 @@ def juegoChar():
           if(Crt == 2 or Crt==5):
                MOP.place(x = 50, y = 420)
                CRT2.place(x = 250, y = 320)
-               Label_por_letra(MOP, "Bulbasaur ha usado Rayo solar", 0.03)
+               Label_por_letra(MOP, "Bulbasaur ha usado Rayo Solar", 0.03)
                Crítico(CRT2, "¡Golpe Crítico!", 0.1)
-               #Reproducir_Electrobola(r"C:\Users\unity\Downloads\Thunder-Shock.wav")
+               ReproducirSonido("Sonidos\Solar Beam.wav")
+               time.sleep(4)
                current_HP = int(diglett_HP.get())
                new_HP = current_HP - 11
                diglett_HP.set(str(new_HP))
@@ -2550,7 +2664,9 @@ def juegoChar():
                GameO()
           else:
                MOP.place(x = 50, y = 420)
-               Label_por_letra(MOP, "Bulbasaur ha usado Rayo solar", 0.03)
+               Label_por_letra(MOP, "Bulbasaur ha usado Rayo Solar", 0.03)
+               ReproducirSonido("Sonidos\Solar Beam.wav")
+               time.sleep(4)
                current_HP = int(diglett_HP.get())
                new_HP = current_HP - 5
                diglett_HP.set(str(new_HP))
@@ -2583,8 +2699,9 @@ def juegoChar():
           if current_HP + 30 >= 150:
                new_HP = 150
                VID.place(x = 300, y = 350)
-               Label_por_letra(VID, "Los PS están al máximo", 0.03)
-               time.sleep(0.8)
+               Label_por_letra(VID, "Los PS están al máximo", 0.05)
+               ReproducirSonido("Sonidos\In-Battle Heal HP Restore.wav")
+               time.sleep(1)
                pikachu_HP.set(str(new_HP))
                VID.place_forget()
                if(Defi <= 4):
@@ -2603,7 +2720,7 @@ def juegoChar():
                     Terremoto()
           else:
                new_HP = current_HP + 30
-               Label_por_letra(VID, "La vida ha incrementado", 0.03)
+               Label_por_letra(VID, "La vida ha incrementado", 0.05)
                pikachu_HP.set(str(new_HP))
                if(Defi <= 4):
                     GolpeRoca()
@@ -2736,6 +2853,7 @@ def juegoChar():
                          if thread != threading.current_thread():
                               thread.stop()
                          diglett_HP.set(str(0))
+                         ReproducirSonido("Sonidos\In-Battle Faint No Health.wav")
                          canvas.delete(image_id2)
                          GOD.place(x = 50, y = 420)
                          GOP.place(x = 50, y = 450)
@@ -2749,6 +2867,7 @@ def juegoChar():
                          if thread != threading.current_thread():
                               thread.stop()
                          pikachu_HP.set(str(0))
+                         ReproducirSonido("Sonidos\In-Battle Faint No Health.wav")
                          canvas.delete(image_id)
                          GOD.place(x = 50, y = 420)
                          GOP.place(x = 50, y = 450)
@@ -2806,6 +2925,8 @@ def juegoBulb():
      canvas.pack()
      BG = PhotoImage(file = 'Imagenes/BG.png')
      canvas.create_image(0,0, anchor="nw", image = BG)
+     img = PhotoImage(file = "Imagenes\poke.png")
+     juegoBulb.iconphoto(False, img)
 
      #Asigna un total de vida, atque y defensa
      GOP = tk.Label()
@@ -2903,6 +3024,15 @@ def juegoBulb():
                GOP.after(2000, lambda: GOP.config(text = ''))
 
      #Efectos de sonido
+     ruta_musica = "Sonidos\Regirock_Regice_Registeel_Battle_-_Pokemon_Ruby_Sapphire_High_Quality-YoutubeConvert.cc.wav"
+     pg.mixer.music.load(ruta_musica)
+     pg.mixer.music.set_volume(0.4)
+     pg.mixer.music.play(-1)
+
+     def ReproducirSonido(file):
+           efecto_sonido = pg.mixer.Sound(file)
+           efecto_sonido.set_volume(3)
+           efecto_sonido.play()
 
      #Movimientos que Diglett puede hacer
      def GolpeRoca():
@@ -2912,6 +3042,7 @@ def juegoBulb():
                MOD.place(x = 50, y = 450)
                Label_por_letra(MOD, "Bulbasaur ha usado Placaje", 0.03) #Label en donde se escribe, texto a escribir, tiempo de escritura que manda a "dormir" la consola entre letra y letra
                Crítico(CRT, "¡Golpe Crítico!", 0.03) #Lo mismo que el anterior
+               ReproducirSonido("Sonidos\Tackle.wav")
                current_HP = int(pikachu_HP.get())
                new_HP = current_HP - 15
                pikachu_HP.set(str(new_HP))
@@ -2924,6 +3055,7 @@ def juegoBulb():
                new_HP = current_HP - 7
                MOD.place(x = 50, y = 450)
                Label_por_letra(MOD, "Bulbasaur ha usado Placaje", 0.03)
+               ReproducirSonido("Sonidos\Tackle.wav")
                pikachu_HP.set(str(new_HP))
                PikHP.configure(text=pikachu_HP)
                MOD.place_forget()
@@ -2935,8 +3067,9 @@ def juegoBulb():
           if(Crt == 2 or Crt == 5):
                CRT.place(x = 250, y = 300)
                MOD.place(x = 50, y = 450)
-               Label_por_letra(MOD, "Bulbasaur ha usado Latigo cepa", 0.03)
+               Label_por_letra(MOD, "Bulbasaur ha usado Latigo Cepa", 0.03)
                Crítico(CRT, "¡Golpe Crítico!", 0.03)
+               ReproducirSonido("Sonidos\Vine Whip.wav")
                current_HP = int(pikachu_HP.get())
                new_HP = current_HP - 8
                pikachu_HP.set(str(new_HP))
@@ -2948,7 +3081,8 @@ def juegoBulb():
                MOD.place(x = 50, y = 450)
                current_HP = int(pikachu_HP.get())
                new_HP = current_HP - 4
-               Label_por_letra(MOD, "Bulbasaur ha usado Latigo cepa", 0.03)
+               Label_por_letra(MOD, "Bulbasaur ha usado Latigo Cepa", 0.03)
+               ReproducirSonido("Sonidos\Vine Whip.wav")
                pikachu_HP.set(str(new_HP))
                PikHP.configure(text=pikachu_HP)
                MOD.place_forget()
@@ -2959,8 +3093,10 @@ def juegoBulb():
           if(Crt == 2 or Crt == 5):
                CRT.place(x = 250, y = 300)
                MOD.place(x = 50, y = 450)
-               Label_por_letra(MOD, "Bulbasaur ha usado Hoja afilada", 0.03)
+               Label_por_letra(MOD, "Bulbasaur ha usado Hoja Afilada", 0.03)
                Crítico(CRT, "¡Golpe Crítico!", 0.03)
+               ReproducirSonido("Sonidos\Leaf Blade.wav")
+               time.sleep(3)
                current_HP = int(pikachu_HP.get())
                new_HP = current_HP - 10
                pikachu_HP.set(str(new_HP))
@@ -2971,6 +3107,8 @@ def juegoBulb():
           else:
                MOD.place(x = 50, y = 450)
                Label_por_letra(MOD, "Bulbasaur ha usado Hoja afilada", 0.03)
+               ReproducirSonido("Sonidos\Leaf Blade.wav")
+               time.sleep(3)
                current_HP = int(pikachu_HP.get())
                new_HP = current_HP - 5
                pikachu_HP.set(str(new_HP))
@@ -2983,8 +3121,10 @@ def juegoBulb():
           if(Crt == 2, Crt == 5):
                CRT.place(x = 250, y = 300)
                MOD.place(x = 50, y = 450)
-               Label_por_letra(MOD, "Bulbasaur ha usado Rayo solar", 0.03)
+               Label_por_letra(MOD, "Bulbasaur ha usado Rayo Solar", 0.03)
                Crítico(CRT, "¡Golpe Crítico!", 0.03)
+               ReproducirSonido("Sonidos\Solar Beam.wav")
+               time.sleep(4)
                current_HP = int(pikachu_HP.get())
                new_HP = current_HP - 11
                pikachu_HP.set(str(new_HP))
@@ -2994,7 +3134,9 @@ def juegoBulb():
                GameO()
           else:
                MOD.place(x = 50, y = 450)
-               Label_por_letra(MOD, "Bulbasaur ha usado Rayo solar", 0.03)
+               Label_por_letra(MOD, "Bulbasaur ha usado Rayo Solar", 0.03)
+               ReproducirSonido("Sonidos\Solar Beam.wav")
+               time.sleep(4)
                current_HP = int(pikachu_HP.get())
                new_HP = current_HP - 5
                pikachu_HP.set(str(new_HP))
@@ -3083,8 +3225,7 @@ def juegoBulb():
                CRT2.place(x = 250, y = 320)
                Label_por_letra(MOP, "Charmander ha usado Corte", 0.03)
                Crítico(CRT2, "¡Golpe Crítico!", 0.03)
-               #Reproducir_Slam(r"C:\Users\unity\Downloads\Slam.wav")
-               time.sleep(0.5)
+               ReproducirSonido("Sonidos\Cut.wav")
                current_HP = int(diglett_HP.get())
                new_HP = current_HP - 12
                diglett_HP.set(str(new_HP))
@@ -3096,8 +3237,7 @@ def juegoBulb():
           else:
                MOP.place(x = 50, y = 420)
                Label_por_letra(MOP, "Charmander ha usado corte", 0.03)
-               #Reproducir_Slam(r"C:\Users\unity\Downloads\Slam.wav")
-               time.sleep(0.5)
+               ReproducirSonido("Sonidos\Cut.wav")
                current_HP = int(diglett_HP.get())
                new_HP = current_HP - 6
                diglett_HP.set(str(new_HP))
@@ -3132,8 +3272,8 @@ def juegoBulb():
                CRT2.place(x = 250, y = 320)
                Label_por_letra(MOP, "Charmander ha usado Garra", 0.03)
                Crítico(CRT2, "¡Golpe Crítico", 0.03)
-               #Reproducir_Impactrueno(r"C:\Users\unity\Downloads\Thunderbolt.wav")
-               time.sleep(1.9)
+               ReproducirSonido("Sonidos\Dragon Claw.wav")
+               time.sleep(1.1)
                current_HP = int(diglett_HP.get())
                new_HP = current_HP - 14
                diglett_HP.set(str(new_HP))
@@ -3145,8 +3285,8 @@ def juegoBulb():
           else:
                MOP.place(x = 50, y = 420)
                Label_por_letra(MOP, "Charmander ha usado Garra", 0.03)
-               #Reproducir_Impactrueno(r"C:\Users\unity\Downloads\Thunderbolt.wav")
-               time.sleep(1.9)
+               ReproducirSonido("Sonidos\Dragon Claw.wav")
+               time.sleep(1.1)
                current_HP = int(diglett_HP.get())
                new_HP = current_HP - 7
                diglett_HP.set(str(new_HP))
@@ -3180,8 +3320,8 @@ def juegoBulb():
                CRT2.place(x = 250, y = 300)
                Label_por_letra(MOP, "Charmander ha usado Colmillo", 0.03)
                Crítico(CRT2, "¡Golpe Crítico!", 0.1)
-               #Reproducir_Cola(r"C:\Users\unity\Downloads\Iron-Tail.wav")
-               time.sleep(1.2)
+               ReproducirSonido("Sonidos\Hyper Fang.wav")
+               time.sleep(1.1)
                current_HP = int(diglett_HP.get())
                new_HP = current_HP - 11
                diglett_HP.set(str(new_HP))
@@ -3193,8 +3333,8 @@ def juegoBulb():
           else:
                MOP.place(x = 50, y = 420)
                Label_por_letra(MOP, "Charmander ha usado Colmillo", 0.03)
-               #Reproducir_Cola(r"C:\Users\unity\Downloads\Iron-Tail.wav")
-               time.sleep(1.2)
+               ReproducirSonido("Sonidos\Hyper Fang.wav")
+               time.sleep(1.1)
                current_HP = int(diglett_HP.get())
                new_HP = current_HP - 6
                diglett_HP.set(str(new_HP))
@@ -3229,7 +3369,8 @@ def juegoBulb():
                CRT2.place(x = 250, y = 320)
                Label_por_letra(MOP, "Charmander ha usado NitroCarga", 0.03)
                Crítico(CRT2, "¡Golpe Crítico!", 0.1)
-               #Reproducir_Electrobola(r"C:\Users\unity\Downloads\Thunder-Shock.wav")
+               ReproducirSonido("Sonidos\Sacred Fire.wav")
+               time.sleep(2)
                current_HP = int(diglett_HP.get())
                new_HP = current_HP - 15
                diglett_HP.set(str(new_HP))
@@ -3241,6 +3382,8 @@ def juegoBulb():
           else:
                MOP.place(x = 50, y = 420)
                Label_por_letra(MOP, "Charmander ha usado NitroCarga", 0.03)
+               ReproducirSonido("Sonidos\Sacred Fire.wav")
+               time.sleep(2)
                current_HP = int(diglett_HP.get())
                new_HP = current_HP - 8
                diglett_HP.set(str(new_HP))
@@ -3273,8 +3416,9 @@ def juegoBulb():
           if current_HP + 30 >= 150:
                new_HP = 150
                VID.place(x = 300, y = 350)
-               Label_por_letra(VID, "Los PS están al máximo", 0.03)
-               time.sleep(0.8)
+               Label_por_letra(VID, "Los PS están al máximo", 0.05)
+               ReproducirSonido("Sonidos\In-Battle Heal HP Restore.wav")
+               time.sleep(1)
                pikachu_HP.set(str(new_HP))
                VID.place_forget()
                if(Defi <= 4):
@@ -3293,7 +3437,9 @@ def juegoBulb():
                     Terremoto()
           else:
                new_HP = current_HP + 30
-               Label_por_letra(VID, "La vida ha incrementado", 0.03)
+               Label_por_letra(VID, "La vida ha incrementado", 0.05)
+               ReproducirSonido("Sonidos\In-Battle Heal HP Restore.wav")
+               time.sleep(1)
                pikachu_HP.set(str(new_HP))
                if(Defi <= 4):
                     GolpeRoca()
@@ -3426,6 +3572,7 @@ def juegoBulb():
                          if thread != threading.current_thread():
                               thread.stop()
                          diglett_HP.set(str(0))
+                         ReproducirSonido("Sonidos\In-Battle Faint No Health.wav")
                          canvas.delete(image_id2)
                          GOD.place(x = 50, y = 420)
                          GOP.place(x = 50, y = 450)
@@ -3439,6 +3586,7 @@ def juegoBulb():
                          if thread != threading.current_thread():
                               thread.stop()
                          pikachu_HP.set(str(0))
+                         ReproducirSonido("Sonidos\In-Battle Faint No Health.wav")
                          canvas.delete(image_id)
                          GOD.place(x = 50, y = 420)
                          GOP.place(x = 50, y = 450)
@@ -3496,6 +3644,8 @@ def juegoSquir():
      canvas.pack()
      BG = PhotoImage(file = 'Imagenes/BG.png')
      canvas.create_image(0,0, anchor="nw", image = BG)
+     img = PhotoImage(file = "Imagenes\poke.png")
+     juegoSquir.iconphoto(False, img)
 
      #Asigna un total de vida, atque y defensa
      GOP = tk.Label()
@@ -3593,6 +3743,15 @@ def juegoSquir():
                GOP.after(2000, lambda: GOP.config(text = ''))
 
      #Efectos de sonido
+     ruta_musica = "Sonidos\Regirock_Regice_Registeel_Battle_-_Pokemon_Ruby_Sapphire_High_Quality-YoutubeConvert.cc.wav"
+     pg.mixer.music.load(ruta_musica)
+     pg.mixer.music.set_volume(0.4)
+     pg.mixer.music.play(-1)
+
+     def ReproducirSonido(file):
+           efecto_sonido = pg.mixer.Sound(file)
+           efecto_sonido.set_volume(3)
+           efecto_sonido.play()
 
      #Movimientos que Diglett puede hacer
      def GolpeRoca():
@@ -3602,6 +3761,7 @@ def juegoSquir():
           MOD.place(x = 50, y = 450)
           Label_por_letra(MOD, "Charmander ha usado Corte", 0.03) #Label en donde se escribe, texto a escribir, tiempo de escritura que manda a "dormir" la consola entre letra y letra
           Crítico(CRT, "¡Golpe Crítico!", 0.03) #Lo mismo que el anterior
+          ReproducirSonido("Sonidos\Cut.wav")
           current_HP = int(pikachu_HP.get())
           new_HP = current_HP - 12
           pikachu_HP.set(str(new_HP))
@@ -3614,6 +3774,7 @@ def juegoSquir():
          new_HP = current_HP - 6
          MOD.place(x = 50, y = 450)
          Label_por_letra(MOD, "Charmander ha usado Corte", 0.03)
+         ReproducirSonido("Sonidos\Cut.wav")
          pikachu_HP.set(str(new_HP))
          PikHP.configure(text=pikachu_HP)
          MOD.place_forget()
@@ -3627,6 +3788,8 @@ def juegoSquir():
          MOD.place(x = 50, y = 450)
          Label_por_letra(MOD, "Charmander ha usado Garra", 0.03)
          Crítico(CRT, "¡Golpe Crítico!", 0.03)
+         ReproducirSonido("Sonidos\Dragon Claw.wav")
+         time.sleep(1.1)
          current_HP = int(pikachu_HP.get())
          new_HP = current_HP - 14
          pikachu_HP.set(str(new_HP))
@@ -3639,6 +3802,8 @@ def juegoSquir():
          current_HP = int(pikachu_HP.get())
          new_HP = current_HP - 7
          Label_por_letra(MOD, "Charmander ha usado Garra", 0.03)
+         ReproducirSonido("Sonidos\Dragon Claw.wav")
+         time.sleep(1.1)
          pikachu_HP.set(str(new_HP))
          PikHP.configure(text=pikachu_HP)
          MOD.place_forget()
@@ -3652,6 +3817,8 @@ def juegoSquir():
          MOD.place(x = 50, y = 450)
          Label_por_letra(MOD, "Charmander ha usado Colmillo", 0.03)
          Crítico(CRT, "¡Golpe Crítico!", 0.03)
+         ReproducirSonido("Sonidos\Hyper Fang.wav")
+         time.sleep(1.1)
          current_HP = int(pikachu_HP.get())
          new_HP = current_HP - 11
          pikachu_HP.set(str(new_HP))
@@ -3662,6 +3829,8 @@ def juegoSquir():
         else:
          MOD.place(x = 50, y = 450)
          Label_por_letra(MOD, "Charmander ha usado Colmillo", 0.03)
+         ReproducirSonido("Sonidos\Hyper Fang.wav")
+         time.sleep(1.1)
          current_HP = int(pikachu_HP.get())
          new_HP = current_HP - 6
          pikachu_HP.set(str(new_HP))
@@ -3676,6 +3845,8 @@ def juegoSquir():
          MOD.place(x = 50, y = 450)
          Label_por_letra(MOD, "Charmander ha usado NitroCarga", 0.03)
          Crítico(CRT, "¡Golpe Crítico!", 0.03)
+         ReproducirSonido("Sonidos\Sacred Fire.wav")
+         time.sleep(2)
          current_HP = int(pikachu_HP.get())
          new_HP = current_HP - 15
          pikachu_HP.set(str(new_HP))
@@ -3686,6 +3857,8 @@ def juegoSquir():
         else:
               MOD.place(x = 50, y = 450)
               Label_por_letra(MOD, "Charmander ha usado NitroCarga", 0.03)
+              ReproducirSonido("Sonidos\Sacred Fire.wav")
+              time.sleep(2)
               current_HP = int(pikachu_HP.get())
               new_HP = current_HP - 8
               pikachu_HP.set(str(new_HP))
@@ -3773,8 +3946,7 @@ def juegoSquir():
                CRT2.place(x = 250, y = 320)
                Label_por_letra(MOP, "Squirtle ha usado Placaje", 0.03)
                Crítico(CRT2, "¡Golpe Crítico!", 0.03)
-               #Reproducir_Slam(r"C:\Users\unity\Downloads\Slam.wav")
-               time.sleep(0.5)
+               ReproducirSonido("Sonidos\Tackle.wav")
                current_HP = int(diglett_HP.get())
                new_HP = current_HP - 12
                diglett_HP.set(str(new_HP))
@@ -3786,8 +3958,7 @@ def juegoSquir():
           else:
                MOP.place(x = 50, y = 420)
                Label_por_letra(MOP, "Squirtle ha usado Placaje", 0.03)
-               #Reproducir_Slam(r"C:\Users\unity\Downloads\Slam.wav")
-               time.sleep(0.5)
+               ReproducirSonido("Sonidos\Tackle.wav")
                current_HP = int(diglett_HP.get())
                new_HP = current_HP - 6
                diglett_HP.set(str(new_HP))
@@ -3822,8 +3993,8 @@ def juegoSquir():
                CRT2.place(x = 250, y = 320)
                Label_por_letra(MOP, "Squirtle ha usado Pistola Agua", 0.03)
                Crítico(CRT2, "¡Golpe Crítico", 0.03)
-               #Reproducir_Impactrueno(r"C:\Users\unity\Downloads\Thunderbolt.wav")
-               time.sleep(1.9)
+               ReproducirSonido("Sonidos\Water-Gun.wav")
+               time.sleep(1.1)
                current_HP = int(diglett_HP.get())
                new_HP = current_HP - 9
                diglett_HP.set(str(new_HP))
@@ -3835,8 +4006,8 @@ def juegoSquir():
           else:
                MOP.place(x = 50, y = 420)
                Label_por_letra(MOP, "Squirtle ha usado Pistola Agua", 0.03)
-               #Reproducir_Impactrueno(r"C:\Users\unity\Downloads\Thunderbolt.wav")
-               time.sleep(1.9)
+               ReproducirSonido("Sonidos\Water-Gun.wav")
+               time.sleep(1.1)
                current_HP = int(diglett_HP.get())
                new_HP = current_HP - 4
                diglett_HP.set(str(new_HP))
@@ -3870,8 +4041,8 @@ def juegoSquir():
                CRT2.place(x = 250, y = 300)
                Label_por_letra(MOP, "Squirtle ha usado HidroBomba", 0.03)
                Crítico(CRT2, "¡Golpe Crítico!", 0.1)
-               #Reproducir_Cola(r"C:\Users\unity\Downloads\Iron-Tail.wav")
-               time.sleep(1.2)
+               ReproducirSonido("Sonidos\Waterfall.wav")
+               time.sleep(2)
                current_HP = int(diglett_HP.get())
                new_HP = current_HP - 19
                diglett_HP.set(str(new_HP))
@@ -3883,8 +4054,8 @@ def juegoSquir():
           else:
                MOP.place(x = 50, y = 420)
                Label_por_letra(MOP, "Squirtle ha usado HidroBomba", 0.03)
-               #Reproducir_Cola(r"C:\Users\unity\Downloads\Iron-Tail.wav")
-               time.sleep(1.2)
+               ReproducirSonido("Sonidos\Waterfall.wav")
+               time.sleep(2)
                current_HP = int(diglett_HP.get())
                new_HP = current_HP - 9
                diglett_HP.set(str(new_HP))
@@ -3919,7 +4090,8 @@ def juegoSquir():
                CRT2.place(x = 250, y = 320)
                Label_por_letra(MOP, "Squirtle ha usado Burbuja", 0.03)
                Crítico(CRT2, "¡Golpe Crítico!", 0.1)
-               #Reproducir_Electrobola(r"C:\Users\unity\Downloads\Thunder-Shock.wav")
+               ReproducirSonido("Sonidos\Water-Pulse.wav")
+               time.sleep(2)
                current_HP = int(diglett_HP.get())
                new_HP = current_HP - 14
                diglett_HP.set(str(new_HP))
@@ -3931,6 +4103,8 @@ def juegoSquir():
           else:
                MOP.place(x = 50, y = 420)
                Label_por_letra(MOP, "Squirtle ha usado Burbuja", 0.03)
+               ReproducirSonido("Sonidos\Water-Pulse.wav")
+               time.sleep(2)
                current_HP = int(diglett_HP.get())
                new_HP = current_HP - 7
                diglett_HP.set(str(new_HP))
@@ -3963,8 +4137,9 @@ def juegoSquir():
           if current_HP + 30 >= 150:
                new_HP = 150
                VID.place(x = 300, y = 350)
-               Label_por_letra(VID, "Los PS están al máximo", 0.03)
-               time.sleep(0.8)
+               Label_por_letra(VID, "Los PS están al máximo", 0.05)
+               ReproducirSonido("Sonidos\In-Battle Heal HP Restore.wav")
+               time.sleep(1)
                pikachu_HP.set(str(new_HP))
                VID.place_forget()
                if(Defi <= 4):
@@ -3983,7 +4158,9 @@ def juegoSquir():
                     Terremoto()
           else:
                new_HP = current_HP + 30
-               Label_por_letra(VID, "La vida ha incrementado", 0.03)
+               Label_por_letra(VID, "La vida ha incrementado", 0.05)
+               ReproducirSonido("Sonidos\In-Battle Heal HP Restore.wav")
+               time.sleep(1)
                pikachu_HP.set(str(new_HP))
                if(Defi <= 4):
                     GolpeRoca()
@@ -4116,6 +4293,7 @@ def juegoSquir():
                          if thread != threading.current_thread():
                               thread.stop()
                          diglett_HP.set(str(0))
+                         ReproducirSonido("Sonidos\In-Battle Faint No Health.wav")
                          canvas.delete(image_id2)
                          GOD.place(x = 50, y = 420)
                          GOP.place(x = 50, y = 450)
@@ -4129,6 +4307,7 @@ def juegoSquir():
                          if thread != threading.current_thread():
                               thread.stop()
                          pikachu_HP.set(str(0))
+                         ReproducirSonido("Sonidos\In-Battle Faint No Health.wav")
                          canvas.delete(image_id)
                          GOD.place(x = 50, y = 420)
                          GOP.place(x = 50, y = 450)
@@ -4161,7 +4340,7 @@ def juegoSquir():
      boton_aranazo = tk.Button(juegoSquir, text = "Placaje", command = Cuadruple_ComandoA)
      boton_aranazo.place(x = 50, y = 420)
 
-     boton_Impactrueno = tk.Button(juegoSquir, text = "Pistola de agua", command = Cuadruple_ComandoI)
+     boton_Impactrueno = tk.Button(juegoSquir, text = "Pistola Agua", command = Cuadruple_ComandoI)
      boton_Impactrueno.place(x = 150, y = 420)
 
      boton_ColaHierro = tk.Button(juegoSquir, text = "HidroBomba", command = Cuadruple_ComandoC)
@@ -4177,10 +4356,12 @@ def juegoSquir():
      juegoSquir.mainloop()
 
 Juego=tk.Tk()
-
 Juego.title("Pokemon")
-Juego.geometry('280x150')
+Juego.geometry('280x190')
 Juego.resizable(0,0)
+Digfont = tF.Font(family = "Helvetica", size = 12)
+img = PhotoImage(file = "Imagenes\poke.png")
+Juego.iconphoto(False, img)
 
 BG = Image.open ('Imagenes/BG menu seleccion.png')
 BG=BG.resize((280,150))
@@ -4188,8 +4369,8 @@ imagentk = ImageTk.PhotoImage(BG)
 etiquetaimagen = tk.Label(Juego, image=imagentk)
 etiquetaimagen.place(x=0,y=0)
 
-JuegoDigglet = ctk.CTkButton(Juego,text = "Diglett", command = juegoDigg ,width=130,fg_color='#EEE', text_color='#000',height=10,hover_color='#AAA',border_width=2,border_color='#000',bg_color='transparent')
-JuegoDigglet.place(x=8,y=28)
+JuegoDiglett = ctk.CTkButton(Juego,text = "Diglett", command = juegoDigg ,width=130,fg_color='#EEE', text_color='#000',height=10,hover_color='#AAA',border_width=2,border_color='#000',bg_color='transparent')
+JuegoDiglett.place(x=8,y=28)
 JuegoPikachu = ctk.CTkButton(Juego,text = "Pikachu", command = juegoPik ,width=130,fg_color='#EEE', text_color='#000',height=10,hover_color='#AAA',border_width=2,border_color='#000',bg_color='transparent')
 JuegoPikachu.place(x=8,y=65)
 JuegoPidgey = ctk.CTkButton(Juego,text = "Pidgey", command = juegoPid ,width=130,fg_color='#EEE', text_color='#000',height=10,hover_color='#AAA',border_width=2,border_color='#000',bg_color='transparent')
@@ -4200,4 +4381,6 @@ JuegoBulbasaur = ctk.CTkButton(Juego,text = "Charmander", command = juegoBulb ,w
 JuegoBulbasaur.place(x=148,y=65)
 JuegoSquirtle = ctk.CTkButton(Juego,text = "Squirtle", command = juegoSquir,width=130,fg_color='#EEE', text_color='#000',height=10,hover_color='#AAA',border_width=2,border_color='#000',bg_color='transparent')
 JuegoSquirtle.place(x=148,y=105)
+Seleccion = tk.Label(Juego, text = "¡Escoge a tu Pokemón!" , font = Digfont)
+Seleccion.place(x = 60, y = 160)
 Juego.mainloop()
