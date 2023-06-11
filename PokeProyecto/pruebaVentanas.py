@@ -1,6 +1,5 @@
 import tkinter as tk
 import customtkinter as ctk
-from tkinter import ttk,font
 from tkinter import *
 import random as rd
 from PIL import Image, ImageTk
@@ -135,19 +134,19 @@ def juegoDigg():
                GOP.after(2000, lambda: GOP.config(text = ''))
 
      #Efectos de sonido
-     ruta_musica = r"Imagenes\Regirock_Regice_Registeel_Battle_-_Pokemon_Ruby_Sapphire_High_Quality-YoutubeConvert.cc.wav"
-     pg.mixer.music.load(ruta_musica) #Carga la música desde la ruta, puede ser declarada ahí mismo o declararla en una variable y usarla en la función
-     pg.mixer.music.play(-1)
+     #ruta_musica = r"Imagenes\Regirock_Regice_Registeel_Battle_-_Pokemon_Ruby_Sapphire_High_Quality-YoutubeConvert.cc.wav"
+     #pg.mixer.music.load(ruta_musica) #Carga la música desde la ruta, puede ser declarada ahí mismo o declararla en una variable y usarla en la función
+     #pg.mixer.music.play(-1)
      #Movimientos que Diglett puede hacer
      def GolpeRoca():
           Crt = rd.randint(1,15) #Valor que define si sale crítico o no
           if(Crt == 2 or Crt == 5):
                CRT.place(x = 250, y = 300)
                MOD.place(x = 50, y = 450)
-               Label_por_letra(MOD, "Pikachu ha usado Arañazo", 0.05) #Label en donde se escribe, texto a escribir, tiempo de escritura que manda a "dormir" la consola entre letra y letra
-               Crítico(CRT, "¡Golpe Crítico!", 0.05) #Lo mismo que el anterior
+               Label_por_letra(MOD, "Pikachu ha usado Arañazo", 0.03) #Label en donde se escribe, texto a escribir, tiempo de escritura que manda a "dormir" la consola entre letra y letra
+               Crítico(CRT, "¡Golpe Crítico!", 0.03) #Lo mismo que el anterior
                current_HP = int(pikachu_HP.get())
-               new_HP = current_HP - 24
+               new_HP = current_HP - 9
                pikachu_HP.set(str(new_HP))
                PikHP.configure(text=pikachu_HP)
                MOD.place_forget()
@@ -155,9 +154,9 @@ def juegoDigg():
                GameO()
           else:
                current_HP = int(pikachu_HP.get())
-               new_HP = current_HP - 12
+               new_HP = current_HP - 4
                MOD.place(x = 50, y = 450)
-               Label_por_letra(MOD, "Pikachu ha usado Arañazo", 0.05)
+               Label_por_letra(MOD, "Pikachu ha usado Arañazo", 0.03)
                pikachu_HP.set(str(new_HP))
                PikHP.configure(text=pikachu_HP)
                MOD.place_forget()
@@ -169,10 +168,10 @@ def juegoDigg():
           if(Crt == 2 or Crt == 5):
                CRT.place(x = 250, y = 300)
                MOD.place(x = 50, y = 450)
-               Label_por_letra(MOD, "Pikachu ha usado Impactrueno", 0.05)
-               Crítico(CRT, "¡Golpe Crítico!", 0.05)
+               Label_por_letra(MOD, "Pikachu ha usado Impactrueno", 0.03)
+               Crítico(CRT, "¡Golpe Crítico!", 0.03)
                current_HP = int(pikachu_HP.get())
-               new_HP = current_HP - 18
+               new_HP = current_HP - 10
                pikachu_HP.set(str(new_HP))
                PikHP.configure(text=pikachu_HP)
                MOD.place_forget()
@@ -181,8 +180,8 @@ def juegoDigg():
           else:
                MOD.place(x = 50, y = 450)
                current_HP = int(pikachu_HP.get())
-               new_HP = current_HP - 9
-               Label_por_letra(MOD, "Pikachu ha usado Impactrueno", 0.05)
+               new_HP = current_HP - 5
+               Label_por_letra(MOD, "Pikachu ha usado Impactrueno", 0.03)
                pikachu_HP.set(str(new_HP))
                PikHP.configure(text=pikachu_HP)
                MOD.place_forget()
@@ -193,10 +192,10 @@ def juegoDigg():
           if(Crt == 2 or Crt == 5):
                CRT.place(x = 250, y = 300)
                MOD.place(x = 50, y = 450)
-               Label_por_letra(MOD, "Pikachu ha usado Cola de Hierro", 0.05)
-               Crítico(CRT, "¡Golpe Crítico!", 0.05)
+               Label_por_letra(MOD, "Pikachu ha usado Cola de Hierro", 0.03)
+               Crítico(CRT, "¡Golpe Crítico!", 0.03)
                current_HP = int(pikachu_HP.get())
-               new_HP = current_HP - 22
+               new_HP = current_HP - 13
                pikachu_HP.set(str(new_HP))
                PikHP.configure(text=pikachu_HP)
                CRT.place_forget()
@@ -204,9 +203,9 @@ def juegoDigg():
                GameO()
           else:
                MOD.place(x = 50, y = 450)
-               Label_por_letra(MOD, "Pikachu ha usado Cola de Hierro", 0.05)
+               Label_por_letra(MOD, "Pikachu ha usado Cola de Hierro", 0.03)
                current_HP = int(pikachu_HP.get())
-               new_HP = current_HP - 12
+               new_HP = current_HP - 6
                pikachu_HP.set(str(new_HP))
                PikHP.configure(text=pikachu_HP)
                MOD.place_forget()
@@ -217,10 +216,10 @@ def juegoDigg():
           if(Crt == 2, Crt == 5):
                CRT.place(x = 250, y = 300)
                MOD.place(x = 50, y = 450)
-               Label_por_letra(MOD, "Pikachu ha usado Electrobola", 0.05)
-               Crítico(CRT, "¡Golpe Crítico!", 0.05)
+               Label_por_letra(MOD, "Pikachu ha usado Electrobola", 0.03)
+               Crítico(CRT, "¡Golpe Crítico!", 0.03)
                current_HP = int(pikachu_HP.get())
-               new_HP = current_HP - 25
+               new_HP = current_HP - 8
                pikachu_HP.set(str(new_HP))
                PikHP.configure(text=pikachu_HP)
                CRT.place_forget()
@@ -228,9 +227,9 @@ def juegoDigg():
                GameO()
           else:
                MOD.place(x = 50, y = 450)
-               Label_por_letra(MOD, "Pikachu ha usado Electrobola", 0.05)
+               Label_por_letra(MOD, "Pikachu ha usado Electrobola", 0.03)
                current_HP = int(pikachu_HP.get())
-               new_HP = current_HP - 15
+               new_HP = current_HP - 4
                pikachu_HP.set(str(new_HP))
                PikHP.configure(text=pikachu_HP)
                MOD.place_forget()
@@ -316,12 +315,12 @@ def juegoDigg():
           if(Crt == 2 or Crt ==5):    
                MOP.place(x = 50, y = 420)
                CRT2.place(x = 250, y = 320)
-               Label_por_letra(MOP, "Diglett ha usado Golpe Roca", 0.05)
-               Crítico(CRT2, "¡Golpe Crítico!", 0.05)
+               Label_por_letra(MOP, "Diglett ha usado Golpe Roca", 0.03)
+               Crítico(CRT2, "¡Golpe Crítico!", 0.03)
                #Reproducir_Slam(r"C:\Users\unity\Downloads\Slam.wav")
                time.sleep(0.5)
                current_HP = int(diglett_HP.get())
-               new_HP = current_HP - 18
+               new_HP = current_HP - 15
                diglett_HP.set(str(new_HP))
                PikHP.configure(text = diglett_HP) #Actualiza la vida
                MOP.place_forget()
@@ -330,11 +329,11 @@ def juegoDigg():
                GameO()
           else:
                MOP.place(x = 50, y = 420)
-               Label_por_letra(MOP, "Diglett ha usado Golpe Roca", 0.05)
+               Label_por_letra(MOP, "Diglett ha usado Golpe Roca", 0.03)
                #Reproducir_Slam(r"C:\Users\unity\Downloads\Slam.wav")
                time.sleep(0.5)
                current_HP = int(diglett_HP.get())
-               new_HP = current_HP - 18
+               new_HP = current_HP - 9
                diglett_HP.set(str(new_HP))
                PikHP.configure(text = diglett_HP) #Actualiza la vida
                MOP.place_forget()
@@ -342,21 +341,21 @@ def juegoDigg():
                GameO()
                
                
-          Defi = rd.randint(1, 4) #Valor que define que movimiento va a usar Diglett en el sig. turno
+          Defi = rd.randint(1, 10) #Valor que define que movimiento va a usar Diglett en el sig. turno
 
-          if(Defi == 1):
+          if(Defi <= 4):
                     GolpeRoca()
                    
 
-          if (Defi == 2):
+          if (Defi >= 5 and Defi <=7):
                     Cuchillada()
                     
 
-          if (Defi == 3):
+          if (Defi == 8 or Defi == 9):
                     Fisura()
                     
 
-          if (Defi == 4):
+          if (Defi == 10):
                     Terremoto()
                     
      def Impactrueno():
@@ -365,100 +364,10 @@ def juegoDigg():
           if(Crt == 2 or Crt == 5):
                MOP.place(x = 50, y = 420)
                CRT2.place(x = 250, y = 320)
-               Label_por_letra(MOP, "Diglett ha usado Cuchillada", 0.05)
-               Crítico(CRT2, "¡Golpe Crítico", 0.05)
+               Label_por_letra(MOP, "Diglett ha usado Cuchillada", 0.03)
+               Crítico(CRT2, "¡Golpe Crítico", 0.03)
                #Reproducir_Impactrueno(r"C:\Users\unity\Downloads\Thunderbolt.wav")
                time.sleep(1.9)
-               current_HP = int(diglett_HP.get())
-               new_HP = current_HP - 6
-               diglett_HP.set(str(new_HP))
-               PikHP.configure(text = diglett_HP)
-               MOP.place_forget()
-               CRT2.place_forget()
-               time.sleep(0.8)
-               GameO()
-          else:
-               MOP.place(x = 50, y = 420)
-               Label_por_letra(MOP, "Diglett ha usado Cuchillada", 0.05)
-               #Reproducir_Impactrueno(r"C:\Users\unity\Downloads\Thunderbolt.wav")
-               time.sleep(1.9)
-               current_HP = int(diglett_HP.get())
-               new_HP = current_HP - 3
-               diglett_HP.set(str(new_HP))
-               PikHP.configure(text = diglett_HP)
-               MOP.place_forget()
-               time.sleep(0.8)
-               GameO()
-          
-          Defi = rd.randint(1, 4)
-
-          if(Defi == 1):
-                    GolpeRoca()
-
-          if (Defi == 2):
-                    Cuchillada()
-
-          if (Defi == 3):
-                    Fisura()
-
-          if (Defi == 4):
-                    Terremoto()
-
-     def ColaHierro():
-          diglett_HP
-          Crt = rd.randint(1,15)
-          if(Crt == 2 or Crt == 5):
-               MOP.place(x = 50, y = 420)
-               CRT2.place(x = 250, y = 300)
-               Label_por_letra(MOP, "Diglett ha usado Fisura", 0.05)
-               Crítico(CRT2, "¡Golpe Crítico!", 0.1)
-               #Reproducir_Cola(r"C:\Users\unity\Downloads\Iron-Tail.wav")
-               time.sleep(1.2)
-               current_HP = int(diglett_HP.get())
-               new_HP = current_HP - 20
-               diglett_HP.set(str(new_HP))
-               PikHP.configure(text = diglett_HP)
-               MOP.place_forget()
-               CRT2.place_forget()
-               time.sleep(0.8)
-               GameO()
-          else:
-               MOP.place(x = 50, y = 420)
-               Label_por_letra(MOP, "Diglett ha usado Fisura", 0.05)
-               #Reproducir_Cola(r"C:\Users\unity\Downloads\Iron-Tail.wav")
-               time.sleep(1.2)
-               current_HP = int(diglett_HP.get())
-               new_HP = current_HP - 10
-               diglett_HP.set(str(new_HP))
-               PikHP.configure(text = diglett_HP)
-               MOP.place_forget()
-               time.sleep(0.8)
-               GameO()
-          
-          Defi = rd.randint(1, 4)
-
-          if(Defi == 1):
-                    GolpeRoca()
-
-          if (Defi == 2):
-                    Cuchillada()
-
-          if (Defi == 3):
-                    Fisura()
-
-          if (Defi == 4):
-                    Terremoto()
-
-
-     def Electrobola():
-          pikachu_HP
-          Crt = rd.randint(1,15)
-          if(Crt == 2 or Crt==5):
-               MOP.place(x = 50, y = 420)
-               CRT2.place(x = 250, y = 320)
-               Label_por_letra(MOP, "Diglett ha usado Terremoto", 0.05)
-               Crítico(CRT2, "¡Golpe Crítico!", 0.1)
-               #Reproducir_Electrobola(r"C:\Users\unity\Downloads\Thunder-Shock.wav")
                current_HP = int(diglett_HP.get())
                new_HP = current_HP - 8
                diglett_HP.set(str(new_HP))
@@ -469,7 +378,9 @@ def juegoDigg():
                GameO()
           else:
                MOP.place(x = 50, y = 420)
-               Label_por_letra(MOP, "Diglett ha usado Terremoto", 0.05)
+               Label_por_letra(MOP, "Diglett ha usado Cuchillada", 0.03)
+               #Reproducir_Impactrueno(r"C:\Users\unity\Downloads\Thunderbolt.wav")
+               time.sleep(1.9)
                current_HP = int(diglett_HP.get())
                new_HP = current_HP - 4
                diglett_HP.set(str(new_HP))
@@ -477,57 +388,160 @@ def juegoDigg():
                MOP.place_forget()
                time.sleep(0.8)
                GameO()
-               
-          Defi = rd.randint(1, 4)
           
-          if(Defi == 1):
+          Defi = rd.randint(1, 10) #Valor que define que movimiento va a usar Diglett en el sig. turno
+
+          if(Defi <= 4):
                     GolpeRoca()
+                   
 
-          if (Defi == 2):
+          if (Defi >= 5 and Defi <=7):
                     Cuchillada()
+                    
 
-          if (Defi == 3):
+          if (Defi == 8 or Defi == 9):
                     Fisura()
+                    
 
-          if (Defi == 4):
+          if (Defi == 10):
+                    Terremoto()
+
+     def ColaHierro():
+          diglett_HP
+          Crt = rd.randint(1,15)
+          if(Crt == 2 or Crt == 5):
+               MOP.place(x = 50, y = 420)
+               CRT2.place(x = 250, y = 300)
+               Label_por_letra(MOP, "Diglett ha usado Fisura", 0.03)
+               Crítico(CRT2, "¡Golpe Crítico!", 0.1)
+               #Reproducir_Cola(r"C:\Users\unity\Downloads\Iron-Tail.wav")
+               time.sleep(1.2)
+               current_HP = int(diglett_HP.get())
+               new_HP = current_HP - 12
+               diglett_HP.set(str(new_HP))
+               PikHP.configure(text = diglett_HP)
+               MOP.place_forget()
+               CRT2.place_forget()
+               time.sleep(0.8)
+               GameO()
+          else:
+               MOP.place(x = 50, y = 420)
+               Label_por_letra(MOP, "Diglett ha usado Fisura", 0.03)
+               #Reproducir_Cola(r"C:\Users\unity\Downloads\Iron-Tail.wav")
+               time.sleep(1.2)
+               current_HP = int(diglett_HP.get())
+               new_HP = current_HP - 7
+               diglett_HP.set(str(new_HP))
+               PikHP.configure(text = diglett_HP)
+               MOP.place_forget()
+               time.sleep(0.8)
+               GameO()
+          
+          Defi = rd.randint(1, 10) #Valor que define que movimiento va a usar Diglett en el sig. turno
+
+          if(Defi <= 4):
+                    GolpeRoca()
+                   
+
+          if (Defi >= 5 and Defi <=7):
+                    Cuchillada()
+                    
+
+          if (Defi == 8 or Defi == 9):
+                    Fisura()
+                    
+
+          if (Defi == 10):
+                    Terremoto()
+
+
+     def Electrobola():
+          pikachu_HP
+          Crt = rd.randint(1,15)
+          if(Crt == 2 or Crt==5):
+               MOP.place(x = 50, y = 420)
+               CRT2.place(x = 250, y = 320)
+               Label_por_letra(MOP, "Diglett ha usado Terremoto", 0.03)
+               Crítico(CRT2, "¡Golpe Crítico!", 0.1)
+               #Reproducir_Electrobola(r"C:\Users\unity\Downloads\Thunder-Shock.wav")
+               current_HP = int(diglett_HP.get())
+               new_HP = current_HP - 16
+               diglett_HP.set(str(new_HP))
+               PikHP.configure(text = diglett_HP)
+               MOP.place_forget()
+               CRT2.place_forget()
+               time.sleep(0.8)
+               GameO()
+          else:
+               MOP.place(x = 50, y = 420)
+               Label_por_letra(MOP, "Diglett ha usado Terremoto", 0.03)
+               current_HP = int(diglett_HP.get())
+               new_HP = current_HP - 9
+               diglett_HP.set(str(new_HP))
+               PikHP.configure(text = diglett_HP)
+               MOP.place_forget()
+               time.sleep(0.8)
+               GameO()
+               
+          Defi = rd.randint(1, 10) #Valor que define que movimiento va a usar Diglett en el sig. turno
+
+          if(Defi <= 4):
+                    GolpeRoca()
+                   
+
+          if (Defi >= 5 and Defi <=7):
+                    Cuchillada()
+                    
+
+          if (Defi == 8 or Defi == 9):
+                    Fisura()
+                    
+
+          if (Defi == 10):
                     Terremoto()
 
 
      def Vida():
-          Defi = rd.randint(1, 4)
+          Defi = rd.randint(1, 10)
           current_HP = int(pikachu_HP.get())
           if current_HP + 30 >= 150:
                new_HP = 150
                VID.place(x = 300, y = 350)
-               Label_por_letra(VID, "Los PS están al máximo", 0.05)
+               Label_por_letra(VID, "Los PS están al máximo", 0.03)
                time.sleep(0.8)
                pikachu_HP.set(str(new_HP))
                VID.place_forget()
-               if(Defi == 1):
+               if(Defi <= 4):
                     GolpeRoca()
+                   
 
-               if (Defi == 2):
+               if (Defi >= 5 and Defi <=7):
                     Cuchillada()
+                    
 
-               if (Defi == 3):
+               if (Defi == 8 or Defi == 9):
                     Fisura()
+                    
 
-               if (Defi == 4):
+               if (Defi == 10):
                     Terremoto()
           else:
                new_HP = current_HP + 30
-               Label_por_letra(VID, "La vida ha incrementado", 0.05)
+               Label_por_letra(VID, "La vida ha incrementado", 0.03)
                pikachu_HP.set(str(new_HP))
-               if(Defi == 1):
+               if(Defi <= 4):
                     GolpeRoca()
+                   
 
-               if (Defi == 2):
+               if (Defi >= 5 and Defi <=7):
                     Cuchillada()
+                    
 
-               if (Defi == 3):
+               if (Defi == 8 or Defi == 9):
                     Fisura()
+                    
 
-               if (Defi == 4):
+               if (Defi == 10):
                     Terremoto()
 
      #Contadores de movimientos y usos máximos 
@@ -649,8 +663,8 @@ def juegoDigg():
                          canvas.delete(image_id2)
                          GOD.place(x = 50, y = 420)
                          GOP.place(x = 50, y = 450)
-                         Label_por_letra(GOD, "Pikachu enemigo ha perdido la pelea", 0.05)
-                         Label_por_letra(GOP, "Diglett es el ganador", 0.05)
+                         Label_por_letra(GOD, "Pikachu enemigo ha perdido la pelea", 0.03)
+                         Label_por_letra(GOP, "Diglett es el ganador", 0.03)
                          GOD.place_forget()
                          GOP.place_forget()
                          time.sleep(1.8)
@@ -662,8 +676,8 @@ def juegoDigg():
                          canvas.delete(image_id)
                          GOD.place(x = 50, y = 420)
                          GOP.place(x = 50, y = 450)
-                         Label_por_letra(GOD, "Diglett ha perdido la pelea", 0.05)
-                         Label_por_letra(GOP, "Pikachu enemigo ha ganado la pelea", 0.05)
+                         Label_por_letra(GOD, "Diglett ha perdido la pelea", 0.03)
+                         Label_por_letra(GOP, "Pikachu enemigo ha ganado la pelea", 0.03)
                          GOD.place_forget()
                          GOP.place_forget()
                          time.sleep(1.8)
@@ -821,10 +835,10 @@ def juegoPik():
           if(Crt == 2 or Crt == 5):
                CRT.place(x = 250, y = 300)
                MOD.place(x = 50, y = 450)
-               Label_por_letra(MOD, "Pidgey ha usado Placaje", 0.05) #Label en donde se escribe, texto a escribir, tiempo de escritura que manda a "dormir" la consola entre letra y letra
-               Crítico(CRT, "¡Golpe Crítico!", 0.05) #Lo mismo que el anterior
+               Label_por_letra(MOD, "Pidgey ha usado Placaje", 0.03) #Label en donde se escribe, texto a escribir, tiempo de escritura que manda a "dormir" la consola entre letra y letra
+               Crítico(CRT, "¡Golpe Crítico!", 0.03) #Lo mismo que el anterior
                current_HP = int(pikachu_HP.get())
-               new_HP = current_HP - 24
+               new_HP = current_HP - 10
                pikachu_HP.set(str(new_HP))
                PikHP.configure(text=pikachu_HP)
                MOD.place_forget()
@@ -832,9 +846,9 @@ def juegoPik():
                GameO()
           else:
                current_HP = int(pikachu_HP.get())
-               new_HP = current_HP - 12
+               new_HP = current_HP - 5
                MOD.place(x = 50, y = 450)
-               Label_por_letra(MOD, "Pidgey ha usado Placaje", 0.05)
+               Label_por_letra(MOD, "Pidgey ha usado Placaje", 0.03)
                pikachu_HP.set(str(new_HP))
                PikHP.configure(text=pikachu_HP)
                MOD.place_forget()
@@ -846,10 +860,10 @@ def juegoPik():
           if(Crt == 2 or Crt == 5):
                CRT.place(x = 250, y = 300)
                MOD.place(x = 50, y = 450)
-               Label_por_letra(MOD, "Pidgey ha usado Tornado", 0.05)
-               Crítico(CRT, "¡Golpe Crítico!", 0.05)
+               Label_por_letra(MOD, "Pidgey ha usado Tornado", 0.03)
+               Crítico(CRT, "¡Golpe Crítico!", 0.03)
                current_HP = int(pikachu_HP.get())
-               new_HP = current_HP - 18
+               new_HP = current_HP - 8
                pikachu_HP.set(str(new_HP))
                PikHP.configure(text=pikachu_HP)
                MOD.place_forget()
@@ -858,8 +872,8 @@ def juegoPik():
           else:
                MOD.place(x = 50, y = 450)
                current_HP = int(pikachu_HP.get())
-               new_HP = current_HP - 9
-               Label_por_letra(MOD, "Pidgey ha usado Tornado", 0.05)
+               new_HP = current_HP - 4
+               Label_por_letra(MOD, "Pidgey ha usado Tornado", 0.03)
                pikachu_HP.set(str(new_HP))
                PikHP.configure(text=pikachu_HP)
                MOD.place_forget()
@@ -870,10 +884,10 @@ def juegoPik():
           if(Crt == 2 or Crt == 5):
                CRT.place(x = 250, y = 300)
                MOD.place(x = 50, y = 450)
-               Label_por_letra(MOD, "Pidgey ha usado Ataque ala", 0.05)
-               Crítico(CRT, "¡Golpe Crítico!", 0.05)
+               Label_por_letra(MOD, "Pidgey ha usado Ataque ala", 0.03)
+               Crítico(CRT, "¡Golpe Crítico!", 0.03)
                current_HP = int(pikachu_HP.get())
-               new_HP = current_HP - 22
+               new_HP = current_HP - 11
                pikachu_HP.set(str(new_HP))
                PikHP.configure(text=pikachu_HP)
                CRT.place_forget()
@@ -881,9 +895,9 @@ def juegoPik():
                GameO()
           else:
                MOD.place(x = 50, y = 450)
-               Label_por_letra(MOD, "Pidgey ha usado Ataque ala", 0.05)
+               Label_por_letra(MOD, "Pidgey ha usado Ataque ala", 0.03)
                current_HP = int(pikachu_HP.get())
-               new_HP = current_HP - 12
+               new_HP = current_HP - 5
                pikachu_HP.set(str(new_HP))
                PikHP.configure(text=pikachu_HP)
                MOD.place_forget()
@@ -894,10 +908,10 @@ def juegoPik():
           if(Crt == 2, Crt == 5):
                CRT.place(x = 250, y = 300)
                MOD.place(x = 50, y = 450)
-               Label_por_letra(MOD, "Pidgey ha usado Ala de acero", 0.05)
-               Crítico(CRT, "¡Golpe Crítico!", 0.05)
+               Label_por_letra(MOD, "Pidgey ha usado Ala de acero", 0.03)
+               Crítico(CRT, "¡Golpe Crítico!", 0.03)
                current_HP = int(pikachu_HP.get())
-               new_HP = current_HP - 25
+               new_HP = current_HP - 8
                pikachu_HP.set(str(new_HP))
                PikHP.configure(text=pikachu_HP)
                CRT.place_forget()
@@ -905,9 +919,9 @@ def juegoPik():
                GameO()
           else:
                MOD.place(x = 50, y = 450)
-               Label_por_letra(MOD, "Pidgey ha usado Ala de acero", 0.05)
+               Label_por_letra(MOD, "Pidgey ha usado Ala de acero", 0.03)
                current_HP = int(pikachu_HP.get())
-               new_HP = current_HP - 15
+               new_HP = current_HP - 4
                pikachu_HP.set(str(new_HP))
                PikHP.configure(text=pikachu_HP)
                MOD.place_forget()
@@ -993,12 +1007,12 @@ def juegoPik():
           if(Crt == 2 or Crt ==5):    
                MOP.place(x = 50, y = 420)
                CRT2.place(x = 250, y = 320)
-               Label_por_letra(MOP, "Pikachu ha usado Arañazo", 0.05)
-               Crítico(CRT2, "¡Golpe Crítico!", 0.05)
+               Label_por_letra(MOP, "Pikachu ha usado Arañazo", 0.03)
+               Crítico(CRT2, "¡Golpe Crítico!", 0.03)
                #Reproducir_Slam(r"C:\Users\unity\Downloads\Slam.wav")
                time.sleep(0.5)
                current_HP = int(diglett_HP.get())
-               new_HP = current_HP - 18
+               new_HP = current_HP - 9
                diglett_HP.set(str(new_HP))
                PidHP.configure(text = diglett_HP) #Actualiza la vida
                MOP.place_forget()
@@ -1007,11 +1021,11 @@ def juegoPik():
                GameO()
           else:
                MOP.place(x = 50, y = 420)
-               Label_por_letra(MOP, "Pikachu ha usado Arañazo", 0.05)
+               Label_por_letra(MOP, "Pikachu ha usado Arañazo", 0.03)
                #Reproducir_Slam(r"C:\Users\unity\Downloads\Slam.wav")
                time.sleep(0.5)
                current_HP = int(diglett_HP.get())
-               new_HP = current_HP - 18
+               new_HP = current_HP - 4
                diglett_HP.set(str(new_HP))
                PidHP.configure(text = diglett_HP) #Actualiza la vida
                MOP.place_forget()
@@ -1019,21 +1033,21 @@ def juegoPik():
                GameO()
                
                
-          Defi = rd.randint(1, 4) #Valor que define que movimiento va a usar Diglett en el sig. turno
+               Defi = rd.randint(1, 10) #Valor que define que movimiento va a usar Diglett en el sig. turno
 
-          if(Defi == 1):
+               if(Defi <= 4):
                     GolpeRoca()
                    
 
-          if (Defi == 2):
+               if (Defi >= 5 and Defi <=7):
                     Cuchillada()
                     
 
-          if (Defi == 3):
+               if (Defi == 8 or Defi == 9):
                     Fisura()
                     
 
-          if (Defi == 4):
+               if (Defi == 10):
                     Terremoto()
                     
      def Impactrueno():
@@ -1042,12 +1056,12 @@ def juegoPik():
           if(Crt == 2 or Crt == 5):
                MOP.place(x = 50, y = 420)
                CRT2.place(x = 250, y = 320)
-               Label_por_letra(MOP, "Pikachu ha usado Impactrueno", 0.05)
-               Crítico(CRT2, "¡Golpe Crítico", 0.05)
+               Label_por_letra(MOP, "Pikachu ha usado Impactrueno", 0.03)
+               Crítico(CRT2, "¡Golpe Crítico", 0.03)
                #Reproducir_Impactrueno(r"C:\Users\unity\Downloads\Thunderbolt.wav")
                time.sleep(1.9)
                current_HP = int(diglett_HP.get())
-               new_HP = current_HP - 6
+               new_HP = current_HP - 10
                diglett_HP.set(str(new_HP))
                PidHP.configure(text = diglett_HP)
                MOP.place_forget()
@@ -1056,29 +1070,32 @@ def juegoPik():
                GameO()
           else:
                MOP.place(x = 50, y = 420)
-               Label_por_letra(MOP, "Pikachu ha usado Impactrueno", 0.05)
+               Label_por_letra(MOP, "Pikachu ha usado Impactrueno", 0.03)
                #Reproducir_Impactrueno(r"C:\Users\unity\Downloads\Thunderbolt.wav")
                time.sleep(1.9)
                current_HP = int(diglett_HP.get())
-               new_HP = current_HP - 3
+               new_HP = current_HP - 5
                diglett_HP.set(str(new_HP))
                PidHP.configure(text = diglett_HP)
                MOP.place_forget()
                time.sleep(0.8)
                GameO()
           
-          Defi = rd.randint(1, 4)
+          Defi = rd.randint(1, 10) #Valor que define que movimiento va a usar Diglett en el sig. turno
 
-          if(Defi == 1):
+          if(Defi <= 4):
                     GolpeRoca()
+                   
 
-          if (Defi == 2):
+          if (Defi >= 5 and Defi <=7):
                     Cuchillada()
+                    
 
-          if (Defi == 3):
+          if (Defi == 8 or Defi == 9):
                     Fisura()
+                    
 
-          if (Defi == 4):
+          if (Defi == 10):
                     Terremoto()
 
      def ColaHierro():
@@ -1087,12 +1104,12 @@ def juegoPik():
           if(Crt == 2 or Crt == 5):
                MOP.place(x = 50, y = 420)
                CRT2.place(x = 250, y = 300)
-               Label_por_letra(MOP, "Pikachu ha usado Cola de Hierro", 0.05)
+               Label_por_letra(MOP, "Pikachu ha usado Cola de Hierro", 0.03)
                Crítico(CRT2, "¡Golpe Crítico!", 0.1)
                #Reproducir_Cola(r"C:\Users\unity\Downloads\Iron-Tail.wav")
                time.sleep(1.2)
                current_HP = int(diglett_HP.get())
-               new_HP = current_HP - 20
+               new_HP = current_HP - 13
                diglett_HP.set(str(new_HP))
                PidHP.configure(text = diglett_HP)
                MOP.place_forget()
@@ -1101,29 +1118,32 @@ def juegoPik():
                GameO()
           else:
                MOP.place(x = 50, y = 420)
-               Label_por_letra(MOP, "Pikachu ha usado Cola de Hierro", 0.05)
+               Label_por_letra(MOP, "Pikachu ha usado Cola de Hierro", 0.03)
                #Reproducir_Cola(r"C:\Users\unity\Downloads\Iron-Tail.wav")
                time.sleep(1.2)
                current_HP = int(diglett_HP.get())
-               new_HP = current_HP - 10
+               new_HP = current_HP - 6
                diglett_HP.set(str(new_HP))
                PidHP.configure(text = diglett_HP)
                MOP.place_forget()
                time.sleep(0.8)
                GameO()
           
-          Defi = rd.randint(1, 4)
+          Defi = rd.randint(1, 10) #Valor que define que movimiento va a usar Diglett en el sig. turno
 
-          if(Defi == 1):
+          if(Defi <= 4):
                     GolpeRoca()
+                   
 
-          if (Defi == 2):
+          if (Defi >= 5 and Defi <=7):
                     Cuchillada()
+                    
 
-          if (Defi == 3):
+          if (Defi == 8 or Defi == 9):
                     Fisura()
+                    
 
-          if (Defi == 4):
+          if (Defi == 10):
                     Terremoto()
 
 
@@ -1133,7 +1153,7 @@ def juegoPik():
           if(Crt == 2 or Crt==5):
                MOP.place(x = 50, y = 420)
                CRT2.place(x = 250, y = 320)
-               Label_por_letra(MOP, "Pikachu ha usado Electrobola", 0.05)
+               Label_por_letra(MOP, "Pikachu ha usado Electrobola", 0.03)
                Crítico(CRT2, "¡Golpe Crítico!", 0.1)
                #Reproducir_Electrobola(r"C:\Users\unity\Downloads\Thunder-Shock.wav")
                current_HP = int(diglett_HP.get())
@@ -1146,7 +1166,7 @@ def juegoPik():
                GameO()
           else:
                MOP.place(x = 50, y = 420)
-               Label_por_letra(MOP, "Pikachu ha usado Electrobola", 0.05)
+               Label_por_letra(MOP, "Pikachu ha usado Electrobola", 0.03)
                current_HP = int(diglett_HP.get())
                new_HP = current_HP - 4
                diglett_HP.set(str(new_HP))
@@ -1155,56 +1175,65 @@ def juegoPik():
                time.sleep(0.8)
                GameO()
                
-          Defi = rd.randint(1, 4)
-          
-          if(Defi == 1):
+          Defi = rd.randint(1, 10) #Valor que define que movimiento va a usar Diglett en el sig. turno
+
+          if(Defi <= 4):
                     GolpeRoca()
+                   
 
-          if (Defi == 2):
+          if (Defi >= 5 and Defi <=7):
                     Cuchillada()
+                    
 
-          if (Defi == 3):
+          if (Defi == 8 or Defi == 9):
                     Fisura()
+                    
 
-          if (Defi == 4):
+          if (Defi == 10):
                     Terremoto()
 
 
      def Vida():
-          Defi = rd.randint(1, 4)
+          Defi = rd.randint(1, 10)
           current_HP = int(pikachu_HP.get())
           if current_HP + 30 >= 150:
                new_HP = 150
                VID.place(x = 300, y = 350)
-               Label_por_letra(VID, "Los PS están al máximo", 0.05)
+               Label_por_letra(VID, "Los PS están al máximo", 0.03)
                time.sleep(0.8)
                pikachu_HP.set(str(new_HP))
                VID.place_forget()
-               if(Defi == 1):
+               if(Defi <= 4):
                     GolpeRoca()
+                   
 
-               if (Defi == 2):
+               if (Defi >= 5 and Defi <=7):
                     Cuchillada()
+                    
 
-               if (Defi == 3):
+               if (Defi == 8 or Defi == 9):
                     Fisura()
+                    
 
-               if (Defi == 4):
+               if (Defi == 10):
                     Terremoto()
           else:
                new_HP = current_HP + 30
-               Label_por_letra(VID, "La vida ha incrementado", 0.05)
+               Label_por_letra(VID, "La vida ha incrementado", 0.03)
                pikachu_HP.set(str(new_HP))
-               if(Defi == 1):
+               if(Defi <= 4):
                     GolpeRoca()
+                   
 
-               if (Defi == 2):
+               if (Defi >= 5 and Defi <=7):
                     Cuchillada()
+                    
 
-               if (Defi == 3):
+               if (Defi == 8 or Defi == 9):
                     Fisura()
+                    
 
-               if (Defi == 4):
+               if (Defi == 10):
                     Terremoto()
 
      #Contadores de movimientos y usos máximos 
@@ -1326,8 +1355,8 @@ def juegoPik():
                          canvas.delete(image_id2)
                          GOD.place(x = 50, y = 420)
                          GOP.place(x = 50, y = 450)
-                         Label_por_letra(GOD, "Pidgey enemigo ha perdido la pelea", 0.05)
-                         Label_por_letra(GOP, "Pikachu es el ganador", 0.05)
+                         Label_por_letra(GOD, "Pidgey enemigo ha perdido la pelea", 0.03)
+                         Label_por_letra(GOP, "Pikachu es el ganador", 0.03)
                          GOD.place_forget()
                          GOP.place_forget()
                          time.sleep(1.8)
@@ -1339,8 +1368,8 @@ def juegoPik():
                          canvas.delete(image_id)
                          GOD.place(x = 50, y = 420)
                          GOP.place(x = 50, y = 450)
-                         Label_por_letra(GOD, "Pikachu ha perdido la pelea", 0.05)
-                         Label_por_letra(GOP, "Pidgey enemigo ha ganado la pelea", 0.05)
+                         Label_por_letra(GOD, "Pikachu ha perdido la pelea", 0.03)
+                         Label_por_letra(GOP, "Pidgey enemigo ha ganado la pelea", 0.03)
                          GOD.place_forget()
                          GOP.place_forget()
                          time.sleep(1.8)
@@ -1497,10 +1526,10 @@ def juegoPid():
           if(Crt == 2 or Crt == 5):
                CRT.place(x = 250, y = 300)
                MOD.place(x = 50, y = 450)
-               Label_por_letra(MOD, "Diglett ha usado Golpe Roca", 0.05) #Label en donde se escribe, texto a escribir, tiempo de escritura que manda a "dormir" la consola entre letra y letra
-               Crítico(CRT, "¡Golpe Crítico!", 0.05) #Lo mismo que el anterior
+               Label_por_letra(MOD, "Diglett ha usado Golpe Roca", 0.03) #Label en donde se escribe, texto a escribir, tiempo de escritura que manda a "dormir" la consola entre letra y letra
+               Crítico(CRT, "¡Golpe Crítico!", 0.03) #Lo mismo que el anterior
                current_HP = int(pikachu_HP.get())
-               new_HP = current_HP - 24
+               new_HP = current_HP - 15
                pikachu_HP.set(str(new_HP))
                PikHP.configure(text=pikachu_HP)
                MOD.place_forget()
@@ -1508,9 +1537,9 @@ def juegoPid():
                GameO()
           else:
                current_HP = int(pikachu_HP.get())
-               new_HP = current_HP - 12
+               new_HP = current_HP - 9
                MOD.place(x = 50, y = 450)
-               Label_por_letra(MOD, "Diglett ha usado Golpe Roca", 0.05)
+               Label_por_letra(MOD, "Diglett ha usado Golpe Roca", 0.03)
                pikachu_HP.set(str(new_HP))
                PikHP.configure(text=pikachu_HP)
                MOD.place_forget()
@@ -1522,10 +1551,10 @@ def juegoPid():
           if(Crt == 2 or Crt == 5):
                CRT.place(x = 250, y = 300)
                MOD.place(x = 50, y = 450)
-               Label_por_letra(MOD, "Diglett ha usado Cuchillada", 0.05)
-               Crítico(CRT, "¡Golpe Crítico!", 0.05)
+               Label_por_letra(MOD, "Diglett ha usado Cuchillada", 0.03)
+               Crítico(CRT, "¡Golpe Crítico!", 0.03)
                current_HP = int(pikachu_HP.get())
-               new_HP = current_HP - 18
+               new_HP = current_HP - 8
                pikachu_HP.set(str(new_HP))
                PikHP.configure(text=pikachu_HP)
                MOD.place_forget()
@@ -1534,8 +1563,8 @@ def juegoPid():
           else:
                MOD.place(x = 50, y = 450)
                current_HP = int(pikachu_HP.get())
-               new_HP = current_HP - 9
-               Label_por_letra(MOD, "Diglett ha usado Cuchillada", 0.05)
+               new_HP = current_HP - 4
+               Label_por_letra(MOD, "Diglett ha usado Cuchillada", 0.03)
                pikachu_HP.set(str(new_HP))
                PikHP.configure(text=pikachu_HP)
                MOD.place_forget()
@@ -1546,10 +1575,10 @@ def juegoPid():
           if(Crt == 2 or Crt == 5):
                CRT.place(x = 250, y = 300)
                MOD.place(x = 50, y = 450)
-               Label_por_letra(MOD, "Diglett ha usado Fisura", 0.05)
-               Crítico(CRT, "¡Golpe Crítico!", 0.05)
+               Label_por_letra(MOD, "Diglett ha usado Fisura", 0.03)
+               Crítico(CRT, "¡Golpe Crítico!", 0.03)
                current_HP = int(pikachu_HP.get())
-               new_HP = current_HP - 22
+               new_HP = current_HP - 12
                pikachu_HP.set(str(new_HP))
                PikHP.configure(text=pikachu_HP)
                CRT.place_forget()
@@ -1557,9 +1586,9 @@ def juegoPid():
                GameO()
           else:
                MOD.place(x = 50, y = 450)
-               Label_por_letra(MOD, "Diglett ha usado Fisura", 0.05)
+               Label_por_letra(MOD, "Diglett ha usado Fisura", 0.03)
                current_HP = int(pikachu_HP.get())
-               new_HP = current_HP - 12
+               new_HP = current_HP - 7
                pikachu_HP.set(str(new_HP))
                PikHP.configure(text=pikachu_HP)
                MOD.place_forget()
@@ -1570,10 +1599,10 @@ def juegoPid():
           if(Crt == 2, Crt == 5):
                CRT.place(x = 250, y = 300)
                MOD.place(x = 50, y = 450)
-               Label_por_letra(MOD, "Diglett ha usado Terremoto", 0.05)
-               Crítico(CRT, "¡Golpe Crítico!", 0.05)
+               Label_por_letra(MOD, "Diglett ha usado Terremoto", 0.03)
+               Crítico(CRT, "¡Golpe Crítico!", 0.03)
                current_HP = int(pikachu_HP.get())
-               new_HP = current_HP - 25
+               new_HP = current_HP - 16
                pikachu_HP.set(str(new_HP))
                PikHP.configure(text=pikachu_HP)
                CRT.place_forget()
@@ -1581,9 +1610,9 @@ def juegoPid():
                GameO()
           else:
                MOD.place(x = 50, y = 450)
-               Label_por_letra(MOD, "Diglett ha usado Terremoto", 0.05)
+               Label_por_letra(MOD, "Diglett ha usado Terremoto", 0.03)
                current_HP = int(pikachu_HP.get())
-               new_HP = current_HP - 15
+               new_HP = current_HP - 9
                pikachu_HP.set(str(new_HP))
                PikHP.configure(text=pikachu_HP)
                MOD.place_forget()
@@ -1668,12 +1697,12 @@ def juegoPid():
           if(Crt == 2 or Crt ==5):    
                MOP.place(x = 50, y = 420)
                CRT2.place(x = 250, y = 320)
-               Label_por_letra(MOP, "Pidgey ha usado Placaje", 0.05)
-               Crítico(CRT2, "¡Golpe Crítico!", 0.05)
+               Label_por_letra(MOP, "Pidgey ha usado Placaje", 0.03)
+               Crítico(CRT2, "¡Golpe Crítico!", 0.03)
                #Reproducir_Slam(r"C:\Users\unity\Downloads\Slam.wav")
                time.sleep(0.5)
                current_HP = int(diglett_HP.get())
-               new_HP = current_HP - 18
+               new_HP = current_HP - 10
                diglett_HP.set(str(new_HP))
                PidHP.configure(text = diglett_HP) #Actualiza la vida
                MOP.place_forget()
@@ -1682,11 +1711,11 @@ def juegoPid():
                GameO()
           else:
                MOP.place(x = 50, y = 420)
-               Label_por_letra(MOP, "Pidgey ha usado Placaje", 0.05)
+               Label_por_letra(MOP, "Pidgey ha usado Placaje", 0.03)
                #Reproducir_Slam(r"C:\Users\unity\Downloads\Slam.wav")
                time.sleep(0.5)
                current_HP = int(diglett_HP.get())
-               new_HP = current_HP - 18
+               new_HP = current_HP - 5
                diglett_HP.set(str(new_HP))
                PidHP.configure(text = diglett_HP) #Actualiza la vida
                MOP.place_forget()
@@ -1694,22 +1723,23 @@ def juegoPid():
                GameO()
                
                
-          Defi = rd.randint(1, 4) #Valor que define que movimiento va a usar Diglett en el sig. turno
+          Defi = rd.randint(1, 10) #Valor que define que movimiento va a usar Diglett en el sig. turno
 
-          if(Defi == 1):
+          if(Defi <= 4):
                     GolpeRoca()
                    
 
-          if (Defi == 2):
+          if (Defi >= 5 and Defi <=7):
                     Cuchillada()
                     
 
-          if (Defi == 3):
+          if (Defi == 8 or Defi == 9):
                     Fisura()
                     
 
-          if (Defi == 4):
+          if (Defi == 10):
                     Terremoto()
+
                     
      def Impactrueno():
           diglett_HP
@@ -1717,12 +1747,12 @@ def juegoPid():
           if(Crt == 2 or Crt == 5):
                MOP.place(x = 50, y = 420)
                CRT2.place(x = 250, y = 320)
-               Label_por_letra(MOP, "Pidgey ha usado Tornado", 0.05)
-               Crítico(CRT2, "¡Golpe Crítico", 0.05)
+               Label_por_letra(MOP, "Pidgey ha usado Tornado", 0.03)
+               Crítico(CRT2, "¡Golpe Crítico", 0.03)
                #Reproducir_Impactrueno(r"C:\Users\unity\Downloads\Thunderbolt.wav")
                time.sleep(1.9)
                current_HP = int(diglett_HP.get())
-               new_HP = current_HP - 6
+               new_HP = current_HP - 8
                diglett_HP.set(str(new_HP))
                PidHP.configure(text = diglett_HP)
                MOP.place_forget()
@@ -1731,30 +1761,34 @@ def juegoPid():
                GameO()
           else:
                MOP.place(x = 50, y = 420)
-               Label_por_letra(MOP, "Pidgey ha usado Tornado", 0.05)
+               Label_por_letra(MOP, "Pidgey ha usado Tornado", 0.03)
                #Reproducir_Impactrueno(r"C:\Users\unity\Downloads\Thunderbolt.wav")
                time.sleep(1.9)
                current_HP = int(diglett_HP.get())
-               new_HP = current_HP - 3
+               new_HP = current_HP - 4
                diglett_HP.set(str(new_HP))
                PidHP.configure(text = diglett_HP)
                MOP.place_forget()
                time.sleep(0.8)
                GameO()
           
-          Defi = rd.randint(1, 4)
+          Defi = rd.randint(1, 10) #Valor que define que movimiento va a usar Diglett en el sig. turno
 
-          if(Defi == 1):
+          if(Defi <= 4):
                     GolpeRoca()
+                   
 
-          if (Defi == 2):
+          if (Defi >= 5 and Defi <=7):
                     Cuchillada()
+                    
 
-          if (Defi == 3):
+          if (Defi == 8 or Defi == 9):
                     Fisura()
+                    
 
-          if (Defi == 4):
+          if (Defi == 10):
                     Terremoto()
+
 
      def ColaHierro():
           diglett_HP
@@ -1762,12 +1796,12 @@ def juegoPid():
           if(Crt == 2 or Crt == 5):
                MOP.place(x = 50, y = 420)
                CRT2.place(x = 250, y = 300)
-               Label_por_letra(MOP, "Pidgey ha usado Ataque ala", 0.05)
+               Label_por_letra(MOP, "Pidgey ha usado Ataque ala", 0.03)
                Crítico(CRT2, "¡Golpe Crítico!", 0.1)
                #Reproducir_Cola(r"C:\Users\unity\Downloads\Iron-Tail.wav")
                time.sleep(1.2)
                current_HP = int(diglett_HP.get())
-               new_HP = current_HP - 20
+               new_HP = current_HP - 11
                diglett_HP.set(str(new_HP))
                PidHP.configure(text = diglett_HP)
                MOP.place_forget()
@@ -1776,30 +1810,34 @@ def juegoPid():
                GameO()
           else:
                MOP.place(x = 50, y = 420)
-               Label_por_letra(MOP, "Pidgey ha usado Ataque ala", 0.05)
+               Label_por_letra(MOP, "Pidgey ha usado Ataque ala", 0.03)
                #Reproducir_Cola(r"C:\Users\unity\Downloads\Iron-Tail.wav")
                time.sleep(1.2)
                current_HP = int(diglett_HP.get())
-               new_HP = current_HP - 10
+               new_HP = current_HP - 5
                diglett_HP.set(str(new_HP))
                PidHP.configure(text = diglett_HP)
                MOP.place_forget()
                time.sleep(0.8)
                GameO()
           
-          Defi = rd.randint(1, 4)
+          Defi = rd.randint(1, 10) #Valor que define que movimiento va a usar Diglett en el sig. turno
 
-          if(Defi == 1):
+          if(Defi <= 4):
                     GolpeRoca()
+                   
 
-          if (Defi == 2):
+          if (Defi >= 5 and Defi <=7):
                     Cuchillada()
+                    
 
-          if (Defi == 3):
+          if (Defi == 8 or Defi == 9):
                     Fisura()
+                    
 
-          if (Defi == 4):
+          if (Defi == 10):
                     Terremoto()
+
 
 
      def Electrobola():
@@ -1808,7 +1846,7 @@ def juegoPid():
           if(Crt == 2 or Crt==5):
                MOP.place(x = 50, y = 420)
                CRT2.place(x = 250, y = 320)
-               Label_por_letra(MOP, "Pidgey ha usado Ala de Acero", 0.05)
+               Label_por_letra(MOP, "Pidgey ha usado Ala de Acero", 0.03)
                Crítico(CRT2, "¡Golpe Crítico!", 0.1)
                #Reproducir_Electrobola(r"C:\Users\unity\Downloads\Thunder-Shock.wav")
                current_HP = int(diglett_HP.get())
@@ -1821,7 +1859,7 @@ def juegoPid():
                GameO()
           else:
                MOP.place(x = 50, y = 420)
-               Label_por_letra(MOP, "Pidgey ha usado Ala de Acero", 0.05)
+               Label_por_letra(MOP, "Pidgey ha usado Ala de Acero", 0.03)
                current_HP = int(diglett_HP.get())
                new_HP = current_HP - 4
                diglett_HP.set(str(new_HP))
@@ -1830,56 +1868,66 @@ def juegoPid():
                time.sleep(0.8)
                GameO()
                
-          Defi = rd.randint(1, 4)
-          
-          if(Defi == 1):
+          Defi = rd.randint(1, 10) #Valor que define que movimiento va a usar Diglett en el sig. turno
+
+          if(Defi <= 4):
                     GolpeRoca()
+                   
 
-          if (Defi == 2):
+          if (Defi >= 5 and Defi <=7):
                     Cuchillada()
+                    
 
-          if (Defi == 3):
+          if (Defi == 8 or Defi == 9):
                     Fisura()
+                    
 
-          if (Defi == 4):
+          if (Defi == 10):
                     Terremoto()
 
 
+
      def Vida():
-          Defi = rd.randint(1, 4)
+          Defi = rd.randint(1, 10)
           current_HP = int(pikachu_HP.get())
           if current_HP + 30 >= 150:
                new_HP = 150
                VID.place(x = 300, y = 350)
-               Label_por_letra(VID, "Los PS están al máximo", 0.05)
+               Label_por_letra(VID, "Los PS están al máximo", 0.03)
                time.sleep(0.8)
                pikachu_HP.set(str(new_HP))
                VID.place_forget()
-               if(Defi == 1):
+               if(Defi <= 4):
                     GolpeRoca()
+                   
 
-               if (Defi == 2):
+               if (Defi >= 5 and Defi <=7):
                     Cuchillada()
+                    
 
-               if (Defi == 3):
+               if (Defi == 8 or Defi == 9):
                     Fisura()
+                    
 
-               if (Defi == 4):
+               if (Defi == 10):
                     Terremoto()
           else:
                new_HP = current_HP + 30
-               Label_por_letra(VID, "La vida ha incrementado", 0.05)
+               Label_por_letra(VID, "La vida ha incrementado", 0.03)
                pikachu_HP.set(str(new_HP))
-               if(Defi == 1):
+               if(Defi <= 4):
                     GolpeRoca()
+                   
 
-               if (Defi == 2):
+               if (Defi >= 5 and Defi <=7):
                     Cuchillada()
+                    
 
-               if (Defi == 3):
+               if (Defi == 8 or Defi == 9):
                     Fisura()
+                    
 
-               if (Defi == 4):
+               if (Defi == 10):
                     Terremoto()
 
      #Contadores de movimientos y usos máximos 
@@ -2001,8 +2049,8 @@ def juegoPid():
                          canvas.delete(image_id2)
                          GOD.place(x = 50, y = 420)
                          GOP.place(x = 50, y = 450)
-                         Label_por_letra(GOD, "Diglett enemigo ha perdido la pelea", 0.05)
-                         Label_por_letra(GOP, "Pidgey es el ganador", 0.05)
+                         Label_por_letra(GOD, "Diglett enemigo ha perdido la pelea", 0.03)
+                         Label_por_letra(GOP, "Pidgey es el ganador", 0.03)
                          GOD.place_forget()
                          GOP.place_forget()
                          time.sleep(1.8)
@@ -2014,8 +2062,8 @@ def juegoPid():
                          canvas.delete(image_id)
                          GOD.place(x = 50, y = 420)
                          GOP.place(x = 50, y = 450)
-                         Label_por_letra(GOD, "Pidgey ha perdido la pelea", 0.05)
-                         Label_por_letra(GOP, "Diglett enemigo ha ganado la pelea", 0.05)
+                         Label_por_letra(GOD, "Pidgey ha perdido la pelea", 0.03)
+                         Label_por_letra(GOP, "Diglett enemigo ha ganado la pelea", 0.03)
                          GOD.place_forget()
                          GOP.place_forget()
                          time.sleep(1.8)
@@ -2058,6 +2106,7 @@ def juegoPid():
 
      juegoPid.mainloop()
 
+     
 def juegoChar():
      Juego.destroy()
      juegoChar = tk.Tk()
@@ -2171,10 +2220,10 @@ def juegoChar():
           if(Crt == 2 or Crt == 5):
                CRT.place(x = 250, y = 300)
                MOD.place(x = 50, y = 450)
-               Label_por_letra(MOD, "Pikachu ha usado Arañazo", 0.05) #Label en donde se escribe, texto a escribir, tiempo de escritura que manda a "dormir" la consola entre letra y letra
-               Crítico(CRT, "¡Golpe Crítico!", 0.05) #Lo mismo que el anterior
+               Label_por_letra(MOD, "Squirtle ha usado Placaje", 0.03) #Label en donde se escribe, texto a escribir, tiempo de escritura que manda a "dormir" la consola entre letra y letra
+               Crítico(CRT, "¡Golpe Crítico!", 0.03) #Lo mismo que el anterior
                current_HP = int(pikachu_HP.get())
-               new_HP = current_HP - 24
+               new_HP = current_HP - 12
                pikachu_HP.set(str(new_HP))
                PikHP.configure(text=pikachu_HP)
                MOD.place_forget()
@@ -2182,9 +2231,9 @@ def juegoChar():
                GameO()
           else:
                current_HP = int(pikachu_HP.get())
-               new_HP = current_HP - 12
+               new_HP = current_HP - 6
                MOD.place(x = 50, y = 450)
-               Label_por_letra(MOD, "Pikachu ha usado Arañazo", 0.05)
+               Label_por_letra(MOD, "Squirtle ha usado Placaje", 0.03)
                pikachu_HP.set(str(new_HP))
                PikHP.configure(text=pikachu_HP)
                MOD.place_forget()
@@ -2196,10 +2245,10 @@ def juegoChar():
           if(Crt == 2 or Crt == 5):
                CRT.place(x = 250, y = 300)
                MOD.place(x = 50, y = 450)
-               Label_por_letra(MOD, "Pikachu ha usado Impactrueno", 0.05)
-               Crítico(CRT, "¡Golpe Crítico!", 0.05)
+               Label_por_letra(MOD, "Squirtle ha usado Pistola Agua", 0.03)
+               Crítico(CRT, "¡Golpe Crítico!", 0.03)
                current_HP = int(pikachu_HP.get())
-               new_HP = current_HP - 18
+               new_HP = current_HP - 9
                pikachu_HP.set(str(new_HP))
                PikHP.configure(text=pikachu_HP)
                MOD.place_forget()
@@ -2208,8 +2257,8 @@ def juegoChar():
           else:
                MOD.place(x = 50, y = 450)
                current_HP = int(pikachu_HP.get())
-               new_HP = current_HP - 9
-               Label_por_letra(MOD, "Pikachu ha usado Impactrueno", 0.05)
+               new_HP = current_HP - 4
+               Label_por_letra(MOD, "Squirtle ha usado Pistola Agua", 0.03)
                pikachu_HP.set(str(new_HP))
                PikHP.configure(text=pikachu_HP)
                MOD.place_forget()
@@ -2220,10 +2269,10 @@ def juegoChar():
           if(Crt == 2 or Crt == 5):
                CRT.place(x = 250, y = 300)
                MOD.place(x = 50, y = 450)
-               Label_por_letra(MOD, "Pikachu ha usado Cola de Hierro", 0.05)
-               Crítico(CRT, "¡Golpe Crítico!", 0.05)
+               Label_por_letra(MOD, "Squirtle ha usado HidroBomba", 0.03)
+               Crítico(CRT, "¡Golpe Crítico!", 0.03)
                current_HP = int(pikachu_HP.get())
-               new_HP = current_HP - 22
+               new_HP = current_HP - 19
                pikachu_HP.set(str(new_HP))
                PikHP.configure(text=pikachu_HP)
                CRT.place_forget()
@@ -2231,9 +2280,9 @@ def juegoChar():
                GameO()
           else:
                MOD.place(x = 50, y = 450)
-               Label_por_letra(MOD, "Pikachu ha usado Cola de Hierro", 0.05)
+               Label_por_letra(MOD, "Squirtle ha usado HidroBomba", 0.03)
                current_HP = int(pikachu_HP.get())
-               new_HP = current_HP - 12
+               new_HP = current_HP - 9
                pikachu_HP.set(str(new_HP))
                PikHP.configure(text=pikachu_HP)
                MOD.place_forget()
@@ -2244,10 +2293,10 @@ def juegoChar():
           if(Crt == 2, Crt == 5):
                CRT.place(x = 250, y = 300)
                MOD.place(x = 50, y = 450)
-               Label_por_letra(MOD, "Pikachu ha usado Electrobola", 0.05)
-               Crítico(CRT, "¡Golpe Crítico!", 0.05)
+               Label_por_letra(MOD, "Squirtle ha usado Burbuja", 0.03)
+               Crítico(CRT, "¡Golpe Crítico!", 0.03)
                current_HP = int(pikachu_HP.get())
-               new_HP = current_HP - 25
+               new_HP = current_HP - 14
                pikachu_HP.set(str(new_HP))
                PikHP.configure(text=pikachu_HP)
                CRT.place_forget()
@@ -2255,9 +2304,9 @@ def juegoChar():
                GameO()
           else:
                MOD.place(x = 50, y = 450)
-               Label_por_letra(MOD, "Pikachu ha usado Electrobola", 0.05)
+               Label_por_letra(MOD, "Squirtle ha usado Burbuja", 0.03)
                current_HP = int(pikachu_HP.get())
-               new_HP = current_HP - 15
+               new_HP = current_HP - 7
                pikachu_HP.set(str(new_HP))
                PikHP.configure(text=pikachu_HP)
                MOD.place_forget()
@@ -2265,25 +2314,24 @@ def juegoChar():
           
 
      #Imagen de Diglett
-     Pikachu = tk.PhotoImage(file = 'Imagenes/Pik.ESprite.png')
-     Pikachu= Pikachu.zoom(5,5)
-     Pikachu = Pikachu.subsample(2)
-     image_id2 = canvas.create_image(350, 130, image = Pikachu)
+     Pidgey = tk.PhotoImage(file = 'Imagenes\squirtle (1).png')
+     Pidgey = Pidgey.zoom(3,3)
+     image_id2 = canvas.create_image(350, 130, image = Pidgey)
      move_imageD(image_id2)
      #Iniciar_MovimientoD()
      #DiglettTk = ImageTk.PhotoImage(Diglett)
      #DiglettLbl = tk.Label(juegoDigg, image=DiglettTk)
 
      #Vida de Diglett impresa en la interfaz
-     PikHP = tk.Label(juegoChar, textvariable = diglett_HP, font = Digfont)
-     PikHP.place(x = 120, y = 50)
+     PidHP = tk.Label(juegoChar, textvariable = diglett_HP, font = Digfont)
+     PidHP.place(x = 120, y = 50)
      Barra = tk.Label(juegoChar, text = "/")
      Barra.place(x = 150, y =50)
-     PikHP2 = tk.Label(juegoChar, text = '120', font = Digfont)
-     PikHP2.place(x = 170, y = 50)
+     PidHP2 = tk.Label(juegoChar, text = '120', font = Digfont)
+     PidHP2.place(x = 170, y = 50)
 
-     PikLbl = tk.Label(juegoChar, text = "Pikachu Nvl 30", font=Digfont)
-     PikLbl.place(x = 110, y = 20)
+     PidLbl = tk.Label(juegoChar, text = "Squirtle Nvl 30", font=Digfont)
+     PidLbl.place(x = 110, y = 20)
 
      #Caja clásica de Pokemón
      Caja = Image.open('Imagenes/DS DSi - Pokemon Platinum - Text Box Styles.png')
@@ -2293,10 +2341,10 @@ def juegoChar():
      CajaLbl.place(x = 0, y=400)
 
      #Imagen de Pikachu
-     Diglett = tk.PhotoImage(file = 'Imagenes/Digg.pSprite.png')
-     Diglett = Diglett.zoom(10,10)
-     Diglett = Diglett.subsample(2)
-     image_id = canvas.create_image(150, 320,  image = Diglett)
+     Pikachu = tk.PhotoImage(file = 'Imagenes/bulbasaurP.png')
+     Pikachu=Pikachu.zoom(7,7)
+     Pikachu = Pikachu.subsample(2)
+     image_id = canvas.create_image(150, 350,  image = Pikachu)
      move_imageP(image_id)
      #Iniciar_MovimientoP()
      #Pikachu = Pikachu.resize((300,250))
@@ -2307,12 +2355,12 @@ def juegoChar():
 
      #Vida de Pikachu
      Digfont = tF.Font(family = "Helvetica", size = 12)
-     DigHP = tk.Label(juegoChar, textvariable = pikachu_HP , font = Digfont)
-     DigHP.place(x = 265, y = 250)
+     PikHP = tk.Label(juegoChar, textvariable = pikachu_HP , font = Digfont)
+     PikHP.place(x = 265, y = 250)
      Barra = tk.Label(juegoChar, text = "/")
      Barra.place(x = 310, y =250)
-     DigHP2 = tk.Label(juegoChar, text = '150', font = Digfont)
-     DigHP2.place(x = 320, y = 250)
+     PikHP2 = tk.Label(juegoChar, text = '150', font = Digfont)
+     PikHP2.place(x = 320, y = 250)
 
      #Labels en donde se escriben los movimientos de Pikachu, Diglett y si sale crítico
      MOP = tk.Label(juegoChar, text = '', font = Digfont)
@@ -2329,7 +2377,7 @@ def juegoChar():
 
      GOP = tk.Label(juegoChar, text = '', font = Digfont)
 
-     PikLbl = tk.Label(juegoChar, text = "Diglett Nvl 30", font=Digfont)
+     PikLbl = tk.Label(juegoChar, text = "Bulbasaur Nvl 30", font=Digfont)
      PikLbl.place(x = 280, y = 210)
      PikHPL = tk.Label(juegoChar, text = "PS: ", font = Digfont)
      PikHPL.place(x = 225, y = 250)
@@ -2343,47 +2391,47 @@ def juegoChar():
           if(Crt == 2 or Crt ==5):    
                MOP.place(x = 50, y = 420)
                CRT2.place(x = 250, y = 320)
-               Label_por_letra(MOP, "Diglett ha usado Golpe Roca", 0.05)
-               Crítico(CRT2, "¡Golpe Crítico!", 0.05)
+               Label_por_letra(MOP, "Bulbasaur ha usado Placaje", 0.03)
+               Crítico(CRT2, "¡Golpe Crítico!", 0.03)
                #Reproducir_Slam(r"C:\Users\unity\Downloads\Slam.wav")
                time.sleep(0.5)
                current_HP = int(diglett_HP.get())
-               new_HP = current_HP - 18
+               new_HP = current_HP - 15
                diglett_HP.set(str(new_HP))
-               PikHP.configure(text = diglett_HP) #Actualiza la vida
+               PidHP.configure(text = diglett_HP) #Actualiza la vida
                MOP.place_forget()
                CRT2.place_forget()
                time.sleep(0.8)
                GameO()
           else:
                MOP.place(x = 50, y = 420)
-               Label_por_letra(MOP, "Diglett ha usado Golpe Roca", 0.05)
+               Label_por_letra(MOP, "Bulbasaur ha usado Placaje", 0.03)
                #Reproducir_Slam(r"C:\Users\unity\Downloads\Slam.wav")
                time.sleep(0.5)
                current_HP = int(diglett_HP.get())
-               new_HP = current_HP - 18
+               new_HP = current_HP - 7
                diglett_HP.set(str(new_HP))
-               PikHP.configure(text = diglett_HP) #Actualiza la vida
+               PidHP.configure(text = diglett_HP) #Actualiza la vida
                MOP.place_forget()
                time.sleep(0.8)
                GameO()
                
                
-          Defi = rd.randint(1, 4) #Valor que define que movimiento va a usar Diglett en el sig. turno
+          Defi = rd.randint(1, 10) #Valor que define que movimiento va a usar Diglett en el sig. turno
 
-          if(Defi == 1):
+          if(Defi <= 4):
                     GolpeRoca()
                    
 
-          if (Defi == 2):
+          if (Defi >= 5 and Defi <=7):
                     Cuchillada()
                     
 
-          if (Defi == 3):
+          if (Defi == 8 or Defi == 9):
                     Fisura()
                     
 
-          if (Defi == 4):
+          if (Defi == 10):
                     Terremoto()
                     
      def Impactrueno():
@@ -2392,43 +2440,46 @@ def juegoChar():
           if(Crt == 2 or Crt == 5):
                MOP.place(x = 50, y = 420)
                CRT2.place(x = 250, y = 320)
-               Label_por_letra(MOP, "Diglett ha usado Cuchillada", 0.05)
-               Crítico(CRT2, "¡Golpe Crítico", 0.05)
+               Label_por_letra(MOP, "Bulbasaur ha usado Latigo cepa", 0.03)
+               Crítico(CRT2, "¡Golpe Crítico", 0.03)
                #Reproducir_Impactrueno(r"C:\Users\unity\Downloads\Thunderbolt.wav")
                time.sleep(1.9)
                current_HP = int(diglett_HP.get())
-               new_HP = current_HP - 6
+               new_HP = current_HP - 8
                diglett_HP.set(str(new_HP))
-               PikHP.configure(text = diglett_HP)
+               PidHP.configure(text = diglett_HP)
                MOP.place_forget()
                CRT2.place_forget()
                time.sleep(0.8)
                GameO()
           else:
                MOP.place(x = 50, y = 420)
-               Label_por_letra(MOP, "Diglett ha usado Cuchillada", 0.05)
+               Label_por_letra(MOP, "Bulbasaur ha usado Latigo cepa", 0.03)
                #Reproducir_Impactrueno(r"C:\Users\unity\Downloads\Thunderbolt.wav")
                time.sleep(1.9)
                current_HP = int(diglett_HP.get())
-               new_HP = current_HP - 3
+               new_HP = current_HP - 4
                diglett_HP.set(str(new_HP))
-               PikHP.configure(text = diglett_HP)
+               PidHP.configure(text = diglett_HP)
                MOP.place_forget()
                time.sleep(0.8)
                GameO()
           
-          Defi = rd.randint(1, 4)
+          Defi = rd.randint(1, 10) #Valor que define que movimiento va a usar Diglett en el sig. turno
 
-          if(Defi == 1):
+          if(Defi <= 4):
                     GolpeRoca()
+                   
 
-          if (Defi == 2):
+          if (Defi >= 5 and Defi <=7):
                     Cuchillada()
+                    
 
-          if (Defi == 3):
+          if (Defi == 8 or Defi == 9):
                     Fisura()
+                    
 
-          if (Defi == 4):
+          if (Defi == 10):
                     Terremoto()
 
      def ColaHierro():
@@ -2437,43 +2488,46 @@ def juegoChar():
           if(Crt == 2 or Crt == 5):
                MOP.place(x = 50, y = 420)
                CRT2.place(x = 250, y = 300)
-               Label_por_letra(MOP, "Diglett ha usado Fisura", 0.05)
+               Label_por_letra(MOP, "Bulbasaur ha usado Hoja afilada", 0.03)
                Crítico(CRT2, "¡Golpe Crítico!", 0.1)
                #Reproducir_Cola(r"C:\Users\unity\Downloads\Iron-Tail.wav")
                time.sleep(1.2)
                current_HP = int(diglett_HP.get())
-               new_HP = current_HP - 20
+               new_HP = current_HP - 10
                diglett_HP.set(str(new_HP))
-               PikHP.configure(text = diglett_HP)
+               PidHP.configure(text = diglett_HP)
                MOP.place_forget()
                CRT2.place_forget()
                time.sleep(0.8)
                GameO()
           else:
                MOP.place(x = 50, y = 420)
-               Label_por_letra(MOP, "Diglett ha usado Fisura", 0.05)
+               Label_por_letra(MOP, "Bulbasaur ha usado Hoja afilada", 0.03)
                #Reproducir_Cola(r"C:\Users\unity\Downloads\Iron-Tail.wav")
                time.sleep(1.2)
                current_HP = int(diglett_HP.get())
-               new_HP = current_HP - 10
+               new_HP = current_HP - 5
                diglett_HP.set(str(new_HP))
-               PikHP.configure(text = diglett_HP)
+               PidHP.configure(text = diglett_HP)
                MOP.place_forget()
                time.sleep(0.8)
                GameO()
           
-          Defi = rd.randint(1, 4)
+          Defi = rd.randint(1, 10) #Valor que define que movimiento va a usar Diglett en el sig. turno
 
-          if(Defi == 1):
+          if(Defi <= 4):
                     GolpeRoca()
+                   
 
-          if (Defi == 2):
+          if (Defi >= 5 and Defi <=7):
                     Cuchillada()
+                    
 
-          if (Defi == 3):
+          if (Defi == 8 or Defi == 9):
                     Fisura()
+                    
 
-          if (Defi == 4):
+          if (Defi == 10):
                     Terremoto()
 
 
@@ -2483,78 +2537,87 @@ def juegoChar():
           if(Crt == 2 or Crt==5):
                MOP.place(x = 50, y = 420)
                CRT2.place(x = 250, y = 320)
-               Label_por_letra(MOP, "Diglett ha usado Terremoto", 0.05)
+               Label_por_letra(MOP, "Bulbasaur ha usado Rayo solar", 0.03)
                Crítico(CRT2, "¡Golpe Crítico!", 0.1)
                #Reproducir_Electrobola(r"C:\Users\unity\Downloads\Thunder-Shock.wav")
                current_HP = int(diglett_HP.get())
-               new_HP = current_HP - 8
+               new_HP = current_HP - 11
                diglett_HP.set(str(new_HP))
-               PikHP.configure(text = diglett_HP)
+               PidHP.configure(text = diglett_HP)
                MOP.place_forget()
                CRT2.place_forget()
                time.sleep(0.8)
                GameO()
           else:
                MOP.place(x = 50, y = 420)
-               Label_por_letra(MOP, "Diglett ha usado Terremoto", 0.05)
+               Label_por_letra(MOP, "Bulbasaur ha usado Rayo solar", 0.03)
                current_HP = int(diglett_HP.get())
-               new_HP = current_HP - 4
+               new_HP = current_HP - 5
                diglett_HP.set(str(new_HP))
-               PikHP.configure(text = diglett_HP)
+               PidHP.configure(text = diglett_HP)
                MOP.place_forget()
                time.sleep(0.8)
                GameO()
                
-          Defi = rd.randint(1, 4)
-          
-          if(Defi == 1):
+          Defi = rd.randint(1, 10) #Valor que define que movimiento va a usar Diglett en el sig. turno
+
+          if(Defi <= 4):
                     GolpeRoca()
+                   
 
-          if (Defi == 2):
+          if (Defi >= 5 and Defi <=7):
                     Cuchillada()
+                    
 
-          if (Defi == 3):
+          if (Defi == 8 or Defi == 9):
                     Fisura()
+                    
 
-          if (Defi == 4):
+          if (Defi == 10):
                     Terremoto()
 
 
      def Vida():
-          Defi = rd.randint(1, 4)
+          Defi = rd.randint(1, 10)
           current_HP = int(pikachu_HP.get())
           if current_HP + 30 >= 150:
                new_HP = 150
                VID.place(x = 300, y = 350)
-               Label_por_letra(VID, "Los PS están al máximo", 0.05)
+               Label_por_letra(VID, "Los PS están al máximo", 0.03)
                time.sleep(0.8)
                pikachu_HP.set(str(new_HP))
                VID.place_forget()
-               if(Defi == 1):
+               if(Defi <= 4):
                     GolpeRoca()
+                   
 
-               if (Defi == 2):
+               if (Defi >= 5 and Defi <=7):
                     Cuchillada()
+                    
 
-               if (Defi == 3):
+               if (Defi == 8 or Defi == 9):
                     Fisura()
+                    
 
-               if (Defi == 4):
+               if (Defi == 10):
                     Terremoto()
           else:
                new_HP = current_HP + 30
-               Label_por_letra(VID, "La vida ha incrementado", 0.05)
+               Label_por_letra(VID, "La vida ha incrementado", 0.03)
                pikachu_HP.set(str(new_HP))
-               if(Defi == 1):
+               if(Defi <= 4):
                     GolpeRoca()
+                   
 
-               if (Defi == 2):
+               if (Defi >= 5 and Defi <=7):
                     Cuchillada()
+                    
 
-               if (Defi == 3):
+               if (Defi == 8 or Defi == 9):
                     Fisura()
+                    
 
-               if (Defi == 4):
+               if (Defi == 10):
                     Terremoto()
 
      #Contadores de movimientos y usos máximos 
@@ -2676,8 +2739,8 @@ def juegoChar():
                          canvas.delete(image_id2)
                          GOD.place(x = 50, y = 420)
                          GOP.place(x = 50, y = 450)
-                         Label_por_letra(GOD, "Pikachu enemigo ha perdido la pelea", 0.05)
-                         Label_por_letra(GOP, "Diglett es el ganador", 0.05)
+                         Label_por_letra(GOD, "Squirtle enemigo ha perdido la pelea", 0.03)
+                         Label_por_letra(GOP, "Bulbasaur es el ganador", 0.03)
                          GOD.place_forget()
                          GOP.place_forget()
                          time.sleep(1.8)
@@ -2689,8 +2752,8 @@ def juegoChar():
                          canvas.delete(image_id)
                          GOD.place(x = 50, y = 420)
                          GOP.place(x = 50, y = 450)
-                         Label_por_letra(GOD, "Diglett ha perdido la pelea", 0.05)
-                         Label_por_letra(GOP, "Pikachu enemigo ha ganado la pelea", 0.05)
+                         Label_por_letra(GOD, "Squirtle ha perdido la pelea", 0.03)
+                         Label_por_letra(GOP, "Bulbasaur enemigo ha ganado la pelea", 0.03)
                          GOD.place_forget()
                          GOP.place_forget()
                          time.sleep(1.8)
@@ -2715,16 +2778,16 @@ def juegoChar():
      contador5.place(x = 450, y = 375)
 
      #Botones de movimientos
-     boton_aranazo = tk.Button(juegoChar, text = "Golpe Roca", command = Cuadruple_ComandoA)
+     boton_aranazo = tk.Button(juegoChar, text = "Placaje", command = Cuadruple_ComandoA)
      boton_aranazo.place(x = 50, y = 420)
 
-     boton_Impactrueno = tk.Button(juegoChar, text = "Cuchillada", command = Cuadruple_ComandoI)
+     boton_Impactrueno = tk.Button(juegoChar, text = "Latigo Cepa", command = Cuadruple_ComandoI)
      boton_Impactrueno.place(x = 150, y = 420)
 
-     boton_ColaHierro = tk.Button(juegoChar, text = "Fisura", command = Cuadruple_ComandoC)
+     boton_ColaHierro = tk.Button(juegoChar, text = "Hoja Afilada", command = Cuadruple_ComandoC)
      boton_ColaHierro.place(x = 250, y = 420)
 
-     boton_Electrobola = tk.Button(juegoChar, text = "Terremoto", command = Cuadruple_ComandoE)
+     boton_Electrobola = tk.Button(juegoChar, text = "Rayo Solar", command = Cuadruple_ComandoE)
      boton_Electrobola.place(x = 350, y = 420)
 
      vida = tk.Button(juegoChar, text = "Usar Poción", command = VidaS)
@@ -2732,6 +2795,7 @@ def juegoChar():
 
 
      juegoChar.mainloop()
+
 
 def juegoBulb():
      Juego.destroy()
@@ -2846,10 +2910,10 @@ def juegoBulb():
           if(Crt == 2 or Crt == 5):
                CRT.place(x = 250, y = 300)
                MOD.place(x = 50, y = 450)
-               Label_por_letra(MOD, "Pidgey ha usado Placaje", 0.05) #Label en donde se escribe, texto a escribir, tiempo de escritura que manda a "dormir" la consola entre letra y letra
-               Crítico(CRT, "¡Golpe Crítico!", 0.05) #Lo mismo que el anterior
+               Label_por_letra(MOD, "Bulbasaur ha usado Placaje", 0.03) #Label en donde se escribe, texto a escribir, tiempo de escritura que manda a "dormir" la consola entre letra y letra
+               Crítico(CRT, "¡Golpe Crítico!", 0.03) #Lo mismo que el anterior
                current_HP = int(pikachu_HP.get())
-               new_HP = current_HP - 24
+               new_HP = current_HP - 15
                pikachu_HP.set(str(new_HP))
                PikHP.configure(text=pikachu_HP)
                MOD.place_forget()
@@ -2857,9 +2921,9 @@ def juegoBulb():
                GameO()
           else:
                current_HP = int(pikachu_HP.get())
-               new_HP = current_HP - 12
+               new_HP = current_HP - 7
                MOD.place(x = 50, y = 450)
-               Label_por_letra(MOD, "Pidgey ha usado Placaje", 0.05)
+               Label_por_letra(MOD, "Bulbasaur ha usado Placaje", 0.03)
                pikachu_HP.set(str(new_HP))
                PikHP.configure(text=pikachu_HP)
                MOD.place_forget()
@@ -2871,10 +2935,10 @@ def juegoBulb():
           if(Crt == 2 or Crt == 5):
                CRT.place(x = 250, y = 300)
                MOD.place(x = 50, y = 450)
-               Label_por_letra(MOD, "Pidgey ha usado Tornado", 0.05)
-               Crítico(CRT, "¡Golpe Crítico!", 0.05)
+               Label_por_letra(MOD, "Bulbasaur ha usado Latigo cepa", 0.03)
+               Crítico(CRT, "¡Golpe Crítico!", 0.03)
                current_HP = int(pikachu_HP.get())
-               new_HP = current_HP - 18
+               new_HP = current_HP - 8
                pikachu_HP.set(str(new_HP))
                PikHP.configure(text=pikachu_HP)
                MOD.place_forget()
@@ -2883,8 +2947,8 @@ def juegoBulb():
           else:
                MOD.place(x = 50, y = 450)
                current_HP = int(pikachu_HP.get())
-               new_HP = current_HP - 9
-               Label_por_letra(MOD, "Pidgey ha usado Tornado", 0.05)
+               new_HP = current_HP - 4
+               Label_por_letra(MOD, "Bulbasaur ha usado Latigo cepa", 0.03)
                pikachu_HP.set(str(new_HP))
                PikHP.configure(text=pikachu_HP)
                MOD.place_forget()
@@ -2895,10 +2959,10 @@ def juegoBulb():
           if(Crt == 2 or Crt == 5):
                CRT.place(x = 250, y = 300)
                MOD.place(x = 50, y = 450)
-               Label_por_letra(MOD, "Pidgey ha usado Ataque ala", 0.05)
-               Crítico(CRT, "¡Golpe Crítico!", 0.05)
+               Label_por_letra(MOD, "Bulbasaur ha usado Hoja afilada", 0.03)
+               Crítico(CRT, "¡Golpe Crítico!", 0.03)
                current_HP = int(pikachu_HP.get())
-               new_HP = current_HP - 22
+               new_HP = current_HP - 10
                pikachu_HP.set(str(new_HP))
                PikHP.configure(text=pikachu_HP)
                CRT.place_forget()
@@ -2906,9 +2970,9 @@ def juegoBulb():
                GameO()
           else:
                MOD.place(x = 50, y = 450)
-               Label_por_letra(MOD, "Pidgey ha usado Ataque ala", 0.05)
+               Label_por_letra(MOD, "Bulbasaur ha usado Hoja afilada", 0.03)
                current_HP = int(pikachu_HP.get())
-               new_HP = current_HP - 12
+               new_HP = current_HP - 5
                pikachu_HP.set(str(new_HP))
                PikHP.configure(text=pikachu_HP)
                MOD.place_forget()
@@ -2919,10 +2983,10 @@ def juegoBulb():
           if(Crt == 2, Crt == 5):
                CRT.place(x = 250, y = 300)
                MOD.place(x = 50, y = 450)
-               Label_por_letra(MOD, "Pidgey ha usado Ala de acero", 0.05)
-               Crítico(CRT, "¡Golpe Crítico!", 0.05)
+               Label_por_letra(MOD, "Bulbasaur ha usado Rayo solar", 0.03)
+               Crítico(CRT, "¡Golpe Crítico!", 0.03)
                current_HP = int(pikachu_HP.get())
-               new_HP = current_HP - 25
+               new_HP = current_HP - 11
                pikachu_HP.set(str(new_HP))
                PikHP.configure(text=pikachu_HP)
                CRT.place_forget()
@@ -2930,9 +2994,9 @@ def juegoBulb():
                GameO()
           else:
                MOD.place(x = 50, y = 450)
-               Label_por_letra(MOD, "Pidgey ha usado Ala de acero", 0.05)
+               Label_por_letra(MOD, "Bulbasaur ha usado Rayo solar", 0.03)
                current_HP = int(pikachu_HP.get())
-               new_HP = current_HP - 15
+               new_HP = current_HP - 5
                pikachu_HP.set(str(new_HP))
                PikHP.configure(text=pikachu_HP)
                MOD.place_forget()
@@ -2940,8 +3004,8 @@ def juegoBulb():
           
 
      #Imagen de Diglett
-     Pidgey = tk.PhotoImage(file = 'C:/Users/pacoe/OneDrive/Documentos/Escuela/2do semestre/POO/programas python/Imagenes/RJ6IWCK.png')
-     Pidgey = Pidgey.zoom(3,3)
+     Pidgey = tk.PhotoImage(file = 'Imagenes\Bulbasaur_RZ.png')
+     Pidgey = Pidgey.zoom(4,4)
      image_id2 = canvas.create_image(350, 130, image = Pidgey)
      move_imageD(image_id2)
      #Iniciar_MovimientoD()
@@ -2956,7 +3020,7 @@ def juegoBulb():
      PidHP2 = tk.Label(juegoBulb, text = '120', font = Digfont)
      PidHP2.place(x = 170, y = 50)
 
-     PidLbl = tk.Label(juegoBulb, text = "Pidgey Nvl 30", font=Digfont)
+     PidLbl = tk.Label(juegoBulb, text = "Bulbasaur Nvl 30", font=Digfont)
      PidLbl.place(x = 110, y = 20)
 
      #Caja clásica de Pokemón
@@ -2967,9 +3031,8 @@ def juegoBulb():
      CajaLbl.place(x = 0, y=400)
 
      #Imagen de Pikachu
-     Pikachu = tk.PhotoImage(file = 'Imagenes/imgbin_pikachu-sprite-pokémon-png.png')
-     Pikachu.width() //2
-     Pikachu.height() //2
+     Pikachu = tk.PhotoImage(file = 'Imagenes\CharmanderS.png')
+     Pikachu=Pikachu.zoom(6,6)
      Pikachu = Pikachu.subsample(2)
      image_id = canvas.create_image(150, 320,  image = Pikachu)
      move_imageP(image_id)
@@ -3004,7 +3067,7 @@ def juegoBulb():
 
      GOP = tk.Label(juegoBulb, text = '', font = Digfont)
 
-     PikLbl = tk.Label(juegoBulb, text = "Pikachu Nvl 30", font=Digfont)
+     PikLbl = tk.Label(juegoBulb, text = "Charmander Nvl 30", font=Digfont)
      PikLbl.place(x = 280, y = 210)
      PikHPL = tk.Label(juegoBulb, text = "PS: ", font = Digfont)
      PikHPL.place(x = 225, y = 250)
@@ -3018,12 +3081,12 @@ def juegoBulb():
           if(Crt == 2 or Crt ==5):    
                MOP.place(x = 50, y = 420)
                CRT2.place(x = 250, y = 320)
-               Label_por_letra(MOP, "Pikachu ha usado Arañazo", 0.05)
-               Crítico(CRT2, "¡Golpe Crítico!", 0.05)
+               Label_por_letra(MOP, "Charmander ha usado Corte", 0.03)
+               Crítico(CRT2, "¡Golpe Crítico!", 0.03)
                #Reproducir_Slam(r"C:\Users\unity\Downloads\Slam.wav")
                time.sleep(0.5)
                current_HP = int(diglett_HP.get())
-               new_HP = current_HP - 18
+               new_HP = current_HP - 12
                diglett_HP.set(str(new_HP))
                PidHP.configure(text = diglett_HP) #Actualiza la vida
                MOP.place_forget()
@@ -3032,11 +3095,11 @@ def juegoBulb():
                GameO()
           else:
                MOP.place(x = 50, y = 420)
-               Label_por_letra(MOP, "Pikachu ha usado Arañazo", 0.05)
+               Label_por_letra(MOP, "Charmander ha usado corte", 0.03)
                #Reproducir_Slam(r"C:\Users\unity\Downloads\Slam.wav")
                time.sleep(0.5)
                current_HP = int(diglett_HP.get())
-               new_HP = current_HP - 18
+               new_HP = current_HP - 6
                diglett_HP.set(str(new_HP))
                PidHP.configure(text = diglett_HP) #Actualiza la vida
                MOP.place_forget()
@@ -3044,21 +3107,21 @@ def juegoBulb():
                GameO()
                
                
-          Defi = rd.randint(1, 4) #Valor que define que movimiento va a usar Diglett en el sig. turno
+          Defi = rd.randint(1, 10) #Valor que define que movimiento va a usar Diglett en el sig. turno
 
-          if(Defi == 1):
+          if(Defi <= 4):
                     GolpeRoca()
                    
 
-          if (Defi == 2):
+          if (Defi >= 5 and Defi <=7):
                     Cuchillada()
                     
 
-          if (Defi == 3):
+          if (Defi == 8 or Defi == 9):
                     Fisura()
                     
 
-          if (Defi == 4):
+          if (Defi == 10):
                     Terremoto()
                     
      def Impactrueno():
@@ -3067,12 +3130,12 @@ def juegoBulb():
           if(Crt == 2 or Crt == 5):
                MOP.place(x = 50, y = 420)
                CRT2.place(x = 250, y = 320)
-               Label_por_letra(MOP, "Pikachu ha usado Impactrueno", 0.05)
-               Crítico(CRT2, "¡Golpe Crítico", 0.05)
+               Label_por_letra(MOP, "Charmander ha usado Garra", 0.03)
+               Crítico(CRT2, "¡Golpe Crítico", 0.03)
                #Reproducir_Impactrueno(r"C:\Users\unity\Downloads\Thunderbolt.wav")
                time.sleep(1.9)
                current_HP = int(diglett_HP.get())
-               new_HP = current_HP - 6
+               new_HP = current_HP - 14
                diglett_HP.set(str(new_HP))
                PidHP.configure(text = diglett_HP)
                MOP.place_forget()
@@ -3081,29 +3144,32 @@ def juegoBulb():
                GameO()
           else:
                MOP.place(x = 50, y = 420)
-               Label_por_letra(MOP, "Pikachu ha usado Impactrueno", 0.05)
+               Label_por_letra(MOP, "Charmander ha usado Garra", 0.03)
                #Reproducir_Impactrueno(r"C:\Users\unity\Downloads\Thunderbolt.wav")
                time.sleep(1.9)
                current_HP = int(diglett_HP.get())
-               new_HP = current_HP - 3
+               new_HP = current_HP - 7
                diglett_HP.set(str(new_HP))
                PidHP.configure(text = diglett_HP)
                MOP.place_forget()
                time.sleep(0.8)
                GameO()
           
-          Defi = rd.randint(1, 4)
+          Defi = rd.randint(1, 10) #Valor que define que movimiento va a usar Diglett en el sig. turno
 
-          if(Defi == 1):
+          if(Defi <= 4):
                     GolpeRoca()
+                   
 
-          if (Defi == 2):
+          if (Defi >= 5 and Defi <=7):
                     Cuchillada()
+                    
 
-          if (Defi == 3):
+          if (Defi == 8 or Defi == 9):
                     Fisura()
+                    
 
-          if (Defi == 4):
+          if (Defi == 10):
                     Terremoto()
 
      def ColaHierro():
@@ -3112,12 +3178,12 @@ def juegoBulb():
           if(Crt == 2 or Crt == 5):
                MOP.place(x = 50, y = 420)
                CRT2.place(x = 250, y = 300)
-               Label_por_letra(MOP, "Pikachu ha usado Cola de Hierro", 0.05)
+               Label_por_letra(MOP, "Charmander ha usado Colmillo", 0.03)
                Crítico(CRT2, "¡Golpe Crítico!", 0.1)
                #Reproducir_Cola(r"C:\Users\unity\Downloads\Iron-Tail.wav")
                time.sleep(1.2)
                current_HP = int(diglett_HP.get())
-               new_HP = current_HP - 20
+               new_HP = current_HP - 11
                diglett_HP.set(str(new_HP))
                PidHP.configure(text = diglett_HP)
                MOP.place_forget()
@@ -3126,29 +3192,32 @@ def juegoBulb():
                GameO()
           else:
                MOP.place(x = 50, y = 420)
-               Label_por_letra(MOP, "Pikachu ha usado Cola de Hierro", 0.05)
+               Label_por_letra(MOP, "Charmander ha usado Colmillo", 0.03)
                #Reproducir_Cola(r"C:\Users\unity\Downloads\Iron-Tail.wav")
                time.sleep(1.2)
                current_HP = int(diglett_HP.get())
-               new_HP = current_HP - 10
+               new_HP = current_HP - 6
                diglett_HP.set(str(new_HP))
                PidHP.configure(text = diglett_HP)
                MOP.place_forget()
                time.sleep(0.8)
                GameO()
           
-          Defi = rd.randint(1, 4)
+          Defi = rd.randint(1, 10) #Valor que define que movimiento va a usar Diglett en el sig. turno
 
-          if(Defi == 1):
+          if(Defi <= 4):
                     GolpeRoca()
+                   
 
-          if (Defi == 2):
+          if (Defi >= 5 and Defi <=7):
                     Cuchillada()
+                    
 
-          if (Defi == 3):
+          if (Defi == 8 or Defi == 9):
                     Fisura()
+                    
 
-          if (Defi == 4):
+          if (Defi == 10):
                     Terremoto()
 
 
@@ -3158,11 +3227,11 @@ def juegoBulb():
           if(Crt == 2 or Crt==5):
                MOP.place(x = 50, y = 420)
                CRT2.place(x = 250, y = 320)
-               Label_por_letra(MOP, "Pikachu ha usado Electrobola", 0.05)
+               Label_por_letra(MOP, "Charmander ha usado NitroCarga", 0.03)
                Crítico(CRT2, "¡Golpe Crítico!", 0.1)
                #Reproducir_Electrobola(r"C:\Users\unity\Downloads\Thunder-Shock.wav")
                current_HP = int(diglett_HP.get())
-               new_HP = current_HP - 8
+               new_HP = current_HP - 15
                diglett_HP.set(str(new_HP))
                PidHP.configure(text = diglett_HP)
                MOP.place_forget()
@@ -3171,65 +3240,74 @@ def juegoBulb():
                GameO()
           else:
                MOP.place(x = 50, y = 420)
-               Label_por_letra(MOP, "Pikachu ha usado Electrobola", 0.05)
+               Label_por_letra(MOP, "Charmander ha usado NitroCarga", 0.03)
                current_HP = int(diglett_HP.get())
-               new_HP = current_HP - 4
+               new_HP = current_HP - 8
                diglett_HP.set(str(new_HP))
                PidHP.configure(text = diglett_HP)
                MOP.place_forget()
                time.sleep(0.8)
                GameO()
                
-          Defi = rd.randint(1, 4)
-          
-          if(Defi == 1):
+          Defi = rd.randint(1, 10) #Valor que define que movimiento va a usar Diglett en el sig. turno
+
+          if(Defi <= 4):
                     GolpeRoca()
+                   
 
-          if (Defi == 2):
+          if (Defi >= 5 and Defi <=7):
                     Cuchillada()
+                    
 
-          if (Defi == 3):
+          if (Defi == 8 or Defi == 9):
                     Fisura()
+                    
 
-          if (Defi == 4):
+          if (Defi == 10):
                     Terremoto()
 
 
      def Vida():
-          Defi = rd.randint(1, 4)
+          Defi = rd.randint(1, 10)
           current_HP = int(pikachu_HP.get())
           if current_HP + 30 >= 150:
                new_HP = 150
                VID.place(x = 300, y = 350)
-               Label_por_letra(VID, "Los PS están al máximo", 0.05)
+               Label_por_letra(VID, "Los PS están al máximo", 0.03)
                time.sleep(0.8)
                pikachu_HP.set(str(new_HP))
                VID.place_forget()
-               if(Defi == 1):
+               if(Defi <= 4):
                     GolpeRoca()
+                   
 
-               if (Defi == 2):
+               if (Defi >= 5 and Defi <=7):
                     Cuchillada()
+                    
 
-               if (Defi == 3):
+               if (Defi == 8 or Defi == 9):
                     Fisura()
+                    
 
-               if (Defi == 4):
+               if (Defi == 10):
                     Terremoto()
           else:
                new_HP = current_HP + 30
-               Label_por_letra(VID, "La vida ha incrementado", 0.05)
+               Label_por_letra(VID, "La vida ha incrementado", 0.03)
                pikachu_HP.set(str(new_HP))
-               if(Defi == 1):
+               if(Defi <= 4):
                     GolpeRoca()
+                   
 
-               if (Defi == 2):
+               if (Defi >= 5 and Defi <=7):
                     Cuchillada()
+                    
 
-               if (Defi == 3):
+               if (Defi == 8 or Defi == 9):
                     Fisura()
+                    
 
-               if (Defi == 4):
+               if (Defi == 10):
                     Terremoto()
 
      #Contadores de movimientos y usos máximos 
@@ -3351,8 +3429,8 @@ def juegoBulb():
                          canvas.delete(image_id2)
                          GOD.place(x = 50, y = 420)
                          GOP.place(x = 50, y = 450)
-                         Label_por_letra(GOD, "Pidgey enemigo ha perdido la pelea", 0.05)
-                         Label_por_letra(GOP, "Pikachu es el ganador", 0.05)
+                         Label_por_letra(GOD, "Bulbasaur enemigo ha perdido la pelea", 0.03)
+                         Label_por_letra(GOP, "Charmander es el ganador", 0.03)
                          GOD.place_forget()
                          GOP.place_forget()
                          time.sleep(1.8)
@@ -3364,8 +3442,8 @@ def juegoBulb():
                          canvas.delete(image_id)
                          GOD.place(x = 50, y = 420)
                          GOP.place(x = 50, y = 450)
-                         Label_por_letra(GOD, "Pikachu ha perdido la pelea", 0.05)
-                         Label_por_letra(GOP, "Pidgey enemigo ha ganado la pelea", 0.05)
+                         Label_por_letra(GOD, "Charmander ha perdido la pelea", 0.03)
+                         Label_por_letra(GOP, "Bulbasaur enemigo ha ganado la pelea", 0.03)
                          GOD.place_forget()
                          GOP.place_forget()
                          time.sleep(1.8)
@@ -3390,16 +3468,16 @@ def juegoBulb():
      contador5.place(x = 450, y = 375)
 
      #Botones de movimientos
-     boton_aranazo = tk.Button(juegoBulb, text = "Arañazo", command = Cuadruple_ComandoA)
+     boton_aranazo = tk.Button(juegoBulb, text = "Corte", command = Cuadruple_ComandoA)
      boton_aranazo.place(x = 50, y = 420)
 
-     boton_Impactrueno = tk.Button(juegoBulb, text = "Impactrueno", command = Cuadruple_ComandoI)
+     boton_Impactrueno = tk.Button(juegoBulb, text = "Garra", command = Cuadruple_ComandoI)
      boton_Impactrueno.place(x = 150, y = 420)
 
-     boton_ColaHierro = tk.Button(juegoBulb, text = "Cola de Hierro", command = Cuadruple_ComandoC)
+     boton_ColaHierro = tk.Button(juegoBulb, text = "Colmillo", command = Cuadruple_ComandoC)
      boton_ColaHierro.place(x = 250, y = 420)
 
-     boton_Electrobola = tk.Button(juegoBulb, text = "Electrobola", command = Cuadruple_ComandoE)
+     boton_Electrobola = tk.Button(juegoBulb, text = "NitroCarga", command = Cuadruple_ComandoE)
      boton_Electrobola.place(x = 350, y = 420)
 
      vida = tk.Button(juegoBulb, text = "Usar Poción", command = VidaS)
@@ -3518,106 +3596,106 @@ def juegoSquir():
 
      #Movimientos que Diglett puede hacer
      def GolpeRoca():
-          Crt = rd.randint(1,15) #Valor que define si sale crítico o no
-          if(Crt == 2 or Crt == 5):
-               CRT.place(x = 250, y = 300)
-               MOD.place(x = 50, y = 450)
-               Label_por_letra(MOD, "Diglett ha usado Golpe Roca", 0.05) #Label en donde se escribe, texto a escribir, tiempo de escritura que manda a "dormir" la consola entre letra y letra
-               Crítico(CRT, "¡Golpe Crítico!", 0.05) #Lo mismo que el anterior
-               current_HP = int(pikachu_HP.get())
-               new_HP = current_HP - 24
-               pikachu_HP.set(str(new_HP))
-               PikHP.configure(text=pikachu_HP)
-               MOD.place_forget()
-               CRT.place_forget()
-               GameO()
-          else:
-               current_HP = int(pikachu_HP.get())
-               new_HP = current_HP - 12
-               MOD.place(x = 50, y = 450)
-               Label_por_letra(MOD, "Diglett ha usado Golpe Roca", 0.05)
-               pikachu_HP.set(str(new_HP))
-               PikHP.configure(text=pikachu_HP)
-               MOD.place_forget()
-               GameO()
+        Crt = rd.randint(1,15) #Valor que define si sale crítico o no
+        if(Crt == 2 or Crt == 5):
+          CRT.place(x = 250, y = 300)
+          MOD.place(x = 50, y = 450)
+          Label_por_letra(MOD, "Charmander ha usado Corte", 0.03) #Label en donde se escribe, texto a escribir, tiempo de escritura que manda a "dormir" la consola entre letra y letra
+          Crítico(CRT, "¡Golpe Crítico!", 0.03) #Lo mismo que el anterior
+          current_HP = int(pikachu_HP.get())
+          new_HP = current_HP - 12
+          pikachu_HP.set(str(new_HP))
+          PikHP.configure(text=pikachu_HP)
+          MOD.place_forget()
+          CRT.place_forget()
+          GameO()
+        else:
+         current_HP = int(pikachu_HP.get())
+         new_HP = current_HP - 6
+         MOD.place(x = 50, y = 450)
+         Label_por_letra(MOD, "Charmander ha usado Corte", 0.03)
+         pikachu_HP.set(str(new_HP))
+         PikHP.configure(text=pikachu_HP)
+         MOD.place_forget()
+         GameO()
           
 
      def Cuchillada():
-          Crt = rd.randint(1,15)
-          if(Crt == 2 or Crt == 5):
-               CRT.place(x = 250, y = 300)
-               MOD.place(x = 50, y = 450)
-               Label_por_letra(MOD, "Diglett ha usado Cuchillada", 0.05)
-               Crítico(CRT, "¡Golpe Crítico!", 0.05)
-               current_HP = int(pikachu_HP.get())
-               new_HP = current_HP - 18
-               pikachu_HP.set(str(new_HP))
-               PikHP.configure(text=pikachu_HP)
-               MOD.place_forget()
-               CRT.place_forget()
-               GameO()
-          else:
-               MOD.place(x = 50, y = 450)
-               current_HP = int(pikachu_HP.get())
-               new_HP = current_HP - 9
-               Label_por_letra(MOD, "Diglett ha usado Cuchillada", 0.05)
-               pikachu_HP.set(str(new_HP))
-               PikHP.configure(text=pikachu_HP)
-               MOD.place_forget()
-               GameO()      
+        Crt = rd.randint(1,15)
+        if(Crt == 2 or Crt == 5):
+         CRT.place(x = 250, y = 300)
+         MOD.place(x = 50, y = 450)
+         Label_por_letra(MOD, "Charmander ha usado Garra", 0.03)
+         Crítico(CRT, "¡Golpe Crítico!", 0.03)
+         current_HP = int(pikachu_HP.get())
+         new_HP = current_HP - 14
+         pikachu_HP.set(str(new_HP))
+         PikHP.configure(text=pikachu_HP)
+         MOD.place_forget()
+         CRT.place_forget()
+         GameO()
+        else:
+         MOD.place(x = 50, y = 450)
+         current_HP = int(pikachu_HP.get())
+         new_HP = current_HP - 7
+         Label_por_letra(MOD, "Charmander ha usado Garra", 0.03)
+         pikachu_HP.set(str(new_HP))
+         PikHP.configure(text=pikachu_HP)
+         MOD.place_forget()
+         GameO()      
+
 
      def Fisura():
-          Crt = rd.randint(1,15)
-          if(Crt == 2 or Crt == 5):
-               CRT.place(x = 250, y = 300)
-               MOD.place(x = 50, y = 450)
-               Label_por_letra(MOD, "Diglett ha usado Fisura", 0.05)
-               Crítico(CRT, "¡Golpe Crítico!", 0.05)
-               current_HP = int(pikachu_HP.get())
-               new_HP = current_HP - 22
-               pikachu_HP.set(str(new_HP))
-               PikHP.configure(text=pikachu_HP)
-               CRT.place_forget()
-               MOD.place_forget()
-               GameO()
-          else:
-               MOD.place(x = 50, y = 450)
-               Label_por_letra(MOD, "Diglett ha usado Fisura", 0.05)
-               current_HP = int(pikachu_HP.get())
-               new_HP = current_HP - 12
-               pikachu_HP.set(str(new_HP))
-               PikHP.configure(text=pikachu_HP)
-               MOD.place_forget()
-               GameO()
+        Crt = rd.randint(1,15)
+        if(Crt == 2 or Crt == 5):
+         CRT.place(x = 250, y = 300)
+         MOD.place(x = 50, y = 450)
+         Label_por_letra(MOD, "Charmander ha usado Colmillo", 0.03)
+         Crítico(CRT, "¡Golpe Crítico!", 0.03)
+         current_HP = int(pikachu_HP.get())
+         new_HP = current_HP - 11
+         pikachu_HP.set(str(new_HP))
+         PikHP.configure(text=pikachu_HP)
+         CRT.place_forget()
+         MOD.place_forget()
+         GameO()
+        else:
+         MOD.place(x = 50, y = 450)
+         Label_por_letra(MOD, "Charmander ha usado Colmillo", 0.03)
+         current_HP = int(pikachu_HP.get())
+         new_HP = current_HP - 6
+         pikachu_HP.set(str(new_HP))
+         PikHP.configure(text=pikachu_HP)
+         MOD.place_forget()
+         GameO()
 
      def Terremoto():
-          Crt = rd.randint(1,15)
-          if(Crt == 2, Crt == 5):
-               CRT.place(x = 250, y = 300)
-               MOD.place(x = 50, y = 450)
-               Label_por_letra(MOD, "Diglett ha usado Terremoto", 0.05)
-               Crítico(CRT, "¡Golpe Crítico!", 0.05)
-               current_HP = int(pikachu_HP.get())
-               new_HP = current_HP - 25
-               pikachu_HP.set(str(new_HP))
-               PikHP.configure(text=pikachu_HP)
-               CRT.place_forget()
-               MOD.place_forget()
-               GameO()
-          else:
-               MOD.place(x = 50, y = 450)
-               Label_por_letra(MOD, "Diglett ha usado Terremoto", 0.05)
-               current_HP = int(pikachu_HP.get())
-               new_HP = current_HP - 15
-               pikachu_HP.set(str(new_HP))
-               PikHP.configure(text=pikachu_HP)
-               MOD.place_forget()
-               GameO()
+        Crt = rd.randint(1,15)
+        if(Crt == 2, Crt == 5):
+         CRT.place(x = 250, y = 300)
+         MOD.place(x = 50, y = 450)
+         Label_por_letra(MOD, "Charmander ha usado NitroCarga", 0.03)
+         Crítico(CRT, "¡Golpe Crítico!", 0.03)
+         current_HP = int(pikachu_HP.get())
+         new_HP = current_HP - 15
+         pikachu_HP.set(str(new_HP))
+         PikHP.configure(text=pikachu_HP)
+         CRT.place_forget()
+         MOD.place_forget()
+         GameO()
+        else:
+              MOD.place(x = 50, y = 450)
+              Label_por_letra(MOD, "Charmander ha usado NitroCarga", 0.03)
+              current_HP = int(pikachu_HP.get())
+              new_HP = current_HP - 8
+              pikachu_HP.set(str(new_HP))
+              PikHP.configure(text=pikachu_HP)
+              MOD.place_forget()
+              GameO()
           
-
      #Imagen de Diglett
-     Pidgey = tk.PhotoImage(file = 'Imagenes/Digg.ESprite.png')
-     Pidgey = Pidgey.zoom(4,4)
+     Pidgey = tk.PhotoImage(file = 'Imagenes\charmander_1.png')
+     Pidgey = Pidgey.zoom(3,3)
      image_id2 = canvas.create_image(350, 130, image = Pidgey)
      move_imageD(image_id2)
      #Iniciar_MovimientoD()
@@ -3632,7 +3710,7 @@ def juegoSquir():
      PidHP2 = tk.Label(juegoSquir, text = '120', font = Digfont)
      PidHP2.place(x = 170, y = 50)
 
-     PidLbl = tk.Label(juegoSquir, text = "Pidgey Nvl 30", font=Digfont)
+     PidLbl = tk.Label(juegoSquir, text = "Charmander Nvl 30", font=Digfont)
      PidLbl.place(x = 110, y = 20)
 
      #Caja clásica de Pokemón
@@ -3643,10 +3721,10 @@ def juegoSquir():
      CajaLbl.place(x = 0, y=400)
 
      #Imagen de Pikachu
-     Pikachu = tk.PhotoImage(file = 'Imagenes/Pid.pSprite.png')
+     Pikachu = tk.PhotoImage(file = 'Imagenes\SquirtleS.png')
      Pikachu=Pikachu.zoom(7,7)
      Pikachu = Pikachu.subsample(2)
-     image_id = canvas.create_image(130, 320,  image = Pikachu)
+     image_id = canvas.create_image(130, 335,  image = Pikachu)
      move_imageP(image_id)
      #Iniciar_MovimientoP()
      #Pikachu = Pikachu.resize((300,250))
@@ -3679,7 +3757,7 @@ def juegoSquir():
 
      GOP = tk.Label(juegoSquir, text = '', font = Digfont)
 
-     PikLbl = tk.Label(juegoSquir, text = "Pidgey Nvl 30", font=Digfont)
+     PikLbl = tk.Label(juegoSquir, text = "Squirtle Nvl 30", font=Digfont)
      PikLbl.place(x = 280, y = 210)
      PikHPL = tk.Label(juegoSquir, text = "PS: ", font = Digfont)
      PikHPL.place(x = 225, y = 250)
@@ -3693,12 +3771,12 @@ def juegoSquir():
           if(Crt == 2 or Crt ==5):    
                MOP.place(x = 50, y = 420)
                CRT2.place(x = 250, y = 320)
-               Label_por_letra(MOP, "Pidgey ha usado Placaje", 0.05)
-               Crítico(CRT2, "¡Golpe Crítico!", 0.05)
+               Label_por_letra(MOP, "Squirtle ha usado Placaje", 0.03)
+               Crítico(CRT2, "¡Golpe Crítico!", 0.03)
                #Reproducir_Slam(r"C:\Users\unity\Downloads\Slam.wav")
                time.sleep(0.5)
                current_HP = int(diglett_HP.get())
-               new_HP = current_HP - 18
+               new_HP = current_HP - 12
                diglett_HP.set(str(new_HP))
                PidHP.configure(text = diglett_HP) #Actualiza la vida
                MOP.place_forget()
@@ -3707,11 +3785,11 @@ def juegoSquir():
                GameO()
           else:
                MOP.place(x = 50, y = 420)
-               Label_por_letra(MOP, "Pidgey ha usado Placaje", 0.05)
+               Label_por_letra(MOP, "Squirtle ha usado Placaje", 0.03)
                #Reproducir_Slam(r"C:\Users\unity\Downloads\Slam.wav")
                time.sleep(0.5)
                current_HP = int(diglett_HP.get())
-               new_HP = current_HP - 18
+               new_HP = current_HP - 6
                diglett_HP.set(str(new_HP))
                PidHP.configure(text = diglett_HP) #Actualiza la vida
                MOP.place_forget()
@@ -3742,12 +3820,12 @@ def juegoSquir():
           if(Crt == 2 or Crt == 5):
                MOP.place(x = 50, y = 420)
                CRT2.place(x = 250, y = 320)
-               Label_por_letra(MOP, "Pidgey ha usado Tornado", 0.05)
-               Crítico(CRT2, "¡Golpe Crítico", 0.05)
+               Label_por_letra(MOP, "Squirtle ha usado Pistola Agua", 0.03)
+               Crítico(CRT2, "¡Golpe Crítico", 0.03)
                #Reproducir_Impactrueno(r"C:\Users\unity\Downloads\Thunderbolt.wav")
                time.sleep(1.9)
                current_HP = int(diglett_HP.get())
-               new_HP = current_HP - 6
+               new_HP = current_HP - 9
                diglett_HP.set(str(new_HP))
                PidHP.configure(text = diglett_HP)
                MOP.place_forget()
@@ -3756,29 +3834,32 @@ def juegoSquir():
                GameO()
           else:
                MOP.place(x = 50, y = 420)
-               Label_por_letra(MOP, "Pidgey ha usado Tornado", 0.05)
+               Label_por_letra(MOP, "Squirtle ha usado Pistola Agua", 0.03)
                #Reproducir_Impactrueno(r"C:\Users\unity\Downloads\Thunderbolt.wav")
                time.sleep(1.9)
                current_HP = int(diglett_HP.get())
-               new_HP = current_HP - 3
+               new_HP = current_HP - 4
                diglett_HP.set(str(new_HP))
                PidHP.configure(text = diglett_HP)
                MOP.place_forget()
                time.sleep(0.8)
                GameO()
           
-          Defi = rd.randint(1, 4)
+          Defi = rd.randint(1, 10) #Valor que define que movimiento va a usar Diglett en el sig. turno
 
-          if(Defi == 1):
+          if(Defi <= 4):
                     GolpeRoca()
+                   
 
-          if (Defi == 2):
+          if (Defi >= 5 and Defi <=7):
                     Cuchillada()
+                    
 
-          if (Defi == 3):
+          if (Defi == 8 or Defi == 9):
                     Fisura()
+                    
 
-          if (Defi == 4):
+          if (Defi == 10):
                     Terremoto()
 
      def ColaHierro():
@@ -3787,12 +3868,12 @@ def juegoSquir():
           if(Crt == 2 or Crt == 5):
                MOP.place(x = 50, y = 420)
                CRT2.place(x = 250, y = 300)
-               Label_por_letra(MOP, "Pidgey ha usado Ataque ala", 0.05)
+               Label_por_letra(MOP, "Squirtle ha usado HidroBomba", 0.03)
                Crítico(CRT2, "¡Golpe Crítico!", 0.1)
                #Reproducir_Cola(r"C:\Users\unity\Downloads\Iron-Tail.wav")
                time.sleep(1.2)
                current_HP = int(diglett_HP.get())
-               new_HP = current_HP - 20
+               new_HP = current_HP - 19
                diglett_HP.set(str(new_HP))
                PidHP.configure(text = diglett_HP)
                MOP.place_forget()
@@ -3801,29 +3882,32 @@ def juegoSquir():
                GameO()
           else:
                MOP.place(x = 50, y = 420)
-               Label_por_letra(MOP, "Pidgey ha usado Ataque ala", 0.05)
+               Label_por_letra(MOP, "Squirtle ha usado HidroBomba", 0.03)
                #Reproducir_Cola(r"C:\Users\unity\Downloads\Iron-Tail.wav")
                time.sleep(1.2)
                current_HP = int(diglett_HP.get())
-               new_HP = current_HP - 10
+               new_HP = current_HP - 9
                diglett_HP.set(str(new_HP))
                PidHP.configure(text = diglett_HP)
                MOP.place_forget()
                time.sleep(0.8)
                GameO()
           
-          Defi = rd.randint(1, 4)
+          Defi = rd.randint(1, 10) #Valor que define que movimiento va a usar Diglett en el sig. turno
 
-          if(Defi == 1):
+          if(Defi <= 4):
                     GolpeRoca()
+                   
 
-          if (Defi == 2):
+          if (Defi >= 5 and Defi <=7):
                     Cuchillada()
+                    
 
-          if (Defi == 3):
+          if (Defi == 8 or Defi == 9):
                     Fisura()
+                    
 
-          if (Defi == 4):
+          if (Defi == 10):
                     Terremoto()
 
 
@@ -3833,11 +3917,11 @@ def juegoSquir():
           if(Crt == 2 or Crt==5):
                MOP.place(x = 50, y = 420)
                CRT2.place(x = 250, y = 320)
-               Label_por_letra(MOP, "Pidgey ha usado Ala de Acero", 0.05)
+               Label_por_letra(MOP, "Squirtle ha usado Burbuja", 0.03)
                Crítico(CRT2, "¡Golpe Crítico!", 0.1)
                #Reproducir_Electrobola(r"C:\Users\unity\Downloads\Thunder-Shock.wav")
                current_HP = int(diglett_HP.get())
-               new_HP = current_HP - 8
+               new_HP = current_HP - 14
                diglett_HP.set(str(new_HP))
                PidHP.configure(text = diglett_HP)
                MOP.place_forget()
@@ -3846,65 +3930,74 @@ def juegoSquir():
                GameO()
           else:
                MOP.place(x = 50, y = 420)
-               Label_por_letra(MOP, "Pidgey ha usado Ala de Acero", 0.05)
+               Label_por_letra(MOP, "Squirtle ha usado Burbuja", 0.03)
                current_HP = int(diglett_HP.get())
-               new_HP = current_HP - 4
+               new_HP = current_HP - 7
                diglett_HP.set(str(new_HP))
                PidHP.configure(text = diglett_HP)
                MOP.place_forget()
                time.sleep(0.8)
                GameO()
                
-          Defi = rd.randint(1, 4)
-          
-          if(Defi == 1):
+          Defi = rd.randint(1, 10) #Valor que define que movimiento va a usar Diglett en el sig. turno
+
+          if(Defi <= 4):
                     GolpeRoca()
+                   
 
-          if (Defi == 2):
+          if (Defi >= 5 and Defi <=7):
                     Cuchillada()
+                    
 
-          if (Defi == 3):
+          if (Defi == 8 or Defi == 9):
                     Fisura()
+                    
 
-          if (Defi == 4):
+          if (Defi == 10):
                     Terremoto()
 
 
      def Vida():
-          Defi = rd.randint(1, 4)
+          Defi = rd.randint(1, 10)
           current_HP = int(pikachu_HP.get())
           if current_HP + 30 >= 150:
                new_HP = 150
                VID.place(x = 300, y = 350)
-               Label_por_letra(VID, "Los PS están al máximo", 0.05)
+               Label_por_letra(VID, "Los PS están al máximo", 0.03)
                time.sleep(0.8)
                pikachu_HP.set(str(new_HP))
                VID.place_forget()
-               if(Defi == 1):
+               if(Defi <= 4):
                     GolpeRoca()
+                   
 
-               if (Defi == 2):
+               if (Defi >= 5 and Defi <=7):
                     Cuchillada()
+                    
 
-               if (Defi == 3):
+               if (Defi == 8 or Defi == 9):
                     Fisura()
+                    
 
-               if (Defi == 4):
+               if (Defi == 10):
                     Terremoto()
           else:
                new_HP = current_HP + 30
-               Label_por_letra(VID, "La vida ha incrementado", 0.05)
+               Label_por_letra(VID, "La vida ha incrementado", 0.03)
                pikachu_HP.set(str(new_HP))
-               if(Defi == 1):
+               if(Defi <= 4):
                     GolpeRoca()
+                   
 
-               if (Defi == 2):
+               if (Defi >= 5 and Defi <=7):
                     Cuchillada()
+                    
 
-               if (Defi == 3):
+               if (Defi == 8 or Defi == 9):
                     Fisura()
+                    
 
-               if (Defi == 4):
+               if (Defi == 10):
                     Terremoto()
 
      #Contadores de movimientos y usos máximos 
@@ -4026,8 +4119,8 @@ def juegoSquir():
                          canvas.delete(image_id2)
                          GOD.place(x = 50, y = 420)
                          GOP.place(x = 50, y = 450)
-                         Label_por_letra(GOD, "Diglett enemigo ha perdido la pelea", 0.05)
-                         Label_por_letra(GOP, "Pidgey es el ganador", 0.05)
+                         Label_por_letra(GOD, "Charmander enemigo ha perdido la pelea", 0.03)
+                         Label_por_letra(GOP, "Squirtle es el ganador", 0.03)
                          GOD.place_forget()
                          GOP.place_forget()
                          time.sleep(1.8)
@@ -4039,8 +4132,8 @@ def juegoSquir():
                          canvas.delete(image_id)
                          GOD.place(x = 50, y = 420)
                          GOP.place(x = 50, y = 450)
-                         Label_por_letra(GOD, "Pidgey ha perdido la pelea", 0.05)
-                         Label_por_letra(GOP, "Diglett enemigo ha ganado la pelea", 0.05)
+                         Label_por_letra(GOD, "Squirtle ha perdido la pelea", 0.03)
+                         Label_por_letra(GOP, "Charmander enemigo ha ganado la pelea", 0.03)
                          GOD.place_forget()
                          GOP.place_forget()
                          time.sleep(1.8)
@@ -4068,13 +4161,13 @@ def juegoSquir():
      boton_aranazo = tk.Button(juegoSquir, text = "Placaje", command = Cuadruple_ComandoA)
      boton_aranazo.place(x = 50, y = 420)
 
-     boton_Impactrueno = tk.Button(juegoSquir, text = "Tornado", command = Cuadruple_ComandoI)
+     boton_Impactrueno = tk.Button(juegoSquir, text = "Pistola de agua", command = Cuadruple_ComandoI)
      boton_Impactrueno.place(x = 150, y = 420)
 
-     boton_ColaHierro = tk.Button(juegoSquir, text = "Ataque ala", command = Cuadruple_ComandoC)
+     boton_ColaHierro = tk.Button(juegoSquir, text = "HidroBomba", command = Cuadruple_ComandoC)
      boton_ColaHierro.place(x = 250, y = 420)
 
-     boton_Electrobola = tk.Button(juegoSquir, text = "Ala de Acero", command = Cuadruple_ComandoE)
+     boton_Electrobola = tk.Button(juegoSquir, text = "Burbuja", command = Cuadruple_ComandoE)
      boton_Electrobola.place(x = 350, y = 420)
 
      vida = tk.Button(juegoSquir, text = "Usar Poción", command = VidaS)
@@ -4095,16 +4188,16 @@ imagentk = ImageTk.PhotoImage(BG)
 etiquetaimagen = tk.Label(Juego, image=imagentk)
 etiquetaimagen.place(x=0,y=0)
 
-JuegoDigglet = ctk.CTkButton(Juego,text = "Diglett", command = juegoDigg ,width=50,fg_color='#FFF', text_color='#000',height=10,hover_color='#EEE',border_width=2,border_color='#000',bg_color='transparent')
-JuegoDigglet.place(x=50,y=30)
-JuegoPikachu = ctk.CTkButton(Juego,text = "Pikachu", command = juegoPik ,width=50,fg_color='#FFF', text_color='#000',height=10,hover_color='#EEE',border_width=2,border_color='#000',bg_color='transparent')
-JuegoPikachu.place(x=47,y=65)
-JuegoPidgey = ctk.CTkButton(Juego,text = "Pidgey", command = juegoPid ,width=50,fg_color='#FFF', text_color='#000',height=10,hover_color='#EEE',border_width=2,border_color='#000',bg_color='transparent')
-JuegoPidgey.place(x=50,y=105)
-JuegoCharmander = ctk.CTkButton(Juego,text = "Charmander", command = juegoChar ,width=50,fg_color='#FFF', text_color='#000',height=10,hover_color='#EEE',border_width=2,border_color='#000',bg_color='transparent')
-JuegoCharmander.place(x=175,y=30)
-JuegoBulbasaur = ctk.CTkButton(Juego,text = "Bulbasaur", command = juegoBulb ,width=50,fg_color='#FFF', text_color='#000',height=10,hover_color='#EEE',border_width=2,border_color='#000',bg_color='transparent')
-JuegoBulbasaur.place(x=180,y=65)
-JuegoSquirtle = ctk.CTkButton(Juego,text = "Squirtle", command = juegoSquir,width=50,fg_color='#FFF', text_color='#000',height=10,hover_color='#EEE',border_width=2,border_color='#000',bg_color='transparent')
-JuegoSquirtle.place(x=185,y=105)
+JuegoDigglet = ctk.CTkButton(Juego,text = "Diglett", command = juegoDigg ,width=130,fg_color='#EEE', text_color='#000',height=10,hover_color='#AAA',border_width=2,border_color='#000',bg_color='transparent')
+JuegoDigglet.place(x=8,y=28)
+JuegoPikachu = ctk.CTkButton(Juego,text = "Pikachu", command = juegoPik ,width=130,fg_color='#EEE', text_color='#000',height=10,hover_color='#AAA',border_width=2,border_color='#000',bg_color='transparent')
+JuegoPikachu.place(x=8,y=65)
+JuegoPidgey = ctk.CTkButton(Juego,text = "Pidgey", command = juegoPid ,width=130,fg_color='#EEE', text_color='#000',height=10,hover_color='#AAA',border_width=2,border_color='#000',bg_color='transparent')
+JuegoPidgey.place(x=8,y=105)
+JuegoCharmander = ctk.CTkButton(Juego,text = "Bulbasaur", command = juegoChar ,width=130,fg_color='#EEE', text_color='#000',height=10,hover_color='#AAA',border_width=2,border_color='#000',bg_color='transparent')
+JuegoCharmander.place(x=148,y=28)
+JuegoBulbasaur = ctk.CTkButton(Juego,text = "Charmander", command = juegoBulb ,width=130,fg_color='#EEE', text_color='#000',height=10,hover_color='#AAA',border_width=2,border_color='#000',bg_color='transparent')
+JuegoBulbasaur.place(x=148,y=65)
+JuegoSquirtle = ctk.CTkButton(Juego,text = "Squirtle", command = juegoSquir,width=130,fg_color='#EEE', text_color='#000',height=10,hover_color='#AAA',border_width=2,border_color='#000',bg_color='transparent')
+JuegoSquirtle.place(x=148,y=105)
 Juego.mainloop()
